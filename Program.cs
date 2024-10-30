@@ -23,6 +23,10 @@ class Program
         Cryptogram Cryptogram = new Cryptogram();
         OrangeRoom orangeRoom = new OrangeRoom();
         orangeRoom.OrangeRoomGame();
+
+        //cedrics room
+         GreenGame greengame = new GreenGame();
+      greengame.Start();
        
     
        
