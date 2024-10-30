@@ -129,36 +129,30 @@ namespace Pussel
                     }
                   
                 }
-                  if (isGuessCorrect == false)
-                    {
-                        count++;
-                        System.Console.WriteLine(count);
-                    }
+              if (isGuessCorrect == false)
+                {
+                   count++;
+                    System.Console.WriteLine(
+                        $"Incorrect guess! You have {10 - count} guesses left."
+                    );
+                }
 
-                    if (count >= 10)
-                    {
-                        System.Console.WriteLine("You succumb to the *thing* ");
-                        puzzleLoop = false;
-                        break;
-                    }
-                    
-               
-        
-        
-        else
-        {
-            count++;
-            System.Console.WriteLine($"Incorrect guess! You have {10 - count} guesses left.");
-        }
+                if (count >= 10)
+                {
+                    System.Console.WriteLine("You succumb to the *thing* ");
+                    puzzleLoop = false;
+                    break;
+                }
+                
                 string cryptoStr = new string(cryptoSentence);
 
                 if (cryptoStr.ToUpper() == originalSentence.ToUpper())
                 {
                     System.Console.WriteLine("Congrats!");
+                    //orangeRoom.Success = true;
                     puzzleLoop = false;
                     break;
                 }
-                 
             }
            
            
