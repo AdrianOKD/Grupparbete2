@@ -35,28 +35,7 @@ namespace Pussel.Commands
         }
     }
 
-    public class SolveMysteryCommand : Command
-    {
-        private Player player;
-
-        public SolveMysteryCommand(Player player)
-            : base("solve")
-        {
-            this.player = player;
-        }
-
-        public override void Execute(string argument)
-        {
-            if (string.IsNullOrEmpty(argument))
-            {
-                Console.WriteLine("Skriv namnet på mysteriet du vill lösa.");
-                return;
-            }
-
-            Console.WriteLine($"Du försöker lösa mysteriet: '{argument}'...");
-            // Logik för att lösa mysterier
-        }
-    }
+  
 
     public class ExamineOrangeCommand : Command
     {
@@ -108,22 +87,7 @@ namespace Pussel.Commands
         }
     }
 
-    public class TalkCommand : Command
-    {
-        public TalkCommand()
-            : base("talk") { }
-
-        public override void Execute(string argument)
-        {
-            if (string.IsNullOrEmpty(argument))
-            {
-                Console.WriteLine("Skriv meddelandet du vill säga.");
-                return;
-            }
-
-            Console.WriteLine($"Du säger: '{argument}'. En NPC ger dig information.");
-        }
-    }
+  
 
     public class Interact : Command
     {
@@ -209,7 +173,7 @@ namespace Pussel.Commands
                 orangeRoom.PickupBook();
                 player.Pickup(argument);
             }
-            if (argument.Contains("diary"))
+            if (argument.Contains("diary") )
             {
               orangeRoom.PickupDiary();
               player.Pickup(argument);
@@ -224,11 +188,12 @@ namespace Pussel.Commands
     }
     public class UseOrangeCommand : Command
     {
-         OrangeRoom orangeRoom = new OrangeRoom();
+        
          private Player player;
-        public UseOrangeCommand() : base("use")
+        public UseOrangeCommand(Player player) : base("use")
         {
             
+            this.player = player;
 
         }
 
@@ -240,10 +205,22 @@ namespace Pussel.Commands
                 Console.WriteLine("You need to specify what item you want to use.");
                 return;
             }
+            Player inventory = new Player();
+          
             if (argument.Contains("book"))
-            {
+            {  OrangeRoom orangeRoom = new OrangeRoom();
                 orangeRoom.UseBook();
 
+            }
+            if (argument.Contains("diary"))
+            { 
+                //System.Console.WriteLine("Detta är invCounter " +player.Inventory.Count);
+                if(player.Inventory.Contains("diary"))
+                  {
+                 OrangeRoom orangeRoom = new OrangeRoom();
+                orangeRoom.UseDiary();
+                   }
+                 
             }
         }
     }

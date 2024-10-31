@@ -28,18 +28,10 @@ namespace Pussel
                 new InventoryCommand(player),
                 new PickupCommand(player,this),
                 new StartOrangePussleCommand(),
+                new UseOrangeCommand(player),
             };
         }
 
-        private void Help()
-        {
-            Console.WriteLine("Tillgängliga kommandon:");
-            Console.WriteLine("- solve 'mystery': löser ett mysterium");
-            Console.WriteLine("- examine 'object': undersöker ett objekt");
-            Console.WriteLine("- talk 'message': säger något till en NPC");
-            Console.WriteLine("- inventory: visar dina plockade föremål");
-        }
-        
 
         private void ExecuteCommand(string input)
         {
@@ -60,19 +52,21 @@ namespace Pussel
         {
             Command examineCommand = new ExamineOrangeCommand();
             Command lookOrangeCommand  = new LookOrangeCommand();
-            Command useOrangeCommand = new UseOrangeCommand ();
+            //Command useOrangeCommand = new UseOrangeCommand();
             
             System.Console.WriteLine(
                 "As you step into the dimly lit room, the heavy wooden door slams shut behind you, the sound echoing through the cold, damp air. "
             );
+            //Thread.Sleep(4000);
             Console.WriteLine(
                 "The only light comes from a faint, flickering glow emanating from the walls, casting eerie shadows on the stone floor."
             );
+            //Thread.Sleep(4000);
             System.Console.WriteLine("Ah, Nice choice meatbag.. ");
-
+            //Thread.Sleep(4000);
             System.Console.WriteLine("system: What would you like to do? for options write Help");
-
-            System.Console.WriteLine("If you want to look around write: 'Look Around' ");
+            //Thread.Sleep(4000);
+            
             
 
             bool userTerm = true;
@@ -171,19 +165,31 @@ namespace Pussel
         }
         public void PickupDiary()
         {
+            
             System.Console.WriteLine("You bend down to pick up the diary");
-            System.Console.WriteLine("The corpse degraded by time still holds the book quite hard.. ");
+            System.Console.WriteLine("The corpse degraded by time still holds the book in a fast grip.. ");
             System.Console.WriteLine("After some tumbling you manage to wrenge to diary from its clutches.");
-            System.Console.WriteLine("You pick it up and but the dusty old diary in your inventory");
+            System.Console.WriteLine("You pick it up and put the dusty old diary in your inventory");
+
+         
+           
         }
+          
+        
         public void UseBook()
         {
-            System.Console.WriteLine("You use the book");
+            System.Console.WriteLine("You open up the  ");
 
         }
         public void UseDiary()
         {
-             System.Console.WriteLine("You use the book");
+            
+             System.Console.WriteLine("You open up the leatherbound diary");
+             System.Console.WriteLine("It describes the plight of the old man");
+             System.Console.WriteLine("He too seemed to have been put in the same unsavoury spot as you..");
+             System.Console.WriteLine("He describes the coming pussle, he tried to figure out the meaning");
+             System.Console.WriteLine("A-Z and D-W");
+             System.Console.WriteLine("But what does it mean?");
 
         }
 
