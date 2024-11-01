@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Gustav Häggendal\\.nuget\\packages\\": {}
+    "C:\\Users\\Adria\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gustav Häggendal\\Projects\\CSharp\\YH\\Grupparbete2\\Pussel.csproj",
+      "projectUniqueName": "C:\\Users\\Adria\\Desktop\\Grupparbete2\\Pussel.csproj",
       "projectName": "Pussel",
-      "projectPath": "C:\\Users\\Gustav Häggendal\\Projects\\CSharp\\YH\\Grupparbete2\\Pussel.csproj",
-      "packagesPath": "C:\\Users\\Gustav Häggendal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gustav Häggendal\\Projects\\CSharp\\YH\\Grupparbete2\\obj\\",
+      "projectPath": "C:\\Users\\Adria\\Desktop\\Grupparbete2\\Pussel.csproj",
+      "packagesPath": "C:\\Users\\Adria\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Adria\\Desktop\\Grupparbete2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Gustav Häggendal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Adria\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
