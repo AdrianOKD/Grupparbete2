@@ -8,7 +8,7 @@ namespace Pussel
     public class Player
 {
     public List<string> Inventory { get; private set; }
-
+   
     public Player()
     {
         Inventory = new List<string>();
@@ -34,5 +34,6 @@ namespace Pussel
             Console.WriteLine($"- {item}");
         }
     }
+  
 }
 }
