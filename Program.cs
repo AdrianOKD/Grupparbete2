@@ -1,4 +1,4 @@
-﻿namespace Pussel;
+namespace Pussel;
 
 
 //Vad som behövs, Cryptogram.
@@ -21,9 +21,11 @@ class Program
         OrangeRoom orangeRoom = new OrangeRoom();
 
         //cedrics room
+
          GreenGame greengame = new GreenGame();
          RedPuzzle redPuzzle = new RedPuzzle();
    
+ 
 
 
         //  // Start the red room puzzle
