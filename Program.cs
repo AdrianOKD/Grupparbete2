@@ -22,8 +22,8 @@ class Program
         orangeRoom.OrangeRoomGame();
 
         //cedrics room
-         GreenGame greengame = new GreenGame();
-      greengame.Start();
+        GreenGame greengame = new GreenGame();
+        greengame.Start();
 
 
         //  // Start the red room puzzle
