@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
@@ -32,7 +33,7 @@ namespace Pussel
             };
         }
 
-
+       
         private void ExecuteCommand(string input)
         {
             string[] parts = input.Split(' ', 2);
@@ -47,6 +48,7 @@ namespace Pussel
                 }
             }
         }
+        
 
         public void OrangeRoomGame()
         {
@@ -62,11 +64,12 @@ namespace Pussel
                 "The only light comes from a faint, flickering glow emanating from the walls, casting eerie shadows on the stone floor."
             );
             //Thread.Sleep(4000);
-            System.Console.WriteLine("Ah, Nice choice meatbag.. ");
+            System.Console.WriteLine("Ah, Nice choice of room meatbag.. ");
+            System.Console.WriteLine("");
             //Thread.Sleep(4000);
             System.Console.WriteLine("system: What would you like to do? for options write Help");
             //Thread.Sleep(4000);
-            
+            string RED = Console.IsOutputRedirected ? "diary" : "\x1b[91m";
             
 
             bool userTerm = true;
@@ -135,12 +138,13 @@ namespace Pussel
               System.Console.WriteLine("It looks like the remains of an old man, his right leg being knawed off.. ");
               System.Console.WriteLine("Looking closer you notice that the body is clutching something.");
               System.Console.WriteLine("It looks like some kind of diary");
+              
 
         }
         //skriv Examine diary
         public void ExamineDiary()
         {
-           
+            
              
 
         }
@@ -159,7 +163,7 @@ namespace Pussel
         public void PickupBook()
         {
                 //System.Console.WriteLine("You pick up the book ");
-                System.Console.WriteLine( "The book altough old and dusty just barely hold together as you put it in your bag");
+                System.Console.WriteLine( $"The book altough old and dusty just barely hold together as you put it in your bag");
                   //string itemToPickup = "book";
                   //player.Pickup(itemToPickup);
         }
@@ -171,8 +175,6 @@ namespace Pussel
             System.Console.WriteLine("After some tumbling you manage to wrenge to diary from its clutches.");
             System.Console.WriteLine("You pick it up and put the dusty old diary in your inventory");
 
-         
-           
         }
           
         
