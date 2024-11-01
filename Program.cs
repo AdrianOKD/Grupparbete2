@@ -13,10 +13,7 @@
 
 class Program
 {
-    
-
    
-    
     static void Main(string[] args)
     {
       
@@ -27,6 +24,17 @@ class Program
         //cedrics room
          GreenGame greengame = new GreenGame();
       greengame.Start();
+
+
+        //  // Start the red room puzzle
+        // {
+        // RedPuzzle redPuzzle = new RedPuzzle();
+        // redPuzzle.Start();
+
+        // Console.WriteLine($"Has Red Key: {redPuzzle.GetRedKey()}");
+        // Console.WriteLine("What manner of horrors awaits you in the next room?");
+        // Console.WriteLine("You silently beg for this nightmare to end.");
+        // }
        
     
        
