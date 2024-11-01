@@ -28,10 +28,12 @@ namespace Pussel.Commands
         public override void Execute(string argument)
         {
             Console.WriteLine("Tillgängliga kommandon:");
-            Console.WriteLine("- help: show avaliable commands");
+            
             Console.WriteLine("- examine 'object': examines an object");
             Console.WriteLine("- inventory: show what you have in your inventory");
             Console.WriteLine("- look 'argument': looks at a certain thing, such as a room or around etc.");
+            System.Console.WriteLine("- use 'argument': uses an object in your inventory");
+            System.Console.WriteLine("");
         }
     }
 
