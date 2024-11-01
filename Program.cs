@@ -1,4 +1,4 @@
-﻿namespace Pussel;
+namespace Pussel;
 
 //Vad som behövs, Cryptogram.
 //Let the user type in the coded message,
@@ -17,8 +17,17 @@ class Program
         OrangeRoom orangeRoom = new OrangeRoom();
 
         //cedrics room
+<<<<<<< HEAD
         GreenGame greengame = new GreenGame();
         RedPuzzle redPuzzle = new RedPuzzle();
+=======
+
+         GreenGame greengame = new GreenGame();
+         RedPuzzle redPuzzle = new RedPuzzle();
+   
+ 
+
+>>>>>>> 7bc0bb931b4557b66b638c3c9757e1e1ed26f308
 
         //  // Start the red room puzzle
         // {
