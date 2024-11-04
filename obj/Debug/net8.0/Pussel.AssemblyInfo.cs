@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pussel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5119033121bee5301cf8c1efa37c3eb21dc21df")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ee5c092b1a4c7d47a0f238d77584c0512901dce")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pussel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pussel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

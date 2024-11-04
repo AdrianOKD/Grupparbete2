@@ -7,7 +7,7 @@ namespace Pussel
 {
     public class Player
 {
-    public List<string> Inventory { get; private set; }
+       public List<string> Inventory { get; private set; }
    
     public Player()
     {
@@ -35,5 +35,5 @@ namespace Pussel
         }
     }
   
-}
+} 
 }
