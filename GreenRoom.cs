@@ -30,11 +30,13 @@ public class GreenRoom
     public static void OpenBox()
     {
         System.Console.WriteLine();
-        System.Console.WriteLine("Look for a box that contains the door key. ");
+        System.Console.WriteLine("Don´t wait around, get the ladder in the corner and climb the shelf-");
+        System.Console.WriteLine("in front of you and grab that box. ");
+        System.Console.WriteLine("That´s the box that contains the door key. ");
        while(true)
        {
                 Thread.Sleep(2000);
-        System.Console.WriteLine("Have you found the box yet? press yes or no");
+        System.Console.WriteLine("Have you found the box yet? type yes/no");
         string answer = Console.ReadLine()!.ToLower();
 
 
