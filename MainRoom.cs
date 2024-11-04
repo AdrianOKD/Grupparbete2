@@ -17,6 +17,8 @@ namespace Grupparbete2
         GreenGame greengame = new GreenGame();
         RedPuzzle redPuzzle = new RedPuzzle();
         Game blueGame = new Game();
+        Story story = new Story();
+
 
          bool ChooseRoom = true;
         
@@ -40,6 +42,7 @@ namespace Grupparbete2
                     blueGame.Start();
                     break;
                 case 5:
+                story.StartStory();
                     break;
                 case 6:
                     //koda för utgången, kolla om spelaren har alla nycklar, om den har det, öppna dörren spela ending, annars berätta för användaren att hen inte har alla nycklar.
