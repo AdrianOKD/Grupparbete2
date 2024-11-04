@@ -35,6 +35,8 @@ namespace HorrorEscape
         }
 
     }
+    
+   
 
     public class SolveMysteryCommand : Command
     {
