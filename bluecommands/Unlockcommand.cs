@@ -1,5 +1,5 @@
 using System;
-
+/*
 namespace HorrorEscape
 {
     public class UnlockCommand : Command
@@ -26,3 +26,4 @@ namespace HorrorEscape
         }
     }
 }
+*/

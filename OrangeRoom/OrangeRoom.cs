@@ -1,13 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
 using Pussel.Commands;
 using Grupparbete2;
+using Grupparbete2.Commands;
 
 namespace Pussel
 {
@@ -18,10 +11,10 @@ namespace Pussel
         private InventoryPlayer inventory;
     
         private List<Command> commands;
-      
+         
          bool wall = false;
          bool chest = false;
-
+         
         public OrangeRoom()
         {
             inventory = new InventoryPlayer();

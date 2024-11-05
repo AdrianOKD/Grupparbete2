@@ -1,4 +1,4 @@
-public abstract class GreenCommand
+/*public abstract class GreenCommand
 {
     public string Name { get; protected set; }
 
@@ -25,21 +25,6 @@ public class HelpGreenCommand : GreenCommand
 }
 
 
+*/
 
-public class InventoryGreenCommand : GreenCommand
-{
-    private PlayerG playerG;
-
-    public InventoryGreenCommand(PlayerG playerG) : base("inventory")
-    {
-        this.playerG = playerG;
-    }
-
-    public override void Execute(string argument)
-    {
-        // greenRoom.key = "greenkey";
-        
-         playerG.ShowInventory();
-    }
-}
 

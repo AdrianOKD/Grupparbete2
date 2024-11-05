@@ -1,9 +1,6 @@
-using System.Linq.Expressions;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
 using Grupparbete2;
-using Pussel;
+using Grupparbete2.Commands;
+using HorrorEscape;
 using Pussel.Commands;
 
 namespace Pussel
@@ -141,6 +138,7 @@ namespace Pussel
                         $"Incorrect guess! You have {10 - count} guesses left."
                     );
                 }
+
               if (count == 2)
               {
                 System.Console.WriteLine("You hear a thug sound, it sounds like it´s coming from within the walls. In the corner of your eye you see something moving. You look back over your shoulder, it just the corpse.. was it moving?");
