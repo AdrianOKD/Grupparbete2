@@ -1,21 +1,17 @@
 
 using System;
-using Pussel;
 using Pussel.Commands;
-
 namespace HorrorEscape
 {
     public class EscapeCommand : Command
     {
         private Player player;
-        private Player player1;
 
         public EscapeCommand(Player player) : base("escape")
         {
             this.player = player;
         }
 
-      
         public override void Execute(string argument)
         {
             if (!player.CanEscape())

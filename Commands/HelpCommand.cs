@@ -32,15 +32,18 @@ namespace Grupparbete2.Commands
         public override void Execute(string argument)
         {
 
+     Console.WriteLine("\nAvailable Commands:");
+            Console.Write("1. help: shows available commands\t");
+            Console.Write("2. solve 'find key': search for the key\t");
+            Console.WriteLine("3. examine 'object': examine an object");
 
-            Console.WriteLine("Available commands:");
-            Console.WriteLine("- help: shows available commands");
-            Console.WriteLine("- solve 'find key': search for the key");
-            Console.WriteLine("- examine 'object': examine an object");
-            Console.WriteLine("- inventory: shows your items");
-            Console.WriteLine("- unlock 'code': try to unlock the door with a code");
-            Console.WriteLine("- escape: attempt to escape");
-            Console.WriteLine("- inspect: closely examine the room");
+            Console.Write("4. inventory: shows your items\t");
+            
+            Console.Write("5. unlock 'code': try to unlock the door with a code\t");
+            Console.WriteLine("6. escape: attempt to escape ");
+
+            Console.Write("7. inspect: closely examine the room ");
+            Console.Write("\nChoose an option: ");
 
         }
 
