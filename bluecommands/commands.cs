@@ -1,6 +1,6 @@
 using System;
 
-namespace HorrorEscape
+/*namespace HorrorEscape
 {
     public abstract class Command
     {
@@ -35,6 +35,8 @@ namespace HorrorEscape
         }
 
     }
+    
+   
 
     public class SolveMysteryCommand : Command
     {
@@ -82,3 +84,4 @@ namespace HorrorEscape
     }
 
 }
+*/
