@@ -1,26 +1,52 @@
-using System;
 
-namespace HorrorEscape
+using Pussel.Commands;
+using Pussel;
+using HorrorEscape;
+
+namespace Grupparbete2.Commands
 {
-      public class ExamineCommand : Command
+    public class ExamineOrangeCommand : Command
     {
-        public ExamineCommand () : base("examine") { }
+        public ExamineOrangeCommand()
+            : base("examine") { }
 
         public override void Execute(string argument)
         {
-            if (argument == "door")
+            if (string.IsNullOrEmpty(argument))
             {
-                Console.WriteLine("The door is locked. You need a key.");
+                Console.WriteLine("Skriv namnet på objektet du vill undersöka.");
+                return;
+            }
+            string lowerArgument = argument.ToLower();
+            OrangeRoom orangeRoom = new OrangeRoom();
 
-            }
-            else if (argument == "floor")
+            if (lowerArgument.Contains("chest"))
             {
-                Console.WriteLine("The floor creaks... a plank feels loose.");
+                Console.WriteLine($"You examine the {argument}. ");
+                orangeRoom.ExamineChest();
+                Console.ReadKey();
+                return;
             }
+
+            if (lowerArgument.Equals("bookshelf"))
+            {
+                Console.WriteLine($"You choose to examine the {argument}. ");
+                orangeRoom.ExamineBookshelf();
+               
+            }
+            if (lowerArgument.Equals("body"))
+            {
+
+                System.Console.WriteLine($"You choose to examine the {argument}");
+                orangeRoom.ExamineBody();
+                
+            }
+            
             else
             {
-                Console.WriteLine($"Nothing special about '{argument}'.");
+                Console.WriteLine("Objektet finns inte.");
             }
         }
     }
+
 }
