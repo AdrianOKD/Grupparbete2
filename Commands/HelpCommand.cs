@@ -45,8 +45,8 @@ namespace Grupparbete2.Commands
         }
 
     }
-    /*
-    public class HelpGreenCommand : GreenCommand
+    
+    public class HelpGreenCommand : Command
 {
     public HelpGreenCommand() : base("help") { }
 
@@ -58,5 +58,5 @@ namespace Grupparbete2.Commands
         Console.WriteLine("- Type 'inventory' check if you have the key");
         Console.WriteLine("- Type 'Exit' or 'stop' to exit the green room");
     }
-} */
+} 
 }

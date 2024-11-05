@@ -1,6 +1,3 @@
-
-using System;
-using Pussel;
 using Pussel.Commands;
 
 namespace HorrorEscape
@@ -10,17 +7,19 @@ namespace HorrorEscape
         private Player player;
         private Player player1;
 
-        public EscapeCommand(Player player) : base("escape")
+        public EscapeCommand(Player player)
+            : base("escape")
         {
             this.player = player;
         }
 
-      
         public override void Execute(string argument)
         {
             if (!player.CanEscape())
             {
-                Console.WriteLine("You feel unprepared. There are still important things you need to do before you can escape.");
+                Console.WriteLine(
+                    "You feel unprepared. There are still important things you need to do before you can escape."
+                );
             }
             else if (player.DoorUnlocked)
             {
@@ -29,10 +28,10 @@ namespace HorrorEscape
             }
             else
             {
-                Console.WriteLine("The door is locked. You need to unlock it before you can escape.");
+                Console.WriteLine(
+                    "The door is locked. You need to unlock it before you can escape."
+                );
             }
         }
     }
 }
-
-

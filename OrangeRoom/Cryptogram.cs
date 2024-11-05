@@ -1,13 +1,10 @@
-
 using Grupparbete2;
 using Grupparbete2.Commands;
-using HorrorEscape;
-
 using Pussel.Commands;
 
 namespace Pussel
 {
-    //Blir med och mer mad, drog från kropppen? 
+    //Blir med och mer mad, drog från kropppen?
     //Playern börjar se att kroppen twitchar,
     //den börjar följa en med ögonen i rummet, mockar playern.
     public class Cryptogram
@@ -26,8 +23,6 @@ namespace Pussel
                 //new PickupCommand(player),
             };
         }
-
-       
         private void ExecuteCommand(string input)
         {
             string[] parts = input.Split(' ', 2);
@@ -42,28 +37,39 @@ namespace Pussel
                 }
             }
         }
-
         //Gör en bok som innehåller letråd till pusslet, tex. en av orden i meningen för att kunna lista ut hur pusslet fungerar, om det faktiska order är Hello my friends! så kan boken innehålla: ______ my _____!
         public void CryptoPussle()
         {
-             Dictionary<char, char> AtbashCipher = new Dictionary<char, char>()
-             {
-                 { 'A', 'Z' }, { 'B', 'Y' }, { 'C', 'X' }, { 'D', 'W' },
-                 { 'E', 'V' }, { 'F', 'U' }, { 'G', 'T' }, { 'H', 'S' },
-                 { 'I', 'R' }, { 'J', 'Q' }, { 'K', 'P' }, { 'L', 'O' },
-                 { 'M', 'N' }, { 'N', 'M' }, { 'O', 'L' }, { 'P', 'K' },
-                 { 'Q', 'J' }, { 'R', 'I' }, { 'S', 'H' }, { 'T', 'G' },
-                 { 'U', 'F' }, { 'V', 'E' }, { 'W', 'D' }, { 'X', 'C' },
-                 { 'Y', 'B' }, { 'Z', 'A' },
-                 { 'a', 'z' }, { 'b', 'y' }, { 'c', 'x' }, { 'd', 'w' },
-                 { 'e', 'v' }, { 'f', 'u' }, { 'g', 't' }, { 'h', 's' },
-                 { 'i', 'r' }, { 'j', 'q' }, { 'k', 'p' }, { 'l', 'o' },
-                 { 'm', 'n' }, { 'n', 'm' }, { 'o', 'l' }, { 'p', 'k' },
-                 { 'q', 'j' }, { 'r', 'i' }, { 's', 'h' }, { 't', 'g' },
-                 { 'u', 'f' }, { 'v', 'e' }, { 'w', 'd' }, { 'x', 'c' },
-                 { 'y', 'b' }, { 'z', 'a' },
-             };
-               
+            Dictionary<char, char> AtbashCipher = new Dictionary<char, char>()
+            {
+                { 'A', 'Z' },
+                { 'B', 'Y' },
+                { 'C', 'X' },
+                { 'D', 'W' },
+                { 'E', 'V' },
+                { 'F', 'U' },
+                { 'G', 'T' },
+                { 'H', 'S' },
+                { 'I', 'R' },
+                { 'J', 'Q' },
+                { 'K', 'P' },
+                { 'L', 'O' },
+                { 'M', 'N' },
+                { 'N', 'M' },
+                { 'O', 'L' },
+                { 'P', 'K' },
+                { 'Q', 'J' },
+                { 'R', 'I' },
+                { 'S', 'H' },
+                { 'T', 'G' },
+                { 'U', 'F' },
+                { 'V', 'E' },
+                { 'W', 'D' },
+                { 'X', 'C' },
+                { 'Y', 'B' },
+                { 'Z', 'A' },
+            };
+
             string originalSentence = "Hello my friends!";
 
             char[] originalCryptoSentence = new char[originalSentence.Length];
@@ -108,10 +114,8 @@ namespace Pussel
 
             while (puzzleLoop)
             {
-                 
-                     Console.WriteLine(cryptoSentence);
-                 
-      
+                Console.WriteLine(cryptoSentence);
+
                 string playerInput = Console.ReadLine()!;
                 System.Console.WriteLine(count);
                 char playerGuess = char.ToUpper(playerInput[0]);
@@ -124,54 +128,68 @@ namespace Pussel
                         Console.WriteLine(cryptoSentence);
                         isGuessCorrect = true;
                     }
-                  
                 }
-              if (isGuessCorrect == false)
+                if (isGuessCorrect == false)
                 {
-                   count++;
+                    count++;
                     System.Console.WriteLine(
                         $"Incorrect guess! You have {10 - count} guesses left."
                     );
                 }
-              if (count == 2)
-              {
-                System.Console.WriteLine("You hear a thug sound, it sounds like it´s coming from within the walls. In the corner of your eye you see something moving. You look back over your shoulder, it just the corpse.. was it moving?");
+                if (count == 2)
+                {
+                    System.Console.WriteLine(
+                        "You hear a thug sound, it sounds like it´s coming from within the walls. In the corner of your eye you see something moving. You look back over your shoulder, it just the corpse.. was it moving?"
+                    );
+                }
 
-              }
+                if (count == 4)
+                {
+                    System.Console.WriteLine(
+                        "The sounds keep getting louder, again you see something moving.. you look back, how? The corpse is sitting up, it's smashed face hanging. Is it looking at you? "
+                    );
+                }
 
-              if (count == 4)
-              {
-                System.Console.WriteLine("The sounds keep getting louder, again you see something moving.. you look back, how? The corpse is sitting up, it's smashed face hanging. Is it looking at you? ");
-              }  
+                if (count == 5)
+                {
+                    System.Console.WriteLine(
+                        "The corpse starts taunting you, 'you disgust me' 'think there's an end to this? There's no point in what your doing.'"
+                    );
+                    System.Console.WriteLine(
+                        "The sounds ecoing in your head, it keeps getting louder..."
+                    );
+                }
 
-              if (count == 5)
-              {
-                System.Console.WriteLine("The corpse starts taunting you, 'you disgust me' 'think there's an end to this? There's no point in what your doing.'");
-                System.Console.WriteLine("The sounds ecoing in your head, it keeps getting louder...");
-              }
+                if (count == 6)
+                {
+                    System.Console.WriteLine(" ");
+                }
 
-              if (count == 6)
-              {
-                System.Console.WriteLine(" ");
-              }
-
-              if (count == 8)
-              {
-                System.Console.WriteLine("The corpse, keeps taunting, ");
-              }
+                if (count == 8)
+                {
+                    System.Console.WriteLine("The corpse, keeps taunting, ");
+                }
 
                 if (count >= 10)
                 {
-                    System.Console.WriteLine("The sounds, THE MAN, it wont leave you alone, you start clawing at your ears, 'STOP!', but it wont stop it escalates, flimmers, you cant breath, it has to stop.");
-                    System.Console.WriteLine("You start smashing your head agains the ground, 'make it stop!'");
+                    System.Console.WriteLine(
+                        "The sounds, THE MAN, it wont leave you alone, you start clawing at your ears, 'STOP!', but it wont stop it escalates, flimmers, you cant breath, it has to stop."
+                    );
+                    System.Console.WriteLine(
+                        "You start smashing your head agains the ground, 'make it stop!'"
+                    );
                     System.Console.WriteLine("Thunk.. Thunk.. ");
-                    System.Console.WriteLine("The noice starts to dissepate, yes finally, THUNK THUNK");
-                    System.Console.WriteLine(" Just one more.. In your delierius state you smash your head one last time against the gronund. ");
+                    System.Console.WriteLine(
+                        "The noice starts to dissepate, yes finally, THUNK THUNK"
+                    );
+                    System.Console.WriteLine(
+                        " Just one more.. In your delierius state you smash your head one last time against the gronund. "
+                    );
                     System.Console.WriteLine("It's finally over..");
                     puzzleLoop = false;
                     break;
                 }
-                
+
                 string cryptoStr = new string(cryptoSentence);
 
                 if (cryptoStr.ToUpper() == originalSentence.ToUpper())

@@ -124,9 +124,9 @@ namespace Pussel
                     "It's the same but the etchings seem to actually spell out a word, 'my' "
                 );
             }
-            if (wall == false) 
+            if (wall == false)
             {
-              System.Console.WriteLine("These scrambled letters confuse and ");
+                System.Console.WriteLine("It feels like you´ve seen these letters somewhere.. ");
             }
         }
 
@@ -137,7 +137,7 @@ namespace Pussel
             string NORMAL = Console.IsOutputRedirected ? "" : "\x1b[39m";
             System.Console.WriteLine("You walk up to examine the body..");
             System.Console.WriteLine(
-                "as you get closer you se that this corpse has been here for some time."
+                "as you get closer you the smell expose that this corpse has been here for some time."
             );
             System.Console.WriteLine(
                 "You turn the corpse face up. What you see is something that ones look like a face, now smashed and twisted.. "
@@ -147,6 +147,7 @@ namespace Pussel
             );
             System.Console.WriteLine($"It looks like some kind of {RED}diary{NORMAL}");
         }
+
         //Skriv Examine Bookshelf
         public void ExamineBookshelf()
         {
@@ -156,16 +157,6 @@ namespace Pussel
             );
             Console.ReadKey();
             return;
-        }
-        //Skriv Pickup book
-        public void PickupBook()
-        {
-            //System.Console.WriteLine("You pick up the book ");
-            System.Console.WriteLine(
-                $"The book altough old and dusty just barely hold together as you put it in your bag"
-            );
-            //string itemToPickup = "book";
-            //player.Pickup(itemToPickup);
         }
 
         public void PickupDiary()
@@ -210,7 +201,6 @@ namespace Pussel
             {
                 System.Console.WriteLine("Wall is set to true");
             }
-
             System.Console.WriteLine(
                 "Looking closer you se that it's some kind of writing, words scrambled "
             );

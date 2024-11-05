@@ -1,7 +1,7 @@
 
 using System;
 using Pussel;
-
+/*
 namespace HorrorEscape
 {
     public class EscapeCommand : Command
@@ -34,4 +34,4 @@ namespace HorrorEscape
     }
 }
 
-
+*/
