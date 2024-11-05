@@ -1,12 +1,12 @@
 using System;
-
-/*namespace HorrorEscape
+/*
+namespace HorrorEscape
 {
-    public abstract class Command
+    public abstract class BlueCommand
     {
         public string Name { get; }
 
-        protected Command(string name)
+        protected BlueCommand(string name)
         {
             Name = name;
         }
@@ -14,7 +14,7 @@ using System;
         public abstract void Execute(string argument);
     }
 
-    public class HelpCommand : Command
+    public class HelpCommand : BlueCommand 
     {
         public HelpCommand() : base("help") { }
 
@@ -23,7 +23,7 @@ using System;
         {
 
 
-            Console.WriteLine("Available commands:");
+            /*Console.WriteLine("Available commands:");
             Console.WriteLine("- help: shows available commands");
             Console.WriteLine("- solve 'find key': search for the key");
             Console.WriteLine("- examine 'object': examine an object");
@@ -32,13 +32,25 @@ using System;
             Console.WriteLine("- escape: attempt to escape");
             Console.WriteLine("- inspect: closely examine the room");
 
+            Console.WriteLine("\nAvailable Commands:");
+            Console.Write("1. help: shows available commands\t");
+            Console.Write("2. solve 'find key': search for the key\t");
+            Console.WriteLine("3. examine 'object': examine an object");
+
+            Console.Write("4. inventory: shows your items\t");
+            
+            Console.Write("5. unlock 'code': try to unlock the door with a code\t");
+            Console.WriteLine("6. escape: attempt to escape ");
+
+            Console.Write("7. inspect: closely examine the room ");
+            Console.Write("\nChoose an option: ");
+
+
         }
 
     }
-    
-   
 
-    public class SolveMysteryCommand : Command
+    public class SolveMysteryCommand : BlueCommand
     {
         private Player player;
 
@@ -68,7 +80,7 @@ using System;
         }
     }
 
-    public class InspectRoomCommand : Command
+    public class InspectRoomCommand : BlueCommand
     {
         private Player player;
 
@@ -83,5 +95,4 @@ using System;
 
     }
 
-}
-*/
+}*/
