@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Pussel;
+using Grupparbete2;
 
 namespace Pussel.Commands
 {
@@ -28,35 +29,16 @@ namespace Pussel.Commands
         public override void Execute(string argument)
         {
             Console.WriteLine("Tillgängliga kommandon:");
-            Console.WriteLine("- help: show avaliable commands");
+            
             Console.WriteLine("- examine 'object': examines an object");
             Console.WriteLine("- inventory: show what you have in your inventory");
             Console.WriteLine("- look 'argument': looks at a certain thing, such as a room or around etc.");
+            System.Console.WriteLine("- use 'argument': uses an object in your inventory");
+            System.Console.WriteLine("");
         }
     }
 
-    public class SolveMysteryCommand : Command
-    {
-        private Player player;
-
-        public SolveMysteryCommand(Player player)
-            : base("solve")
-        {
-            this.player = player;
-        }
-
-        public override void Execute(string argument)
-        {
-            if (string.IsNullOrEmpty(argument))
-            {
-                Console.WriteLine("Skriv namnet på mysteriet du vill lösa.");
-                return;
-            }
-
-            Console.WriteLine($"Du försöker lösa mysteriet: '{argument}'...");
-            // Logik för att lösa mysterier
-        }
-    }
+  
 
     public class ExamineOrangeCommand : Command
     {
@@ -94,13 +76,7 @@ namespace Pussel.Commands
                 orangeRoom.ExamineBody();
                 
             }
-             if (lowerArgument.Equals("diary"))
-            {
-
-                System.Console.WriteLine($"You choose to examine the {argument}");
-                orangeRoom.ExamineDiary();
-                
-            }
+            
             else
             {
                 Console.WriteLine("Objektet finns inte.");
@@ -108,22 +84,7 @@ namespace Pussel.Commands
         }
     }
 
-    public class TalkCommand : Command
-    {
-        public TalkCommand()
-            : base("talk") { }
-
-        public override void Execute(string argument)
-        {
-            if (string.IsNullOrEmpty(argument))
-            {
-                Console.WriteLine("Skriv meddelandet du vill säga.");
-                return;
-            }
-
-            Console.WriteLine($"Du säger: '{argument}'. En NPC ger dig information.");
-        }
-    }
+  
 
     public class Interact : Command
     {
@@ -167,31 +128,35 @@ namespace Pussel.Commands
 
     public class InventoryCommand : Command
     {
-        private Player player;
+        //private Player player;
+          
+        private InventoryPlayer inventory;
 
-        public InventoryCommand(Player player)
+        public InventoryCommand(InventoryPlayer inventory)
             : base("inventory")
         {
-            this.player = player;
+            this.inventory = inventory;
         }
 
         public override void Execute(string argument)
         {
-            player.ShowInventory();
+            inventory.ShowInventory();
         }
     }
 
     public class PickupCommand : Command
     {
        private OrangeRoom orangeRoom;
-        private Player player;
 
-        public PickupCommand(Player player, OrangeRoom orangeRoom)
+       private InventoryPlayer inventory;
+        //private Player player;
+
+        public PickupCommand(InventoryPlayer inventory, OrangeRoom orangeRoom)
             : base("pickup")
         {
           
-            this.player = player;
-        this.orangeRoom = orangeRoom;
+            this.inventory = inventory;
+            this.orangeRoom = orangeRoom;
     }
         
 
@@ -207,28 +172,29 @@ namespace Pussel.Commands
             { //Cryptogram cryptogram = new Cryptogram();
             
                 orangeRoom.PickupBook();
-                player.Pickup(argument);
+                inventory.Pickup(argument);
             }
-            if (argument.Contains("diary"))
+            if (argument.Contains("diary") )
             {
               orangeRoom.PickupDiary();
-              player.Pickup(argument);
+              inventory.Pickup(argument);
             }
             if (argument.Contains("key"))
             {
                 orangeRoom.pickupKey();
-                player.Pickup(argument);
+                inventory.Pickup(argument);
 
             }
         }
     }
     public class UseOrangeCommand : Command
     {
-         OrangeRoom orangeRoom = new OrangeRoom();
-         private Player player;
-        public UseOrangeCommand() : base("use")
+        private InventoryPlayer inventory;
+         //private Player player;
+        public UseOrangeCommand(InventoryPlayer inventory) : base("use")
         {
             
+            this.inventory = inventory;
 
         }
 
@@ -240,10 +206,22 @@ namespace Pussel.Commands
                 Console.WriteLine("You need to specify what item you want to use.");
                 return;
             }
+             InventoryPlayer inventory = new InventoryPlayer();
+          
             if (argument.Contains("book"))
-            {
+            {  OrangeRoom orangeRoom = new OrangeRoom();
                 orangeRoom.UseBook();
 
+            }
+            if (argument.Contains("diary"))
+            { 
+                //System.Console.WriteLine("Detta är invCounter " +player.Inventory.Count);
+                if(inventory.Inventory.Contains("diary"))
+                  {
+                 OrangeRoom orangeRoom = new OrangeRoom();
+                orangeRoom.UseDiary();
+                   }
+                 
             }
         }
     }
