@@ -1,7 +1,8 @@
 
-using Grupparbete2;
+/*using Grupparbete2;
+using Pussel.Commands;
 
-public class EnterGreenRoomCommand : GreenCommand
+public class EnterGreenRoomCommand : Command
 {
     // private PlayerG playerG;
     private InventoryPlayer inventoryPlayer;
@@ -19,3 +20,4 @@ public class EnterGreenRoomCommand : GreenCommand
         greenRoom.Execute(); // Call the execute method of GreenRoom
     }
 }
+*/
