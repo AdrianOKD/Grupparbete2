@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Pussel.Commands;
 using Pussel;
+using Pussel.Commands;
 
 namespace Grupparbete2.Commands
 {

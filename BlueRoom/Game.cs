@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Threading;
 using Pussel;
-
+using Pussel.Commands;
+using Grupparbete2;
+using HorrorEscape;
 
 namespace HorrorEscape
 {
@@ -15,7 +17,7 @@ namespace HorrorEscape
 
         public Game()
         {
-            player = new Player();
+          /*  player = new Player();
             commands = new List<Command>
             {
                 new HelpCommand(),
@@ -27,7 +29,7 @@ namespace HorrorEscape
                 new InspectRoomCommand(player),
             };
 
-            timer = new Timer(CheckTime, null, 0, 1000); // Call every second
+            timer = new Timer(CheckTime, null, 0, 1000); // Call every second */
         }
 
         public void Start()

@@ -1,7 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Threading;
+using yellowRoom;
 
 public class Story
 {
+    Commands commands = new Commands();
+  
     private string[] storyLines = new string[]
     {
         "\nA cold chill runs down your spine as you realize you're trapped.",
@@ -18,8 +23,10 @@ public class Story
     private int currentCutIndex = 0;
 
 
+
 public void StartStory()
 {
+    Story story = new Story();
     Console.WriteLine("A chilling wind sweeps through the doorway, beckoning you into the darkness beyond.");
     Console.WriteLine("Do you dare to enter the room? Type 'yes' to proceed or 'no' to reconsider your choice.");
 
@@ -38,14 +45,11 @@ public void StartStory()
     {
         Console.WriteLine("Your indecision is met with a sinister laugh, and the door slams shut behind you.");
     }
-
         foreach (string line in storyLines)
         {
             Console.WriteLine(line);
             Console.ReadLine();
         }
-
-
         Console.WriteLine("\nBefore you can proceed, you must solve a riddle:");
         Console.WriteLine("I have a heavy head and a sturdy handle, I can build and break, but I'm not a candle. What am I?"); // hammer
         
@@ -58,6 +62,12 @@ public void StartStory()
         }
 
         Console.WriteLine("You notice a hammer in front of you. To pick it up, use 'pickup hammer'.");
+        while (!commands.WiresCut)
+        {
+            Console.WriteLine("\nWhat would you like to do? (type 'help' for commands)");
+            string action = Console.ReadLine()!.ToLower();
+            commands.ExecuteCommand(action, story);
+        }
     }
 
     public void PickupHammer()

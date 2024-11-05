@@ -1,23 +1,27 @@
 
 
-
+using Pussel.Commands;
 using Grupparbete2;
 
 
+using Grupparbete2;
+using Grupparbete2.Commands;
+
+/*
 public  class GreenGame
 {
     private InventoryPlayer inventoryPlayer;
-    private List<GreenCommand> commands;
+    private List<Command> commands;
     public List<string> item = new List<string>();
 
 
     public GreenGame()
     {
         inventoryPlayer = new InventoryPlayer();
-        commands = new List<GreenCommand>
+        commands = new List<Command>
         {
             new HelpGreenCommand(),
-            new InventoryGreenCommand(inventoryPlayer),
+            new InventoryCommand(inventoryPlayer),
             new EnterGreenRoomCommand(inventoryPlayer)
 
         };
@@ -55,8 +59,7 @@ public  class GreenGame
         }
 
     }
-}
-
+} */
 
 
 

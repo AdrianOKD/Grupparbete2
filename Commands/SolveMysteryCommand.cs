@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Pussel.Commands;
 using HorrorEscape;
-
 namespace Grupparbete2.Commands
 {
      public class SolveMysteryCommand : Command

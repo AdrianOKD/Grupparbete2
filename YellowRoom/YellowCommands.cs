@@ -1,3 +1,7 @@
+using System;
+
+namespace yellowRoom
+{
 public class Commands
 {
     public bool WiresCut { get; private set; }
@@ -124,4 +128,5 @@ public class Commands
             Console.WriteLine("You need to break the chest first.");
         }
     }
+}
 }

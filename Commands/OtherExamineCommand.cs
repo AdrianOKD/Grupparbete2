@@ -1,7 +1,5 @@
-
-using Pussel.Commands;
 using Pussel;
-using HorrorEscape;
+using Pussel.Commands;
 
 namespace Grupparbete2.Commands
 {
@@ -32,16 +30,12 @@ namespace Grupparbete2.Commands
             {
                 Console.WriteLine($"You choose to examine the {argument}. ");
                 orangeRoom.ExamineBookshelf();
-               
             }
             if (lowerArgument.Equals("body"))
             {
-
                 System.Console.WriteLine($"You choose to examine the {argument}");
                 orangeRoom.ExamineBody();
-                
             }
-            
             else
             {
                 Console.WriteLine("Objektet finns inte.");
