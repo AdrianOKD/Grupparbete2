@@ -1,9 +1,5 @@
 ﻿using Grupparbete2;
-using HorrorEscape;
-
 namespace Pussel;
-
-
 class Program
 {
     static void Main(string[] args)
@@ -15,10 +11,6 @@ class Program
 |    |  | [__   |     | | | |  |  |__| | |\ | 
 |___ |__| ___]  |     |_|_| |  |  |  | | | \| 
                                               ");
-
-
       mainRoom.MainRoomStart();
-
-      
     }
 }

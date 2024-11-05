@@ -1,6 +1,7 @@
 
 using System;
 using Pussel;
+using Pussel.Commands;
 
 namespace HorrorEscape
 {

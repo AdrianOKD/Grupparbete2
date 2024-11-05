@@ -20,7 +20,7 @@ namespace Pussel.Commands
 
         public abstract void Execute(string argument);
     }
-
+/*
     public class HelpOrangeCommand : Command
     {
         public HelpOrangeCommand()
@@ -86,9 +86,9 @@ namespace Pussel.Commands
 
   
 
-    public class Interact : Command
+    public class InteractCommand : Command
     {
-        public Interact(string name)
+        public InteractCommand(string name)
             : base(name) { }
 
         public override void Execute(string argument)
@@ -137,7 +137,7 @@ namespace Pussel.Commands
         {
             this.inventory = inventory;
         }
-
+    
         public override void Execute(string argument)
         {
             inventory.ShowInventory();
@@ -206,8 +206,8 @@ namespace Pussel.Commands
                 Console.WriteLine("You need to specify what item you want to use.");
                 return;
             }
-            Player inventory = new Player();
-          
+            InventoryPlayer inventory = new InventoryPlayer();
+           
             if (argument.Contains("book"))
             {  OrangeRoom orangeRoom = new OrangeRoom();
                 orangeRoom.UseBook();
@@ -243,7 +243,7 @@ namespace Pussel.Commands
                 }
             }
         }
-    
+    */
 }
 
 

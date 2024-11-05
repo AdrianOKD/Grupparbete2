@@ -1,6 +1,6 @@
 
 using System;
-
+/*
 namespace HorrorEscape
 {
  public class InventoryCommand : Command
@@ -17,4 +17,4 @@ namespace HorrorEscape
             player.ShowInventory();
         }
     }
-}
+} */
