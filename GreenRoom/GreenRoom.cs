@@ -3,7 +3,6 @@ using Grupparbete2;
 
 public class GreenRoom 
 {
-    // private PlayerG playerG;
     private  InventoryPlayer inventoryPlayer;
     public GreenRoom(InventoryPlayer inventoryPlayer )
     {

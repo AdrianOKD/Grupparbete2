@@ -3,9 +3,9 @@
 
 using Grupparbete2;
 
+
 public  class GreenGame
 {
-   
     private InventoryPlayer inventoryPlayer;
     private List<GreenCommand> commands;
     public List<string> item = new List<string>();
@@ -19,6 +19,7 @@ public  class GreenGame
             new HelpGreenCommand(),
             new InventoryGreenCommand(inventoryPlayer),
             new EnterGreenRoomCommand(inventoryPlayer)
+
         };
     }
 
@@ -55,6 +56,7 @@ public  class GreenGame
 
     }
 }
+
 
 
 

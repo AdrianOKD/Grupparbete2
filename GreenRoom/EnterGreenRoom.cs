@@ -1,3 +1,4 @@
+
 using Grupparbete2;
 
 public class EnterGreenRoomCommand : GreenCommand
@@ -13,6 +14,7 @@ public class EnterGreenRoomCommand : GreenCommand
 
     public override void Execute(string argument)
     {
+
         GreenRoom greenRoom = new GreenRoom(inventoryPlayer);
         greenRoom.Execute(); // Call the execute method of GreenRoom
     }

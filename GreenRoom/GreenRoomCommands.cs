@@ -1,4 +1,7 @@
+
 using Grupparbete2;
+
+
 
 public abstract class GreenCommand
 {
@@ -27,7 +30,6 @@ public class HelpGreenCommand : GreenCommand
 }
 
 
-
 public class InventoryGreenCommand : GreenCommand
 {
     private  InventoryPlayer inventoryPlayer;
@@ -44,4 +46,5 @@ public class InventoryGreenCommand : GreenCommand
          inventoryPlayer.ShowInventory();
     }
 }
+
 
