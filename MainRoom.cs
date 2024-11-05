@@ -13,9 +13,9 @@ namespace Grupparbete2
         public void MainRoomStart()
         {
             OrangeRoom orangeRoom = new OrangeRoom();
-            GreenGame greengame = new GreenGame();
+            //GreenGame greengame = new GreenGame();
             RedPuzzle redPuzzle = new RedPuzzle();
-            Game blueGame = new Game();
+            //Game blueGame = new Game();
             Story story = new Story();
             
             System.Console.WriteLine("You wake up in 'The main room'");
@@ -35,13 +35,13 @@ namespace Grupparbete2
                         orangeRoom.OrangeRoomGame();
                         break;
                     case 2:
-                        greengame.Start();
+                       // greengame.Start();
                         break;
                     case 3:
                         redPuzzle.Start();
                         break;
                     case 4:
-                        blueGame.Start();
+                       // blueGame.Start();
                         break;
                     case 5:
                         story.StartStory();

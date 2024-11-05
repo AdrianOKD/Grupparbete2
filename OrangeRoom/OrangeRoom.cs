@@ -1,20 +1,16 @@
-using Pussel.Commands;
 using Grupparbete2;
 using Grupparbete2.Commands;
+using Pussel.Commands;
 
 namespace Pussel
 {
     public class OrangeRoom
     {
-        //private Player player;
-
         private InventoryPlayer inventory;
-    
         private List<Command> commands;
-         
-         bool wall = false;
-         bool chest = false;
-         
+        bool wall = false;
+        bool chest = false;
+
         public OrangeRoom()
         {
             inventory = new InventoryPlayer();
@@ -24,13 +20,12 @@ namespace Pussel
                 new LookOrangeCommand(),
                 new ExamineOrangeCommand(),
                 new InventoryCommand(inventory),
-                new PickupCommand(inventory,this),
+                new PickupCommand(inventory, this),
                 new StartOrangePussleCommand(),
                 new UseOrangeCommand(inventory),
             };
         }
 
-       
         private void ExecuteCommand(string input)
         {
             string[] parts = input.Split(' ', 2);
@@ -45,14 +40,11 @@ namespace Pussel
                 }
             }
         }
-    
-
-        
 
         public void OrangeRoomGame()
         {
-              Colours colours = new Colours();
-            
+            Colours colours = new Colours();
+
             System.Console.WriteLine(
                 "As you step into the dimly lit room, the heavy wooden door slams shut behind you, the sound echoing through the cold, damp air. "
             );
@@ -66,9 +58,6 @@ namespace Pussel
             //Thread.Sleep(4000);
             System.Console.WriteLine("system: What would you like to do? for options write Help");
             //Thread.Sleep(4000);
-             
-   
-
             bool userTerm = true;
 
             while (userTerm)
@@ -76,155 +65,172 @@ namespace Pussel
                 Console.Write("> ");
                 string input = Console.ReadLine();
                 ExecuteCommand(input);
-                if(input.Equals("stop"))
+                if (input.Equals("stop"))
                 {
                     userTerm = false;
                     System.Console.WriteLine("You are exiting the game..");
-
                 }
                 Console.ReadLine();
-                
             }
         }
 
-         //Skriv Look Around
+        //Skriv Look Around
         public void LookAround()
         {
             System.Console.WriteLine("You look around the room");
             System.Console.WriteLine(
                 "To your left, you notice a series of cryptic symbols etched into the wall, the letters twisted and distorted as if written in a madman's hand."
             );
-            System.Console.WriteLine("underneath the letter a body, bent over and resting upon its head");
             System.Console.WriteLine(
                 "The words seem to shift and writhe on the surface, like living things."
             );
-            System.Console.WriteLine();
+            System.Console.WriteLine("");
+            System.Console.WriteLine(
+                "underneath the letters a body, bent over and resting upon its head"
+            );
+            System.Console.WriteLine("");
             System.Console.WriteLine(
                 "Too your right , a small crooked bookshelf lean against the wall, its wooden shelves bowed under the weight of dusty, leatherbound tomes"
             );
             System.Console.WriteLine();
             System.Console.WriteLine(
-                "In the center of the room you see some kinde of wooden chest, altough it too looks worn out..altough something about it draws you in"
+                "In the center of the room you see some kinde of wooden chest, something is reflecting the light, drawing you in"
             );
+            System.Console.WriteLine("\n\n");
+            System.Console.WriteLine("Press any key to continue..");
             Console.ReadLine();
         }
+
         //Skriv Examine Chest
         public void ExamineChest()
         {
-           System.Console.WriteLine("As you walk up to the chest, something about it draws you in, but at the same time every fiber of your body tells you to stay away");
+            System.Console.WriteLine(
+                "As you walk up to the chest, something about it draws you in, but at the same time every fiber of your body tells you to stay away"
+            );
             System.Console.WriteLine("Still, you muster courage and walk up to it.");
-            System.Console.WriteLine("Coming closer you notice that the chest actually doesnt seem that old, compared to the rest of the room, this one seem like its been looked after. ");
-            System.Console.WriteLine("You lean in, its a metal chest with gold engravings, with what seems like scrambled letters");
+            System.Console.WriteLine(
+                "Coming closer you notice that the chest actually doesnt seem that old, compared to the rest of the room, this one seem like its been looked after. "
+            );
+            System.Console.WriteLine(
+                "You lean in, its a metal chest with gold engravings, with what seems like scrambled letters"
+            );
             chest = true;
-            if(wall == true)
+            if (wall == true)
             {
-                System.Console.WriteLine("These scrambled letter remind you of the wall, the etchings resembles the chests");
-                System.Console.WriteLine("It's the same but the etchings seem to actually spell out a word, 'my' ");
-
+                System.Console.WriteLine(
+                    "These scrambled letter remind you of the wall, the etchings resembles the chests"
+                );
+                System.Console.WriteLine(
+                    "It's the same but the etchings seem to actually spell out a word, 'my' "
+                );
             }
-            if (wall == false)
+            if (wall == false) 
             {
-                
+              System.Console.WriteLine("These scrambled letters confuse and ");
             }
-
         }
+
         //Skriv Examine Body
         public void ExamineBody()
         {
-             string RED = Console.IsOutputRedirected ? "" : "\x1b[91m";
-             string NORMAL = Console.IsOutputRedirected ? "" : "\x1b[39m";
-             System.Console.WriteLine("You walk up to examine the body..");
-              System.Console.WriteLine("as you get closer you se that this corpse has been here for some time.");
-              System.Console.WriteLine("You turn the corpse face up. What you see is something that ones look like a face, now smashed and twisted.. ");
-              System.Console.WriteLine("Looking closer you notice that the body is clutching something.");
-              System.Console.WriteLine($"It looks like some kind of {RED}diary{NORMAL}");
-              
+            string RED = Console.IsOutputRedirected ? "" : "\x1b[91m";
+            string NORMAL = Console.IsOutputRedirected ? "" : "\x1b[39m";
+            System.Console.WriteLine("You walk up to examine the body..");
+            System.Console.WriteLine(
+                "as you get closer you se that this corpse has been here for some time."
+            );
+            System.Console.WriteLine(
+                "You turn the corpse face up. What you see is something that ones look like a face, now smashed and twisted.. "
+            );
+            System.Console.WriteLine(
+                "Looking closer you notice that the body is clutching something."
+            );
+            System.Console.WriteLine($"It looks like some kind of {RED}diary{NORMAL}");
         }
-     
-    
         //Skriv Examine Bookshelf
         public void ExamineBookshelf()
         {
-                 System.Console.WriteLine("You walk up to the crooked shelf");
-                System.Console.WriteLine(
-                    "The books are old and worn, their covers cracked and faded. Some of which would seem to break at the slitest touch"
-                );
-                Console.ReadKey();
-                return;
-
+            System.Console.WriteLine("You walk up to the crooked shelf");
+            System.Console.WriteLine(
+                "The books are old and worn, their covers cracked and faded. Some of which would seem to break at the slitest touch"
+            );
+            Console.ReadKey();
+            return;
         }
         //Skriv Pickup book
         public void PickupBook()
         {
-                //System.Console.WriteLine("You pick up the book ");
-                System.Console.WriteLine( $"The book altough old and dusty just barely hold together as you put it in your bag");
-                  //string itemToPickup = "book";
-                  //player.Pickup(itemToPickup);
+            //System.Console.WriteLine("You pick up the book ");
+            System.Console.WriteLine(
+                $"The book altough old and dusty just barely hold together as you put it in your bag"
+            );
+            //string itemToPickup = "book";
+            //player.Pickup(itemToPickup);
         }
+
         public void PickupDiary()
         {
-            
             System.Console.WriteLine("You bend down to pick up the diary");
-            System.Console.WriteLine("The corpse degraded by time still holds the book in a fast grip.. ");
-            System.Console.WriteLine("After some tumbling you manage to wrenge the diary from its clutches.");
-            System.Console.WriteLine("You pick it up , dust it of and put the diary in your inventory");
-
+            System.Console.WriteLine(
+                "The corpse degraded by time still holds the book in a fast grip.. "
+            );
+            System.Console.WriteLine(
+                "After some tumbling you manage to wrenge the diary from its clutches."
+            );
+            System.Console.WriteLine(
+                "You pick it up , dust it of and put the diary in your inventory"
+            );
         }
-          
-        
+
         public void UseBook()
         {
             System.Console.WriteLine("You open up the  ");
-
         }
+
         public void UseDiary()
         {
-            
-             System.Console.WriteLine("You open up the leatherbound diary");
-             System.Console.WriteLine("It describes the plight of the old man");
-             System.Console.WriteLine("He too seemed to have been put in the same unsavoury spot as you..");
-             System.Console.WriteLine("He describes the coming pussle, he tried to figure out the meaning");
-             System.Console.WriteLine("A-Z and D-W");
-             System.Console.WriteLine("But what does it mean?");
-
+            System.Console.WriteLine("You open up the leatherbound diary");
+            System.Console.WriteLine("It describes the plight of the old man");
+            System.Console.WriteLine(
+                "He too seemed to have been put in the same unsavoury spot as you.."
+            );
+            System.Console.WriteLine(
+                "He describes the coming pussle, he tried to figure out the meaning"
+            );
+            System.Console.WriteLine("A-Z and D-W");
+            System.Console.WriteLine("But what does it mean?");
         }
 
         //Skriv Look Wall
-
         public void LookWall()
         {
             string input = "";
             wall = true;
-            if(wall == true)
+            if (wall == true)
             {
                 System.Console.WriteLine("Wall is set to true");
-              
             }
 
-                System.Console.WriteLine(
-                    "Looking closer you se that it's some kind of writing, words scrambled "
-                );
-                System.Console.WriteLine();
-                System.Console.WriteLine( "System: Would you like to try and read out what it says? if so write Read Word");
-            
-           
+            System.Console.WriteLine(
+                "Looking closer you se that it's some kind of writing, words scrambled "
+            );
+            System.Console.WriteLine();
+            System.Console.WriteLine(
+                "System: Would you like to try and read out what it says? if so write Read Word"
+            );
         }
-          public void pickupKey ()
-            {
-                // string pickupKey = "key";
-               //pickupCommand.Execute(pickupKey);
-               System.Console.WriteLine("You bend over and pick up the key");
-            
 
-            }
+        public void pickupKey()
+        {
+            // string pickupKey = "key";
+            //pickupCommand.Execute(pickupKey);
+            System.Console.WriteLine("You bend over and pick up the key");
+        }
+
         public void StartPussle()
         {
-            
-                  Cryptogram cryptogram = new Cryptogram();
-                cryptogram.CryptoPussle();
-            
-         
-            
+            Cryptogram cryptogram = new Cryptogram();
+            cryptogram.CryptoPussle();
         }
     }
 }

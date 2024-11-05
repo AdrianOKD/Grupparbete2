@@ -42,15 +42,8 @@ namespace Pussel
         }
 
         //Gör en bok som innehåller letråd till pusslet, tex. en av orden i meningen för att kunna lista ut hur pusslet fungerar, om det faktiska order är Hello my friends! så kan boken innehålla: ______ my _____!
-
-
-
-
-
         public void CryptoPussle()
         {
-            
-            
              Dictionary<char, char> AtbashCipher = new Dictionary<char, char>()
              {
                  { 'A', 'Z' }, { 'B', 'Y' }, { 'C', 'X' }, { 'D', 'W' },
@@ -154,18 +147,16 @@ namespace Pussel
               {
                 System.Console.WriteLine("The corpse starts taunting you, 'you disgust me' 'think there's an end to this? There's no point in what your doing.'");
                 System.Console.WriteLine("The sounds ecoing in your head, it keeps getting louder...");
-
               }
 
               if (count == 6)
               {
                 System.Console.WriteLine(" ");
-                
               }
+
               if (count == 8)
               {
                 System.Console.WriteLine("The corpse, keeps taunting, ");
-                
               }
 
                 if (count >= 10)
@@ -190,14 +181,7 @@ namespace Pussel
                     break;
                 }
             }
-           
-           
-
-          
-
-            
         }
-       
     }
 }
 

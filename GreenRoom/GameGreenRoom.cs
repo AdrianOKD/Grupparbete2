@@ -1,7 +1,7 @@
 
 
 
-public  class GreenGame
+/*public  class GreenGame
 {
     private PlayerG playerG;
     private List<GreenCommand> commands;
@@ -52,6 +52,6 @@ public  class GreenGame
 
     }
 }
-
+*/
 
 

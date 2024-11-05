@@ -1,4 +1,4 @@
-public class EnterGreenRoomCommand : GreenCommand
+/*public class EnterGreenRoomCommand : GreenCommand
 {
     private PlayerG playerG;
 
@@ -14,3 +14,4 @@ public class EnterGreenRoomCommand : GreenCommand
         greenRoom.Execute(); // Call the execute method of GreenRoom
     }
 }
+*/
