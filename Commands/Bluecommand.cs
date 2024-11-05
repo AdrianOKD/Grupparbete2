@@ -1,5 +1,5 @@
 using System;
-
+/*
 namespace HorrorEscape
 {
     public abstract class BlueCommand
@@ -30,7 +30,7 @@ namespace HorrorEscape
             Console.WriteLine("- inventory: shows your items");
             Console.WriteLine("- unlock 'code': try to unlock the door with a code");
             Console.WriteLine("- escape: attempt to escape");
-            Console.WriteLine("- inspect: closely examine the room");*/
+            Console.WriteLine("- inspect: closely examine the room");
 
             Console.WriteLine("\nAvailable Commands:");
             Console.Write("1. help: shows available commands\t");
@@ -95,4 +95,4 @@ namespace HorrorEscape
 
     }
 
-}
+}*/

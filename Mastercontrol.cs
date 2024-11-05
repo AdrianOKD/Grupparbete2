@@ -1,12 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using Grupparbete2;
+using Grupparbete2.Commands;
+using Pussel.Commands;
+
 
 namespace HorrorEscape
 {
     public class MasterControll
     {
         private Player player;
+
+        private InventoryPlayer inventory;
         private List<Command> commands;
       //  private int timeLeft = 10; // seconds
        // private Timer timer;
@@ -16,11 +22,11 @@ namespace HorrorEscape
            player = new Player();
             commands = new List<Command>
             {
-                new HelpCommand(),
+                new HelpBlueCommand(),
                 new SolveMysteryCommand(player),
-                new ExamineCommand(),
+                new ExamineBlueCommand(),
                 new UnlockCommand(player),
-                new InventoryCommand(player),
+               // new InventoryCommand(inventory),
                 new EscapeCommand(player),
                 new InspectRoomCommand(player),
             };
