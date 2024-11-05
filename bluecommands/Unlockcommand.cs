@@ -26,4 +26,7 @@ namespace HorrorEscape
         }
     }
 }
+<<<<<<< HEAD
+=======
 */
+>>>>>>> 1e59bcd86c3f8868543cd9d2c9b1070828a3f782

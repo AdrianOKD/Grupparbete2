@@ -1,21 +1,28 @@
 
 
 
+using Grupparbete2;
+
+
+using Grupparbete2;
+
+
 /*public  class GreenGame
 {
-    private PlayerG playerG;
+    private InventoryPlayer inventoryPlayer;
     private List<GreenCommand> commands;
     public List<string> item = new List<string>();
 
 
     public GreenGame()
     {
-        playerG = new PlayerG();
+        inventoryPlayer = new InventoryPlayer();
         commands = new List<GreenCommand>
         {
             new HelpGreenCommand(),
-            new InventoryGreenCommand(playerG),
-            new EnterGreenRoomCommand(playerG)
+            new InventoryGreenCommand(inventoryPlayer),
+            new EnterGreenRoomCommand(inventoryPlayer)
+
         };
     }
 
@@ -52,6 +59,6 @@
 
     }
 }
-*/
+
 
 

@@ -1,11 +1,12 @@
 using System.Security.Cryptography.X509Certificates;
+using Grupparbete2;
 
 public class GreenRoom 
 {
-    private PlayerG playerG;
-    public GreenRoom(PlayerG playerG)
+    private  InventoryPlayer inventoryPlayer;
+    public GreenRoom(InventoryPlayer inventoryPlayer )
     {
-        this.playerG = playerG;
+        this.inventoryPlayer = inventoryPlayer;
     }
 
     public  void Execute()
@@ -13,11 +14,11 @@ public class GreenRoom
         Console.Clear();
         Console.WriteLine("Welcome to the green room...");
         Thread.Sleep(4000);
-        Console.WriteLine("You feel a chill in the air as you step inside.");
-        Thread.Sleep(3000);
         Console.Clear();
         Console.WriteLine("This room is connected to an ominous oxygen-sucking machine.");
         Console.WriteLine("You must find a box and guess the code.");
+                Thread.Sleep(3000);
+
                OpenBox();
                Console.Clear();
         Console.WriteLine("Time is of the essence-oxygen decreases by 10% every hour.");
@@ -31,7 +32,7 @@ public class GreenRoom
     {
         System.Console.WriteLine();
         System.Console.WriteLine("Don´t wait around, get the ladder in the corner and climb the shelf-");
-        System.Console.WriteLine("in front of you and grab that box. ");
+        System.Console.WriteLine("in front of you and grab a box in your view. ");
         System.Console.WriteLine("That´s the box that contains the door key. ");
        while(true)
        {
@@ -106,7 +107,7 @@ public class GreenRoom
                 {
                     System.Console.WriteLine($"Congratulations! you have won the green key ");
                       
-                     playerG.Pickup("greenkey");
+                     inventoryPlayer.Pickup("greenkey");
                      
                     System.Console.WriteLine();
                     return;
