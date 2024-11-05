@@ -1,6 +1,8 @@
+
 using Grupparbete2;
 using Grupparbete2.Commands;
 using HorrorEscape;
+
 using Pussel.Commands;
 
 namespace Pussel
@@ -138,7 +140,6 @@ namespace Pussel
                         $"Incorrect guess! You have {10 - count} guesses left."
                     );
                 }
-
               if (count == 2)
               {
                 System.Console.WriteLine("You hear a thug sound, it sounds like it´s coming from within the walls. In the corner of your eye you see something moving. You look back over your shoulder, it just the corpse.. was it moving?");

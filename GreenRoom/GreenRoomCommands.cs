@@ -1,4 +1,9 @@
-/*public abstract class GreenCommand
+
+using Grupparbete2;
+
+
+
+public abstract class GreenCommand
 {
     public string Name { get; protected set; }
 
@@ -25,6 +30,21 @@ public class HelpGreenCommand : GreenCommand
 }
 
 
-*/
+public class InventoryGreenCommand : GreenCommand
+{
+    private  InventoryPlayer inventoryPlayer;
+
+    public InventoryGreenCommand(InventoryPlayer inventoryPlayer) : base("inventory")
+    {
+        this.inventoryPlayer = inventoryPlayer;
+    }
+
+    public override void Execute(string argument)
+    {
+        
+        
+         inventoryPlayer.ShowInventory();
+    }
+}
 
 

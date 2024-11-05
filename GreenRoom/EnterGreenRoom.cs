@@ -1,16 +1,21 @@
+
+using Grupparbete2;
+
 public class EnterGreenRoomCommand : GreenCommand
 {
-    private PlayerG playerG;
+    // private PlayerG playerG;
+    private InventoryPlayer inventoryPlayer;
 
-    public EnterGreenRoomCommand(PlayerG playerG) : base (" green room")
+    public EnterGreenRoomCommand(InventoryPlayer inventoryPlayer) : base (" green room")
     {
-        this.playerG = playerG;
+        this.inventoryPlayer = inventoryPlayer;
         this.Name = "room"; 
     }
 
     public override void Execute(string argument)
     {
-        GreenRoom greenRoom = new GreenRoom(playerG);
+
+        GreenRoom greenRoom = new GreenRoom(inventoryPlayer);
         greenRoom.Execute(); // Call the execute method of GreenRoom
     }
 }
