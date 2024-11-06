@@ -14,6 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b456ec36ec5f4485b24265075f2b492ff247543")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c4f57c933c24b01daab70b573b33034d7363f09")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pussel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pussel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
