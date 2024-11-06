@@ -15,7 +15,7 @@ namespace Grupparbete2
             OrangeRoom orangeRoom = new OrangeRoom();
             GreenGame greengame = new GreenGame();
             RedPuzzle redPuzzle = new RedPuzzle();
-            Game blueGame = new Game();
+            // Game blueGame = new Game();
             Story story = new Story();
             
             System.Console.WriteLine("You wake up in 'The main room'");
@@ -25,7 +25,7 @@ namespace Grupparbete2
             while (ChooseRoom)
             {
                 System.Console.WriteLine(
-                    "Gör ett val. 1. Adrian. 2 . Cerdric. 3. Gustav, 4. Ismael 5. Filip"
+                    "Gör ett val. 1. Adrian. 2 . Cedric. 3. Gustav, 4. Ismael 5. Filip"
                 );
                 string input = Console.ReadLine()!;
                 int.TryParse(input, out int choice);
@@ -41,7 +41,7 @@ namespace Grupparbete2
                         redPuzzle.Start();
                         break;
                     case 4:
-                        blueGame.Start();
+                        // blueGame.Start();
                         break;
                     case 5:
                         story.StartStory();

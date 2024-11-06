@@ -1,10 +1,12 @@
 using System.Security.Cryptography.X509Certificates;
 using Grupparbete2;
 
+namespace Grupparbete2;
+
 public class GreenRoom 
 {
     private  InventoryPlayer inventoryPlayer;
-    public GreenRoom(InventoryPlayer inventoryPlayer )
+    public GreenRoom(InventoryPlayer inventoryPlayer ) 
     {
         this.inventoryPlayer = inventoryPlayer;
     }
@@ -12,6 +14,7 @@ public class GreenRoom
     public  void Execute()
     {
         Console.Clear();
+        System.Console.WriteLine($"{Colours.GREEN}");
         Console.WriteLine("Welcome to the green room...");
         Thread.Sleep(4000);
         Console.Clear();
@@ -108,6 +111,7 @@ public class GreenRoom
                     System.Console.WriteLine($"Congratulations! you have won the green key ");
                       
                      inventoryPlayer.Pickup("greenkey");
+                     System.Console.WriteLine($"{Colours.NORMAL}");
                      
                     System.Console.WriteLine();
                     return;
