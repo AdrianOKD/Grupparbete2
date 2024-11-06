@@ -38,6 +38,7 @@ namespace GreenRooms
 
         public void Start()
         {
+            GreenGame();
             Console.WriteLine("Enter 'help'  to view the commando.");
             bool stopgame = true;
             while (stopgame)

@@ -32,9 +32,14 @@ namespace Pussel
 
         private void ExecuteCommand(string input)
         {
+            if(input.Equals(null))
+            {
+                System.Console.WriteLine("Please write a new command");
+                return;
+            }
             string[] parts = input.Split(' ', 2);
             string commandName = parts[0].ToLower();
-
+            
             foreach (var command in commands)
             {
                 if (command.Name == commandName)

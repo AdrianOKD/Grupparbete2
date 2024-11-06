@@ -16,20 +16,41 @@ namespace Grupparbete2
     {
          private InventoryPlayer inventory;
         private List<Command> commands;
+      
+
         public void MainRoomCommands()
         {
               inventory = new InventoryPlayer();
             commands = new List<Command>
             {
-               
                 new InventoryCommand(inventory),
-               
-               
             };
+            
 
         }
+         private void ExecuteCommand(string input)
+        {
+            if(input.Equals(null))
+            {
+                System.Console.WriteLine("Please write a new command");
+                return;
+            }
+            string[] parts = input.Split(' ', 2);
+            string commandName = parts[0].ToLower();
+            
+            foreach (var command in commands)
+            {
+                if (command.Name == commandName)
+                {
+                    command.Execute(parts.Length > 1 ? parts[1] : "");
+                    return;
+                }
+            }
+        }
+
         public void MainRoomStart()
         {
+            MainRoomCommands();
             OrangeRoom orangeRoom = new OrangeRoom();
             GreenRoom greenRoom = new GreenRoom();
             RedPuzzle redPuzzle = new RedPuzzle();
@@ -38,43 +59,59 @@ namespace Grupparbete2
             Story story = new Story();
 
             System.Console.WriteLine("You wake up in 'The main room'");
+            bool chooseRoom = true;
 
-            bool ChooseRoom = true;
 
-            while (ChooseRoom)
+
+     while (chooseRoom)
             {
-                System.Console.WriteLine(
-                    "Gör ett val. 1. Adrian. 2 . Cedric. 3. Gustav, 4. Ismael 5. Filip"
-                );
-
+                Console.Write("> ");
                 string input = Console.ReadLine()!;
-                int.TryParse(input, out int choice);
-                switch (choice)
+
+                if (input.Equals("Choose Room", StringComparison.OrdinalIgnoreCase))
                 {
-                    case 1:
-                        orangeRoom.OrangeRoomGame();
-                        break;
-                    case 2:
-                        greenRoom.Start();
-                        break;
-                    case 3:
-                        redPuzzle.Start();
-                        break;
-                    case 4:
-                    blueRoom.Start();
-                        break;
-                    case 5:
-                        story.StartStory();
-                        break;
-                    case 6:
-                        //koda för utgången, kolla om spelaren har alla nycklar, om den har det, öppna dörren spela ending, annars berätta för användaren att hen inte har alla nycklar.
-                        break;
-                    case 7:
-                        System.Console.WriteLine("Weakling...Exiting Game");
-                        ChooseRoom = false;
-                        break;
-                    default:
-                        break;
+                    Console.WriteLine("Gör ett val. 1. Adrian. 2. Cedric. 3. Gustav, 4. Ismael 5. Filip");
+                    input = Console.ReadLine();
+                    if (int.TryParse(input, out int choice))
+                    {
+                        switch (choice)
+                        {
+                            case 1:
+                                orangeRoom.OrangeRoomGame();
+                                break;
+                            case 2:
+                                greenRoom.Start();
+                                break;
+                            case 3:
+                                redPuzzle.Start();
+                                break;
+                            case 4:
+                                blueRoom.Start();
+                                break;
+                            case 5:
+                                story.StartStory();
+                                break;
+                            case 6:
+                                // Check if the player has all keys to exit
+                                // This logic needs to be implemented
+                                break;
+                            case 7:
+                                Console.WriteLine("Weakling... Exiting Game");
+                                chooseRoom = false;
+                                break;
+                            default:
+                                Console.WriteLine("Invalid choice. Please select a valid room.");
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a number.");
+                    }
+                }
+                else
+                {
+                    ExecuteCommand(input);
                 }
             }
         }
