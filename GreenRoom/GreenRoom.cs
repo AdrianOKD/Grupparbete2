@@ -14,6 +14,7 @@ namespace GreenRooms
             inventory = new InventoryPlayer();
             commands = new List<Command>
             {
+                new StartGreenPussleCommand(),
                 new HelpGreenCommand(),
                 new InventoryCommand(inventory),
             };
@@ -57,6 +58,7 @@ namespace GreenRooms
 
         public void Execute()
         {
+            
             Console.Clear();
             Console.WriteLine("Welcome to the green room...");
             Thread.Sleep(4000);
@@ -74,6 +76,7 @@ namespace GreenRooms
             Console.WriteLine("If you succeed, you will collect a green key.");
             Thread.Sleep(4000);
             GuessTheCode();
+            
         }
 
         public static void OpenBox()
@@ -159,7 +162,7 @@ namespace GreenRooms
                     {
                         System.Console.WriteLine($"Congratulations! you have won the green key ");
 
-                        //inventory.Pickup("greenkey");
+                        inventory.Pickup("greenkey");
 
                         System.Console.WriteLine();
                         return;

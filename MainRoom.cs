@@ -47,6 +47,8 @@ namespace Grupparbete2
                 }
             }
         }
+        public static bool playerFailRoom = false;
+       
 
         public void MainRoomStart()
         {
@@ -59,11 +61,13 @@ namespace Grupparbete2
             Story story = new Story();
 
             System.Console.WriteLine("You wake up in 'The main room'");
-            bool chooseRoom = true;
+
+    
+            
 
 
 
-     while (chooseRoom)
+     while (!playerFailRoom)
             {
                 Console.Write("> ");
                 string input = Console.ReadLine()!;
@@ -97,7 +101,7 @@ namespace Grupparbete2
                                 break;
                             case 7:
                                 Console.WriteLine("Weakling... Exiting Game");
-                                chooseRoom = false;
+                                playerFailRoom = false;
                                 break;
                             default:
                                 Console.WriteLine("Invalid choice. Please select a valid room.");

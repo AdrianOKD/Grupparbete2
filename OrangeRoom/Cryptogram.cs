@@ -9,7 +9,6 @@ namespace Pussel
     //den börjar följa en med ögonen i rummet, mockar playern.
     public class Cryptogram
     {
-        //private Player player;
         private InventoryPlayer inventory;
         private List<Command> commands;
 
@@ -23,6 +22,7 @@ namespace Pussel
                 //new PickupCommand(player),
             };
         }
+
         private void ExecuteCommand(string input)
         {
             string[] parts = input.Split(' ', 2);
@@ -37,6 +37,7 @@ namespace Pussel
                 }
             }
         }
+
         //Gör en bok som innehåller letråd till pusslet, tex. en av orden i meningen för att kunna lista ut hur pusslet fungerar, om det faktiska order är Hello my friends! så kan boken innehålla: ______ my _____!
         public void CryptoPussle()
         {
@@ -162,7 +163,7 @@ namespace Pussel
 
                 if (count == 6)
                 {
-                    System.Console.WriteLine(" ");
+                    System.Console.WriteLine("The sound escalate, the sound is defening");
                 }
 
                 if (count == 8)
@@ -187,6 +188,8 @@ namespace Pussel
                     );
                     System.Console.WriteLine("It's finally over..");
                     puzzleLoop = false;
+                    MainRoom.playerFailRoom = true;
+                    OrangeRoom.orangeRoomChoice = false;
                     break;
                 }
 
@@ -194,8 +197,8 @@ namespace Pussel
 
                 if (cryptoStr.ToUpper() == originalSentence.ToUpper())
                 {
-                    System.Console.WriteLine("x");
-                    //orangeRoom.Success = true;
+                    System.Console.WriteLine("You did it!");
+
                     puzzleLoop = false;
                     break;
                 }
