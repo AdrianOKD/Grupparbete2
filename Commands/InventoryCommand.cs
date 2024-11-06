@@ -2,6 +2,7 @@ using Pussel.Commands;
 
 namespace Grupparbete2.Commands
 {
+
     public class InventoryCommand : Command
     {
         //private Player player;
@@ -17,6 +18,9 @@ namespace Grupparbete2.Commands
         public override void Execute(string argument)
         {
             inventory.ShowInventory();
+    
+   
         }
+
     }
 }

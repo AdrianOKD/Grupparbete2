@@ -1,11 +1,12 @@
 
 using System;
-
+using Pussel.Commands;
 namespace HorrorEscape
 {
  public class InventoryCommand : Command
     {
         private Player player;
+         
 
         public InventoryCommand(Player player) : base("inventory")
         {
@@ -17,4 +18,7 @@ namespace HorrorEscape
             player.ShowInventory();
         }
     }
+
+   
 }
+
