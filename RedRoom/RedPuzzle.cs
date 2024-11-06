@@ -95,8 +95,10 @@ public class RedPuzzle
         if (jug8 != 4 && TimeIsUp())
         {
             Console.WriteLine($"\n{Colours.RED}Blood has now filled the entire room. You try to hold on to your breath and claw your hands pathetically against the steel-barred door.");
-            Console.WriteLine("It is obviously futile. Mechanical laughter is the last thing that fills your head as everything else fades into black.");
+            Console.ReadLine();
+            Console.WriteLine("It is obviously futile. Mechanical laughter is the last thing that fills your head as everything else fades into black...");
             Console.WriteLine($"{Colours.BOLD}GAME OVER{Colours.NOBOLD}{Colours.NORMAL}");
+            MainRoom.playerFailRoom = true;
         }
     }
 
@@ -259,10 +261,4 @@ public class RedPuzzle
     {
         return (DateTime.Now - startTime).TotalSeconds >= timeLimit;
     }
-
-    public bool GetRedKey()
-    {
-        return hasRedKey = true;
-    }
-
 }
