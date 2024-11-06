@@ -1,4 +1,5 @@
 using System;
+using Grupparbete2;
 
 public class RedPuzzle
 {
@@ -20,13 +21,13 @@ public class RedPuzzle
 
     {
        // Introduction to the red room
-        Console.WriteLine("You enter the red room and a foul, metallic but all-too-familiar scent fills your nostrils.");
-        Console.WriteLine("Scanning the room for the source, the dim light only reveals a small platform in the middle, upon which three wooden jugs are placed.");
+        Console.WriteLine($"You enter the {Colours.RED}red room{Colours.NORMAL} and a foul, metallic but all-too-familiar scent fills your nostrils.");
+        Console.WriteLine($"Scanning the room for the source, the dim light only reveals a small platform in the middle, upon which {Colours.RED}three wooden jugs{Colours.NORMAL} are placed.");
         Console.WriteLine("And as the door slams shut behind you, steel bars locking it firmly in place, the mechanical voice speaks to you once more... ");
         Console.ReadLine();
-        Console.WriteLine("\"Welcome to my next little challenge for you, limbwielder. Here are three containers with 3, 5 and 8 metric liters in capacity respectively.");
-        Console.WriteLine("Use your defunct, soon-to-be-rotting head organ to figure out a way to fill the largest jug to exactly the halfway mark.");
-        Console.WriteLine("If you can guarantee the right amount without any room for filthy human guesswork, the path back towards safety will open up for you...\"");
+        Console.WriteLine($"\"Welcome to my next little challenge for you, limbwielder. Here are three containers with {Colours.RED}3, 5 and 8 liters{Colours.NORMAL} in capacity respectively.");
+        Console.WriteLine($"Use your defunct, soon-to-be-rotting head organ to figure out a way to {Colours.RED}fill the largest jug to exactly the halfway mark{Colours.NORMAL}.");
+        Console.WriteLine($"If you can guarantee the right amount without any room for filthy human guesswork, the path back towards safety will open up for you...\"");
         Console.ReadLine();
         Console.WriteLine("\"Something to fill them with? Patience, you worthless sack of meat! They were just about to join us...\"");
         Console.ReadLine();
@@ -34,19 +35,19 @@ public class RedPuzzle
         Console.WriteLine("Its unnatural glow and warmth on your naked flesh offers you no solace. No, only its exact opposite.");
         Console.WriteLine("The smell inside the room intensifies to the point of being unbearable. You know what this is, but you refuse to even let the word enter your mind.");
         Console.ReadLine();
-        Console.WriteLine("Meet the final offering of all who met their end here before you. Use the life essence they gifted in failure to stumble your own crooked way towards freedom.");
+        Console.WriteLine("\"Meet the final offering of all who met their end here before you. Use the life essence they gifted in failure to stumble your own crooked way towards freedom.");
         Console.WriteLine("But make haste, skinwearer, lest you don't want to become a permanent element in this contraption.\"");
         Console.ReadLine();
         Console.WriteLine("As the mechanical voice chuckles coldly and fades into silence, you desperately wade through the thick liquid to the platform in the center.");
-        Console.WriteLine("The vile fluid rises more quickly with each passing second. How many souls met their end here? Either way, time is not your ally.");
+        Console.WriteLine($"The vile fluid rises more quickly with each passing second. How many souls met their end here? Either way, {Colours.RED}time is not your ally{Colours.NORMAL}.");
         Console.WriteLine("Your final sliver of confidence drains away as you now take notice of the room's agonizingly low ceiling.");
         Console.WriteLine("Within mere minutes, you will drown, another victim of the room's sanguine flood...");
         Console.ReadLine();
 
         startTime = DateTime.Now;
 
-        Console.WriteLine("Focusing on the task at hand, You estimate that you have about 3 minutes before the room is entirely filled and your grim fate is sealed.");
-        Console.WriteLine("You must measure exactly 4 liters in the 8-liter container to survive.");
+        Console.WriteLine($"{Colours.CYAN}Focusing on the task at hand, You estimate that you have about 3 minutes before the room is entirely filled and your grim fate is sealed.");
+        Console.WriteLine($"{Colours.BOLD}You must measure exactly 4 liters in the 8-liter container to survive.{Colours.NOBOLD}{Colours.NORMAL}");
 
         // Main game loop
         while (jug8 != 4 && !TimeIsUp())
@@ -93,28 +94,27 @@ public class RedPuzzle
         // If time runs out
         if (jug8 != 4 && TimeIsUp())
         {
-            Console.WriteLine("\nBlood has now filled the entire room. You try to hold on to your breath and claw your hands pathetically against the steel-barred door.");
+            Console.WriteLine($"\n{Colours.RED}Blood has now filled the entire room. You try to hold on to your breath and claw your hands pathetically against the steel-barred door.");
             Console.WriteLine("It is obviously futile. Mechanical laughter is the last thing that fills your head as everything else fades into black.");
-            Console.WriteLine("GAME OVER");
-            Console.WriteLine("(Consider that subtraction could be your key to success)");
+            Console.WriteLine($"{Colours.BOLD}GAME OVER{Colours.NOBOLD}{Colours.NORMAL}");
         }
     }
 
     // Show current jug state
     private void DisplayState()
     {
-        Console.WriteLine("\nCurrent jug states:");
+        Console.WriteLine($"\n{Colours.CYAN}Current jug states:");
         Console.WriteLine($"3-liter jug: {jug3} liters");
         Console.WriteLine($"5-liter jug: {jug5} liters");
-        Console.WriteLine($"8-liter jug: {jug8} liters");
-        Console.WriteLine($"Time left: {timeLimit - (int)(DateTime.Now - startTime).TotalSeconds} seconds");
-        Console.WriteLine("\nWhat will you do? (fill, pour, empty)");
+        Console.WriteLine($"8-liter jug: {jug8} liters{Colours.NORMAL}");
+        Console.WriteLine($"Time left: {Colours.RED}{timeLimit - (int)(DateTime.Now - startTime).TotalSeconds} seconds{Colours.NORMAL}");
+        Console.WriteLine($"\nWhat will you do? (fill, pour, empty)");
     }
 
     // Function to get user action
     private string GetUserAction()
     {
-        Console.Write("Enter command (e.g 'fill 5', 'pour 5 3', 'empty 3'): ");
+        Console.Write("Enter command (e.g 'fill 3', 'pour 3 5', 'empty 8'): ");
         return Console.ReadLine()?.ToLower() ?? "";
     }
 
@@ -264,5 +264,5 @@ public class RedPuzzle
     {
         return hasRedKey = true;
     }
-    
+
 }
