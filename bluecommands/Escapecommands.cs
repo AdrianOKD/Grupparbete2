@@ -1,6 +1,4 @@
 
-using System;
-using Pussel;
 /*
 namespace HorrorEscape
 {

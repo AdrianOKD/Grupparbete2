@@ -3,13 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Grupparbete2;
+using Grupparbete2.Commands;
 using HorrorEscape;
 using Pussel;
+using Pussel.Commands;
 
 namespace Grupparbete2
 {
     public class MainRoom
     {
+         private InventoryPlayer inventory;
+        private List<Command> commands;
+        public MainRoomCommands()
+        {
+              inventory = new InventoryPlayer();
+            commands = new List<Command>
+            {
+               
+                new InventoryCommand(inventory),
+               
+            };
+            
+
+        }
         public void MainRoomStart()
         {
             OrangeRoom orangeRoom = new OrangeRoom();
@@ -17,7 +33,8 @@ namespace Grupparbete2
             RedPuzzle redPuzzle = new RedPuzzle();
             //Game blueGame = new Game();
             Story story = new Story();
-            
+
+           
             System.Console.WriteLine("You wake up in 'The main room'");
 
             bool ChooseRoom = true;
@@ -25,8 +42,9 @@ namespace Grupparbete2
             while (ChooseRoom)
             {
                 System.Console.WriteLine(
-                    "Gör ett val. 1. Adrian. 2 . Cerdric. 3. Gustav, 4. Ismael 5. Filip"
+                    "Gör ett val. 1. Adrian. 2 . Cedric. 3. Gustav, 4. Ismael 5. Filip"
                 );
+
                 string input = Console.ReadLine()!;
                 int.TryParse(input, out int choice);
                 switch (choice)

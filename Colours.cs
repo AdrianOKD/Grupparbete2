@@ -12,6 +12,8 @@ namespace Grupparbete2
             public static string BLUE = Console.IsOutputRedirected ? "" : "\x1b[94m";
             public static string MAGENTA = Console.IsOutputRedirected ? "" : "\x1b[95m";
             public static string CYAN = Console.IsOutputRedirected ? "" : "\x1b[96m";
+              public static string ORANGE = Console.IsOutputRedirected ? "" : "\x1b[38;5;214m";
+                                                                            
             public static string GREY = Console.IsOutputRedirected ? "" : "\x1b[97m";
             public static string BOLD = Console.IsOutputRedirected ? "" : "\x1b[1m";
             public static string NOBOLD = Console.IsOutputRedirected ? "" : "\x1b[22m";
