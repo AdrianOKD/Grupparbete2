@@ -11,7 +11,7 @@ namespace Grupparbete2.Commands
 
 
         public PickupCommand(InventoryPlayer inventory, OrangeRoom orangeRoom)
-            : base("pick up")
+            : base("pickup")
         {
             this.inventory = inventory;
             this.orangeRoom = orangeRoom;

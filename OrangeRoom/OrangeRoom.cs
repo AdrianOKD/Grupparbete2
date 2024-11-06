@@ -24,6 +24,7 @@ namespace Pussel
 
         public OrangeRoom()
         {
+           
             inventory = new InventoryPlayer();
             commands = new List<Command>
             {

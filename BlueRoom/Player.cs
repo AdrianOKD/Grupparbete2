@@ -70,7 +70,8 @@ namespace HorrorEscape
 
         public bool CanEscape()
         {
-            return !(usedCommands.Count < requiredCommands.Count); // Kontrollera om alla obligatoriska kommandon har använts
+            return !(usedCommands.Count < requiredCommands.Count);
+             // Kontrollera om alla obligatoriska kommandon har använts
         }
 
     }
