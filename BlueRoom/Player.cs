@@ -44,37 +44,11 @@ namespace HorrorEscape
         // Lista över obligatoriska kommandon
         private readonly List<string> requiredCommands = new List<string>
         {
-            "help", "pickup", "examine", "inspect", "unlock"
+            "help", "examine", "inspect", "unlock"
         };
 
         public bool DoorUnlocked { get; set; } = false;
-/*
-        public void Pickup(string item)
-        {
-            inventory.Add(item);
 
-            Console.WriteLine($"You picked up: {item}");
-
-        }
-
-        public void ShowInventory()
-        {
-            if (inventory.Count == 0)
-            {
-                Console.WriteLine("Your inventory is empty.");
-            }
-            else
-            {
-                Console.WriteLine("You have the following items:");
-                foreach (var item in inventory)
-                {
-                    Console.WriteLine($"- {item}");
-
-                }
-            }
-        }
-        */
-  
 
 
 
