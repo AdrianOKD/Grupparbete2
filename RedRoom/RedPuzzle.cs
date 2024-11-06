@@ -60,7 +60,7 @@ public class RedPuzzle
             {
 
                 Console.WriteLine("\nYou've successfully measured exactly 4 liters into the large jug!");
-                Console.WriteLine("You hear a loud clonking sound and the liquid slowly starts draining out of the floor tiles as your panicked breaths echo through the room.");
+                Console.WriteLine("Your panicked breaths echo through the room as liquid slowly starts draining out of the floor tiles.");
                 Console.ReadLine();
                 Console.WriteLine("\"You like cutting things close. Perhaps you enjoyed the ambiance of the red room, or perhaps you simply wanted to soak in the hot bath with your new friends?");
                 Console.WriteLine("Nevertheless, you're on the right track, meatsack. If your mind is still functional enough to perceive this, reach into the large container and take the key.\"");

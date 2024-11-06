@@ -47,8 +47,16 @@ namespace Grupparbete2
                 }
             }
         }
+
+        public static bool hasOrangeKey = false;
+        public static bool hasGreenKey = false;
+        public static bool hasRedKey = false;
+        public static bool hasBlueKey = false;
+        public static bool hasYellowKey = false;
+
+
         public static bool playerFailRoom = false;
-       
+
 
         public void MainRoomStart()
         {
@@ -61,10 +69,6 @@ namespace Grupparbete2
             Story story = new Story();
 
             System.Console.WriteLine("You wake up in 'The main room'");
-
-    
-            
-
 
 
      while (!playerFailRoom)
