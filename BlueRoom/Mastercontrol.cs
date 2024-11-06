@@ -13,7 +13,7 @@ namespace HorrorEscape
         private Player player;
         
 
-        private InventoryPlayer inventoryPlayer;
+        private InventoryPlayer inventory;
         private List<Command> commands;
       //  private int timeLeft = 10; // seconds
        // private Timer timer;
@@ -21,16 +21,17 @@ namespace HorrorEscape
         public MasterControll()
         {
            player = new Player();
-           inventoryPlayer = new InventoryPlayer();
+           InventoryPlayer inventory = new InventoryPlayer();
             commands = new List<Command>
             {
                 new HelpBlueCommand(),
                 new SolveMysteryCommand(player),
                 new ExamineBlueCommand(),
                 new UnlockCommand(player),
-              //  new InventoryCommand(inventoryPlayer),
+                new InventoryCommand(inventory),
                 new EscapeCommand(player),
                 new InspectRoomCommand(player),
+                new PickupBlueCommand(inventory, this),
             };
 
         }

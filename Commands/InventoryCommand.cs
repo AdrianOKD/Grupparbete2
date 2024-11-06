@@ -1,3 +1,4 @@
+using HorrorEscape;
 using Pussel.Commands;
 
 namespace Grupparbete2.Commands
@@ -5,7 +6,7 @@ namespace Grupparbete2.Commands
 
     public class InventoryCommand : Command
     {
-        //private Player player;
+        private Player player;
 
         private InventoryPlayer inventory;
 

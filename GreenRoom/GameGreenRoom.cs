@@ -1,13 +1,13 @@
 
 
-using Pussel.Commands;
+/*using Pussel.Commands;
 using Grupparbete2;
 
 
 using Grupparbete2;
 using Grupparbete2.Commands;
 
-/*
+
 public  class GreenGame
 {
     private InventoryPlayer inventoryPlayer;
@@ -59,7 +59,7 @@ public  class GreenGame
         }
 
     }
-} */
+} 
 
-
+*/
 

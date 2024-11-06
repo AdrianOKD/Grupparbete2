@@ -44,7 +44,7 @@ namespace HorrorEscape
         // Lista över obligatoriska kommandon
         private readonly List<string> requiredCommands = new List<string>
         {
-            "help", "solve", "examine", "inspect", "unlock"
+            "help", "pickup", "examine", "inspect", "unlock"
         };
 
         public bool DoorUnlocked { get; set; } = false;
@@ -74,30 +74,7 @@ namespace HorrorEscape
             }
         }
         */
-           public void Pickup(string item)
-        {
-            BlueRoomInventory.Add(item);
-
-            Console.WriteLine($"You picked up: {item}");
-
-        }
-
-        public void ShowInventory()
-        {
-            if (BlueRoomInventory.Count == 0)
-            {
-                Console.WriteLine("Your inventory is empty.");
-            }
-            else
-            {
-                Console.WriteLine("You have the following items:");
-                foreach (var item in BlueRoomInventory)
-                {
-                    Console.WriteLine($"- {item}");
-
-                }
-            }
-        }
+  
 
 
 
