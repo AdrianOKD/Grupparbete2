@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
+using GreenRooms;
 using Grupparbete2;
 using Grupparbete2.Commands;
 using HorrorEscape;
@@ -14,7 +16,7 @@ namespace Grupparbete2
     {
          private InventoryPlayer inventory;
         private List<Command> commands;
-        public MainRoomCommands()
+        public void MainRoomCommands()
         {
               inventory = new InventoryPlayer();
             commands = new List<Command>
@@ -22,19 +24,19 @@ namespace Grupparbete2
                
                 new InventoryCommand(inventory),
                
+               
             };
-            
 
         }
         public void MainRoomStart()
         {
             OrangeRoom orangeRoom = new OrangeRoom();
-            //GreenGame greengame = new GreenGame();
+            GreenRoom greenRoom = new GreenRoom();
             RedPuzzle redPuzzle = new RedPuzzle();
-            //Game blueGame = new Game();
+            MasterControll blueRoom = new MasterControll();
+
             Story story = new Story();
 
-           
             System.Console.WriteLine("You wake up in 'The main room'");
 
             bool ChooseRoom = true;
@@ -53,13 +55,13 @@ namespace Grupparbete2
                         orangeRoom.OrangeRoomGame();
                         break;
                     case 2:
-                       // greengame.Start();
+                        greenRoom.Start();
                         break;
                     case 3:
                         redPuzzle.Start();
                         break;
                     case 4:
-                       // blueGame.Start();
+                    blueRoom.Start();
                         break;
                     case 5:
                         story.StartStory();
