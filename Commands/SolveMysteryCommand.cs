@@ -6,6 +6,8 @@ namespace Grupparbete2.Commands
     {
         private Player player;
 
+        InventoryPlayer inventory;
+
         public SolveMysteryCommand(Player player) : base("solve")
         {
             this.player = player;
@@ -15,14 +17,15 @@ namespace Grupparbete2.Commands
         {
             if (argument == "find key")
             {
-                if (player.HasItem("key"))
-                {
-                    Console.WriteLine("You already have the key. Now find the exit.");
-                }
-                else
-                {
+               
+                 if (inventory.Inventory.Contains("Blue Key"));
+                 {
+                    System.Console.WriteLine("You already have the key. Now find the exit.");
+                 }
+                 if(!inventory.Inventory.Contains("Blue Key"))
+                 {
                     Console.WriteLine("You search carefully... and find the key hidden under a floorboard!");
-                    player.Pickup("key");
+                   
                 }
             }
             else

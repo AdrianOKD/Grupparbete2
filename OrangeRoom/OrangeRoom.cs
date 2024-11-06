@@ -6,10 +6,13 @@ namespace Pussel
 {
     public class OrangeRoom
     {
+     
+      
         private InventoryPlayer inventory;
         private List<Command> commands;
         bool wall = false;
         bool chest = false;
+        bool lookAround = false;
 
         public OrangeRoom()
         {
@@ -23,6 +26,7 @@ namespace Pussel
                 new PickupCommand(inventory, this),
                 new StartOrangePussleCommand(),
                 new UseOrangeCommand(inventory),
+                new HintOrangeCommand(),
             };
         }
 
@@ -43,10 +47,10 @@ namespace Pussel
 
         public void OrangeRoomGame()
         {
-            Colours colours = new Colours();
+              
 
             System.Console.WriteLine(
-                "As you step into the dimly lit room, the heavy wooden door slams shut behind you, the sound echoing through the cold, damp air. "
+                $"{Colours.ORANGE}As you step into the dimly lit room, the heavy wooden door slams shut behind you, the sound echoing through the cold, damp air. "
             );
             //Thread.Sleep(4000);
             Console.WriteLine(
@@ -56,14 +60,14 @@ namespace Pussel
             System.Console.WriteLine("Ah, Nice choice of room meatbag.. ");
             System.Console.WriteLine("");
             //Thread.Sleep(4000);
-            System.Console.WriteLine("system: What would you like to do? for options write Help");
+            System.Console.WriteLine($"system: What would you like to do? for options write Help{Colours.NORMAL}");
             //Thread.Sleep(4000);
             bool userTerm = true;
 
             while (userTerm)
             {
                 Console.Write("> ");
-                string input = Console.ReadLine();
+                string input = Console.ReadLine()!;
                 ExecuteCommand(input);
                 if (input.Equals("stop"))
                 {
@@ -74,9 +78,23 @@ namespace Pussel
             }
         }
 
+        public void Hint()
+        {
+            System.Console.WriteLine("You ask for Hint");
+            if (lookAround == false)
+            {
+                System.Console.WriteLine($"Use your eyes meatbag.. {Colours.BOLD}Look Around!{Colours.NOBOLD}");
+            }
+            if (lookAround == true)
+           {
+            System.Console.WriteLine("Why are you asking for hints? You´ve look around the room, you should try and examine shit");
+           } 
+        }
+
         //Skriv Look Around
         public void LookAround()
         {
+
             System.Console.WriteLine("You look around the room");
             System.Console.WriteLine(
                 "To your left, you notice a series of cryptic symbols etched into the wall, the letters twisted and distorted as if written in a madman's hand."

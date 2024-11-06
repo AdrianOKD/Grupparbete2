@@ -15,10 +15,10 @@ namespace Grupparbete2.Commands
                 Console.WriteLine("Skriv namnet på objektet du vill undersöka.");
                 return;
             }
-            string lowerArgument = argument.ToLower();
+
             OrangeRoom orangeRoom = new OrangeRoom();
 
-            if (lowerArgument.Contains("chest"))
+            if (argument.Contains("chest"))
             {
                 Console.WriteLine($"You examine the {argument}. ");
                 orangeRoom.ExamineChest();
@@ -26,12 +26,12 @@ namespace Grupparbete2.Commands
                 return;
             }
 
-            if (lowerArgument.Equals("bookshelf"))
+            if (argument.Equals("bookshelf"))
             {
                 Console.WriteLine($"You choose to examine the {argument}. ");
                 orangeRoom.ExamineBookshelf();
             }
-            if (lowerArgument.Equals("body"))
+            if (argument.Equals("body"))
             {
                 System.Console.WriteLine($"You choose to examine the {argument}");
                 orangeRoom.ExamineBody();
@@ -42,16 +42,17 @@ namespace Grupparbete2.Commands
             }
         }
     }
-       public class ExamineBlueCommand : Command
+
+    public class ExamineBlueCommand : Command
     {
-        public ExamineBlueCommand () : base("examine") { }
+        public ExamineBlueCommand()
+            : base("examine") { }
 
         public override void Execute(string argument)
         {
             if (argument == "door")
             {
                 Console.WriteLine("The door is locked. You need a key.");
-
             }
             else if (argument == "floor")
             {
@@ -64,4 +65,3 @@ namespace Grupparbete2.Commands
         }
     }
 }
-

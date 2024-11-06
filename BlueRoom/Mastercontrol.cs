@@ -1,35 +1,39 @@
-/*using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
-using Pussel;
-using Pussel.Commands;
 using Grupparbete2;
-using HorrorEscape;
+using Grupparbete2.Commands;
+using Pussel.Commands;
+
 
 namespace HorrorEscape
 {
-    public class Game
+    public class MasterControll
     {
         private Player player;
-        private List<Command> commands;
-        private int timeLeft = 150; // seconds
-        private Timer timer;
+        
 
-        public Game()
+        private InventoryPlayer inventory;
+        private List<Command> commands;
+      //  private int timeLeft = 10; // seconds
+       // private Timer timer;
+
+        public MasterControll()
         {
-          /*  player = new Player();
+           player = new Player();
+           InventoryPlayer inventory = new InventoryPlayer();
             commands = new List<Command>
             {
-                new HelpCommand(),
+                new HelpBlueCommand(),
                 new SolveMysteryCommand(player),
-                new ExamineblueCommand(),
+                new ExamineBlueCommand(),
                 new UnlockCommand(player),
-                new InventoryCommand(player),
+                new InventoryCommand(inventory),
                 new EscapeCommand(player),
                 new InspectRoomCommand(player),
+                new PickupBlueCommand(inventory, this),
             };
 
-            timer = new Timer(CheckTime, null, 0, 1000); // Call every second */
         }
 
         public void Start()
@@ -69,8 +73,9 @@ namespace HorrorEscape
                     player.UseCommand(command.Name); // Logga använt kommando
                     
                     // Minska tid med 10 sekunder när ett kommando används
-                    player.ReduceTime(10);
-                    Console.WriteLine("Warning: Time decreased by 10 seconds due to command usage!");
+                    player.ReduceTries(1);
+                    System.Console.WriteLine();
+                  //  Console.WriteLine("Warning: Time decreased by 1 try due to command usage!");
 
                     return;
                 }
@@ -79,19 +84,7 @@ namespace HorrorEscape
             Console.WriteLine("Unknown command. Type 'help' for assistance.");
         }
 
-        private void CheckTime(object state)
-        {
-            timeLeft--;
-            if (timeLeft <= 0)
-            {
-                Console.WriteLine("A terrifying shadow creeps towards you... You failed to escape in time.");
-                Environment.Exit(0);
-            }
-            else if (timeLeft % 60 == 0)
-            {
-                Console.WriteLine($"You feel the pressure building 'tick-tock' ... only {timeLeft / 60} minutes left!");
-            }
-        }
+
     }
-}*/
+}
 
