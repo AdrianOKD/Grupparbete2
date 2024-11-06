@@ -13,6 +13,7 @@ namespace Pussel
         bool wall = false;
         bool chest = false;
         bool lookAround = false;
+        public static bool orangeRoomChoice = true;
 
         public OrangeRoom()
         {
@@ -32,9 +33,14 @@ namespace Pussel
 
         private void ExecuteCommand(string input)
         {
+            if(input.Equals(null))
+            {
+                System.Console.WriteLine("Please write a new command");
+                return;
+            }
             string[] parts = input.Split(' ', 2);
             string commandName = parts[0].ToLower();
-
+            
             foreach (var command in commands)
             {
                 if (command.Name == commandName)
@@ -44,11 +50,10 @@ namespace Pussel
                 }
             }
         }
+        
 
         public void OrangeRoomGame()
         {
-              
-
             System.Console.WriteLine(
                 $"{Colours.ORANGE}As you step into the dimly lit room, the heavy wooden door slams shut behind you, the sound echoing through the cold, damp air. "
             );
@@ -62,16 +67,16 @@ namespace Pussel
             //Thread.Sleep(4000);
             System.Console.WriteLine($"system: What would you like to do? for options write Help{Colours.NORMAL}");
             //Thread.Sleep(4000);
-            bool userTerm = true;
+           
 
-            while (userTerm)
+            while (orangeRoomChoice)
             {
                 Console.Write("> ");
                 string input = Console.ReadLine()!;
                 ExecuteCommand(input);
                 if (input.Equals("stop"))
                 {
-                    userTerm = false;
+                    orangeRoomChoice = false;
                     System.Console.WriteLine("You are exiting the game..");
                 }
                 Console.ReadLine();
@@ -213,7 +218,7 @@ namespace Pussel
         //Skriv Look Wall
         public void LookWall()
         {
-            string input = "";
+            
             wall = true;
             if (wall == true)
             {
