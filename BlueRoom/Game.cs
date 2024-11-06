@@ -17,7 +17,7 @@ namespace HorrorEscape
 
         public Game()
         {
-          /*  player = new Player();
+            player = new Player();
             commands = new List<Command>
             {
                 new HelpCommand(),
@@ -29,7 +29,7 @@ namespace HorrorEscape
                 new InspectRoomCommand(player),
             };
 
-            timer = new Timer(CheckTime, null, 0, 1000); // Call every second */
+            timer = new Timer(CheckTime, null, 0, 1000); // Call every second 
         }
 
         public void Start()
