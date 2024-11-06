@@ -24,6 +24,7 @@ namespace Grupparbete2
             commands = new List<Command>
             {
                 new InventoryCommand(inventory),
+                new HelpMainRoomCommand(),
             };
             
 
@@ -100,7 +101,7 @@ namespace Grupparbete2
                                 // This logic needs to be implemented
                                 break;
                             case 7:
-                                Console.WriteLine("Weakling... Exiting Game");
+                                Console.WriteLine("Weakling... you fall into a deep slumber..");
                                 playerFailRoom = false;
                                 break;
                             default:

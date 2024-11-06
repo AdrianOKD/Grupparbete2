@@ -15,6 +15,13 @@ namespace Pussel
         bool lookAround = false;
         public static bool orangeRoomChoice = true;
 
+        public void ClearTerminal()
+        {
+            Console.Clear();
+            System.Console.WriteLine("\n\n");
+            
+        }
+
         public OrangeRoom()
         {
             inventory = new InventoryPlayer();
@@ -53,7 +60,7 @@ namespace Pussel
         
 
         public void OrangeRoomGame()
-        {
+        { ClearTerminal();
             System.Console.WriteLine(
                 $"{Colours.ORANGE}As you step into the dimly lit room, the heavy wooden door slams shut behind you, the sound echoing through the cold, damp air. "
             );
@@ -67,6 +74,7 @@ namespace Pussel
             //Thread.Sleep(4000);
             System.Console.WriteLine($"system: What would you like to do? for options write Help{Colours.NORMAL}");
             //Thread.Sleep(4000);
+           
            
 
             while (orangeRoomChoice)
@@ -84,7 +92,7 @@ namespace Pussel
         }
 
         public void Hint()
-        {
+        {  ClearTerminal();
             System.Console.WriteLine("You ask for Hint");
             if (lookAround == false)
             {
@@ -94,11 +102,13 @@ namespace Pussel
            {
             System.Console.WriteLine("Why are you asking for hints? You´ve look around the room, you should try and examine shit");
            } 
+           
         }
 
         //Skriv Look Around
         public void LookAround()
         {
+             ClearTerminal();
 
             System.Console.WriteLine("You look around the room");
             System.Console.WriteLine(

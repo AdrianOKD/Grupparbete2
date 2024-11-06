@@ -60,4 +60,17 @@ namespace Grupparbete2.Commands
             Console.WriteLine("- Type 'Exit' or 'stop' to exit the green room");
         }
     }
+     public class HelpMainRoomCommand : Command
+    {
+        public HelpMainRoomCommand()
+            : base("help") { }
+
+        public override void Execute(string argument)
+        {
+            Console.WriteLine("List of commands:");
+            Console.WriteLine("- Type 'Choose Room' to pick a room that you want to enter");
+            Console.WriteLine("- Type 'inventory' to check if you have anything in your inventory");
+            
+        }
+    }
 }
