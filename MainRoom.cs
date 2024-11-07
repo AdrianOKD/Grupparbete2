@@ -1,14 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Threading.Tasks;
 using GreenRooms;
-using Grupparbete2;
-using Grupparbete2.Commands;
 using HorrorEscape;
 using Pussel;
-using Pussel.Commands;
 
 namespace Grupparbete2
 {
@@ -24,8 +16,6 @@ namespace Grupparbete2
 
         //    1. Hur planerade ni arbetet? Bygga fem rum på egen hand, sedan mergea och förbättra.
 
-        //    2. Vem gjorde vad? se ovan
-
         //    3. Hur hanterade ni kommunikation? Avstämningar i dscord veckovis 1-2 ggr
 
         // 3. Reflektion
@@ -35,9 +25,6 @@ namespace Grupparbete2
         //    2. Vad var bra gjort? Många bra idéer
 
         //    3. Vad tar ni med er till nästa projekt?
-
-
-
 
         public static bool hasOrangeKey = false;
         public static bool hasGreenKey = false;
@@ -63,9 +50,7 @@ namespace Grupparbete2
                 Console.Clear();
                 System.Console.WriteLine($"You are in the main room. '{Colours.CYAN}Choose Room{Colours.NORMAL}' to proceed.");
 
-
                 if (hasBlueKey && hasGreenKey && hasOrangeKey && hasRedKey && hasYellowKey)
-
                 {
                     System.Console.WriteLine("You have all the keys.");
                 }
