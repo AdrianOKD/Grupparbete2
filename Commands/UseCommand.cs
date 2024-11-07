@@ -20,7 +20,7 @@ namespace Grupparbete2.Commands
                 Console.WriteLine("You need to specify what item you want to use.");
                 return;
             }
-            
+
             if (argument.Contains("note"))
             {
                 if (inventory.Inventory.Contains("Note"))

@@ -22,7 +22,6 @@ namespace Grupparbete2.Commands
                 orangeRoom.LookAround();
                 return;
             }
-          
         }
     }
 }

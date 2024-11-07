@@ -1,3 +1,4 @@
+using System;
 using Grupparbete2;
 using Grupparbete2.Commands;
 using Pussel.Commands;
@@ -14,8 +15,8 @@ namespace Pussel
         static bool hasNote = false;
         static bool annoyance = false;
         static int hints = 0;
+        static bool hasExaminedBody = false;
         public static bool orangeRoomChoice = true;
-
 
         public void ClearTerminal()
         {
@@ -41,7 +42,7 @@ namespace Pussel
 
         private void ExecuteCommand(string input)
         {
-            if (input.Equals(null))
+            if (input == null)
             {
                 System.Console.WriteLine("Please write a new command");
                 return;
@@ -62,7 +63,7 @@ namespace Pussel
         public void OrangeRoomGame()
         {
             ClearTerminal();
-            System.Console.WriteLine(
+            Console.WriteLine(
                 $"As you step into the dimly lit room, the heavy wooden door slams shut behind you, the sound echoing through the cold, damp air.\n "
             );
             //Thread.Sleep(4000);
@@ -70,18 +71,18 @@ namespace Pussel
                 "The only light comes from a faint, flickering glow emanating from the walls, casting eerie shadows on the stone floor.\n"
             );
             //Thread.Sleep(4000);
-            System.Console.WriteLine(
+            Console.WriteLine(
                 $"{Colours.GREY}Ah, Nice choice of room meatbag..take a {Colours.BLUE}look around{Colours.NORMAL} {Colours.GREY}and maybe you´ll find a way out..{Colours.NORMAL}\n "
             );
             //Thread.Sleep(4000);
-            System.Console.WriteLine();
-            System.Console.WriteLine($"System: What would you like to do? for options write Help\n");
+            Console.WriteLine();
+            Console.WriteLine($"System: What would you like to do? for options write Help\n");
             //Thread.Sleep(4000);
 
 
 
             while (orangeRoomChoice)
-            {   
+            {
                 Console.Write("> ");
                 string input = Console.ReadLine()!;
                 ExecuteCommand(input);
@@ -90,50 +91,52 @@ namespace Pussel
                     orangeRoomChoice = false;
                     System.Console.WriteLine("You are exiting the game..");
                 }
-                
             }
         }
 
         public void Hint()
         {
-           
-             System.Console.WriteLine("You ask for Hint\n");
-            
-            
+            System.Console.WriteLine("You ask for Hint\n");
+
             if (annoyance && hints < 3)
-            {ClearTerminal();
-                System.Console.WriteLine($"{Colours.GREY}{Colours.BOLD}ENOUGH! EITHER YOU FIGURE THIS OUT OR STAY HERE AND ROT..{Colours.NOBOLD}*Sigh* I´ve given you all you need to figure this out. I´ll leave you to do what you will..{Colours.NORMAL}");
-                hints ++;
-                
+            {
+                ClearTerminal();
+                Console.WriteLine(
+                    $"{Colours.GREY}{Colours.BOLD}ENOUGH! EITHER YOU FIGURE THIS OUT OR STAY HERE AND ROT..{Colours.NOBOLD}*Sigh* I´ve given you all you need to figure this out. I´ll leave you to do what you will..{Colours.NORMAL}"
+                );
+                hints++;
             }
             if (annoyance && hints == 3)
-            {ClearTerminal();
-                System.Console.WriteLine("You ask for a hint but get no response.. Guess they really left..");
-                hints ++;
+            {
+                ClearTerminal();
+                Console.WriteLine(
+                    "You ask for a hint but get no response.. Guess they really left.."
+                );
+                hints++;
                 annoyance = false;
-
             }
             if (!annoyance && hints > 3)
-            {ClearTerminal();
-                System.Console.WriteLine("No response..");
-
+            {
+                ClearTerminal();
+                Console.WriteLine("No response..");
             }
-            if (!lookAround && hints <=1)
-            {ClearTerminal();
-                System.Console.WriteLine(
+            if (!lookAround && hints <= 1)
+            {
+                ClearTerminal();
+                Console.WriteLine(
                     $"{Colours.GREY}Use your eyes meatbag.. {Colours.BOLD}{Colours.BLUE}Look Around!{Colours.NOBOLD}{Colours.NORMAL}\n"
-                ); 
+                );
             }
             if (lookAround && hints <= 2)
-            {ClearTerminal();
-                System.Console.WriteLine(
-                    $"{Colours.GREY}Why are you asking for hints? You´ve looked around the room, if you dont know what to do look closer,{Colours.RED}examine{Colours.NORMAL} , anything really.. \n a toddler could do a better job than you.. {Colours.NORMAL}\n"
-                ); annoyance = true;
+            {
+                ClearTerminal();
+                Console.WriteLine(
+                    $"{Colours.GREY}Why are you asking for hints? You´ve looked around the room, if you don't know what to do look closer,{Colours.RED}examine{Colours.NORMAL} , anything really.. \n a toddler could do a better job than you.. {Colours.NORMAL}\n"
+                );
+                annoyance = true;
                 lookAround = false;
-                hints ++;
+                hints++;
             }
-            
-            
         }
 
         //Skriv Look Around
@@ -141,142 +144,160 @@ namespace Pussel
         {
             ClearTerminal();
 
-            System.Console.WriteLine("You look around the room\n");
-            System.Console.WriteLine(
+            Console.WriteLine("You look around the room\n");
+            Console.WriteLine(
                 $"To your left, you notice a series of cryptic symbols etched into the {Colours.RED}wall{Colours.NORMAL}, the letters twisted and distorted as if written by a madman's hand.\n"
-            );//Thread.Sleep(4000);
-            System.Console.WriteLine(
+            ); //Thread.Sleep(4000);
+            Console.WriteLine(
                 "The words seem to shift and writhe on the surface, like living things.\n"
-            );//Thread.Sleep(4000);
-            System.Console.WriteLine(
+            ); //Thread.Sleep(4000);
+            Console.WriteLine(
                 $"underneath the letters a {Colours.RED}body{Colours.NORMAL}, bent over, it's face resting against the ground\n"
-            );//Thread.Sleep(4000);
-            System.Console.WriteLine(
+            ); //Thread.Sleep(4000);
+            Console.WriteLine(
                 $"Too your right , a small crooked {Colours.RED}bookshelf{Colours.NORMAL} lean against the wall, its wooden shelves bowed under the weight of dusty, leatherbound tomes\n"
-            );//Thread.Sleep(4000);
-            System.Console.WriteLine(
-                $"In the center of the room you see some kinde of {Colours.RED}chest{Colours.NORMAL}, altough dusty underneath its rugged apperance something glimmers, drawing you in\n"
-            );//Thread.Sleep(4000);
-            System.Console.WriteLine(" ");
-            System.Console.WriteLine("Press any key to continue..");
+            ); //Thread.Sleep(4000);
+            Console.WriteLine(
+                $"In the center of the room you see some kind of {Colours.RED}chest{Colours.NORMAL}, although dusty, underneath its rugged apperance something glimmers, drawing you in\n"
+            ); //Thread.Sleep(4000);
+            Console.WriteLine(" ");
+            Console.WriteLine("Press any key to continue..");
             Console.ReadLine();
             lookAround = true;
             ClearTerminal();
-           
         }
 
         //Skriv Examine Chest
         public void ExamineChest()
         {
-            System.Console.WriteLine(
+            Console.WriteLine(
                 "As you walk up to the chest, something about it draws you in, but at the same time every fiber of your body tells you to stay away\n"
             );
-            System.Console.WriteLine("Still, you muster courage and walk up to it.\n");
-            System.Console.WriteLine(
+            Console.WriteLine("Still, you muster courage and walk up to it.\n");
+            Console.WriteLine(
                 "You lean in, its a metal chest with gold engravings, with what seems like scrambled letters SVOOL NB UIRVMWH!\n"
             );
             chest = true;
-            if (wall == true)
+            if (wall && hasNote)
             {
-                System.Console.WriteLine("These scrambled letter remind you of the wall.. Looking at the wall it says SVOOL MY UIRVMWH!\n");
-                System.Console.WriteLine("");
+                Console.WriteLine(
+                    "These scrambled letter remind you of the wall.. Looking at the wall it says SVOOL MY UIRVMWH!\n"
+                );
+                Console.WriteLine("Would you like to try and {}solve puzzle?");
+                Console.WriteLine("");
             }
-            if (wall == false)
+            if (!wall)
             {
-                System.Console.WriteLine("It feels like you´ve seen these letters somewhere..\n ");
-                System.Console.WriteLine("Maybe you should look around the room some more");
+                Console.WriteLine("It feels like you´ve seen these letters somewhere..\n ");
+                Console.WriteLine("Maybe you should look around the room some more");
             }
         }
 
         //Skriv Examine Body
         public void ExamineBody()
         {
-            System.Console.WriteLine();
-            System.Console.WriteLine("You walk up to examine the body..\n");
-            System.Console.WriteLine(
+            Console.WriteLine();
+            Console.WriteLine(
                 "as you get closer you the smell expose that this corpse has been here for some time.\n"
             );
-            System.Console.WriteLine(
-                "You turn the corpse face up. What you see is something that ones looked like a face, now more resembling a smashed witherd pumpkin..\n "
+            Console.WriteLine(
+                "You turn the corpse face up. What you see is something that ones looked like a face, now more resembling a smashed withered pumpkin..\n "
             );
 
-            if (hasNote == false)
+            if (!hasNote)
             {
-                System.Console.WriteLine(
+                Console.WriteLine(
                     "Looking closer you notice that the body is clutching something.\n"
                 );
-                System.Console.WriteLine(
+                Console.WriteLine(
                     $"It looks like some kind of {Colours.CYAN}note{Colours.NORMAL}\n"
                 );
             }
+            hasExaminedBody = true;
         }
 
         //Skriv Examine Bookshelf
         public void ExamineBookshelf()
         {
-            System.Console.WriteLine("You walk up to the crooked shelf\n");
-            System.Console.WriteLine(
-                "The books are old and worn, their covers cracked and faded. Some of which would seem to break at the slitest touch\n"
+            ClearTerminal();
+            Console.WriteLine("You walk up to the crooked shelf\n");
+            Console.WriteLine(
+                "The books are old and worn, their covers cracked and faded. Some of which would seem to break at the slightest touch\n"
             );
+            Console.WriteLine(
+                "There doesnt seem to be anything here of interest.. altough you notice that there's a dustfree imprint of a book missing"
+            );
+            Console.WriteLine("Press any to continue..");
             Console.ReadKey();
-            return;
         }
 
         public void PickupNote()
         {
-            if (hasNote == false)
+            if (!hasNote && hasExaminedBody)
             {
-                System.Console.WriteLine("You bend down to pick up the diary\n");
-                System.Console.WriteLine(
-                    "The corpse degraded by time still holds the book in a fast grip.. \n"
+                Console.WriteLine("You bend down to pick up the note \n");
+                Console.WriteLine(
+                    "The corpse degraded by time still holds the note in a firm grip.. \n"
                 );
-                System.Console.WriteLine(
-                    "After some tumbling you manage to wrenge the diary from its clutches.\n"
+                Console.WriteLine(
+                    "After some tumbling you manage to wrenge it from its clutches.\n"
                 );
-                System.Console.WriteLine(
-                    "You pick it up , dust it of and put the diary in your inventory\n"
-                );
+                Console.WriteLine("You pick it up and put the note in your inventory\n");
                 hasNote = true;
+            }
+            else if (hasNote && hasExaminedBody)
+            {
+                Console.WriteLine("You´re sure you remember yourself picking up the note..\n");
             }
             else
             {
-                System.Console.WriteLine(
-                    "You are sure you remember yourself picking up the diary..\n"
-                );
+                Console.WriteLine("What note?");
             }
         }
 
         public void UseNote()
         {
-            System.Console.WriteLine("You open up the note\n");
-            System.Console.WriteLine("Scribed in what seems like blood");
-            System.Console.WriteLine(
-                "He describes the coming pussle, he tried to figure out the meaning\n"
+            Console.WriteLine("You open up the note\n");
+            Console.WriteLine("Scribed in what seems like blood");
+            Console.WriteLine(
+                "He describes the coming puzzle, he tried to figure out the meaning\n"
             );
-            System.Console.WriteLine("A-Z, D-W, M-N and Y-B");
-            System.Console.WriteLine("What does it mean?");
+            Console.WriteLine("A-Z, D-W, M-N and Y-B");
+            Console.WriteLine("What does it mean?");
         }
 
         //Skriv Look Wall
         public void ExamineWall()
         {
-            wall = true;
-            System.Console.WriteLine(
-                "Looking closer you see that it's some kind of writing, words scrambled\n "
-            );
-            if (chest == true)
+            if (!wall)
             {
-                System.Console.WriteLine(
-                    "It's the same as the chest but the etchings seem to actually spell out one of the words word, SVOOL 'MY' UIRVMWH!\n "
+                Console.WriteLine(
+                    "Looking closer you see that it's some kind of writing, words scrambled, SVOOL 'MY' UIRVMWH!\n "
+                );
+                wall = true;
+            }
+
+            if (chest)
+            {
+                Console.WriteLine(
+                    "It's the same as the chest but the etchings seem to actually spell out one of the words, SVOOL 'MY' UIRVMWH!\n "
                 );
             }
-            else { }
+            Console.WriteLine("press any key to continue..");
+            Console.ReadLine();
         }
 
         public void StartPuzzle()
         {
-            Cryptogram cryptogram = new Cryptogram();
-            cryptogram.CryptoPuzzle();
+            if (chest && wall)
+            {
+                Cryptogram cryptogram = new Cryptogram();
+                cryptogram.CryptoPuzzle();
+            }
+            else
+            {
+                Console.WriteLine("You have a feeling that you should search the room some more");
+            }
         }
     }
 }
