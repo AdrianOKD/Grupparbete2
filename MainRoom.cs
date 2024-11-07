@@ -65,9 +65,7 @@ namespace Grupparbete2
                 Console.Clear();
                 System.Console.WriteLine("You are in main room");
 
-
                 if (hasBlueKey && hasGreenKey && hasOrangeKey && hasRedKey && hasYellowKey)
-
                 {
                     System.Console.WriteLine("You have all the keys.");
                 }
@@ -148,10 +146,10 @@ namespace Grupparbete2
                                 break;
                             case 6:
                                 if (
-                                    hasBlueKey == true
-                                    && hasGreenKey == true
-                                    && hasOrangeKey == true
-                                    && hasRedKey == true
+                                    hasBlueKey 
+                                    && hasGreenKey 
+                                    && hasOrangeKey
+                                    && hasRedKey 
                                     && hasYellowKey
                                 )
                                 {
