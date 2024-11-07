@@ -60,4 +60,15 @@ namespace Grupparbete2.Commands
             Console.WriteLine("- Type 'Exit' or 'stop' to exit the green room");
         }
     }
+
+        public class HelpRedCommand : Command
+    {
+        public HelpRedCommand()
+            : base("help") { }
+
+        public override void Execute(string args)
+        {
+            Console.WriteLine("Available commands: 'examine', 'start puzzle', 'fill', 'pour', 'empty'.");
+        }
+    }
 }
