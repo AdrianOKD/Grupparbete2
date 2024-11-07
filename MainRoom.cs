@@ -63,7 +63,7 @@ namespace Grupparbete2
             MainRoomCommands();
             OrangeRoom orangeRoom = new OrangeRoom();
             GreenRoom greenRoom = new GreenRoom();
-            RedPuzzle redPuzzle = new RedPuzzle();
+            RedRoom redRoom = new RedRoom();
             MasterControll blueRoom = new MasterControll();
 
             Story story = new Story();
@@ -73,6 +73,10 @@ namespace Grupparbete2
 
      while (!playerFailRoom)
             {
+                if (hasRedKey)
+                    {
+                        Console.WriteLine("Red Key");
+                    }
                 Console.Write("> ");
                 string input = Console.ReadLine()!;
 
@@ -91,7 +95,7 @@ namespace Grupparbete2
                                 greenRoom.Start();
                                 break;
                             case 3:
-                                redPuzzle.Start();
+                                redRoom.Start();
                                 break;
                             case 4:
                                 blueRoom.Start();

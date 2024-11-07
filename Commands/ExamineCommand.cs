@@ -64,4 +64,26 @@ namespace Grupparbete2.Commands
             }
         }
     }
+
+     public class ExamineRedCommand : Command
+    {
+         public ExamineRedCommand()
+            : base("examine") { }
+
+        public override void Execute(string args)
+        {
+            if (args == "platform" || args == "jugs")
+            {
+                Console.WriteLine("In the center of the room, there's a platform with three wooden jugs: 3 liters, 5 liters, and 8 liters.");
+                Console.WriteLine("You must find a way to measure exactly 4 liters in the 8-liter jug to unlock the door.");
+            }
+            else
+            {
+                Console.WriteLine("The room is dimly lit with a metallic smell in the air. A platform with jugs stands in the center.");
+            }
+        }
+    }
+
+
+
 }
