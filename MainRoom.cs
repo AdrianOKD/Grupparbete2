@@ -1,14 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Threading.Tasks;
 using GreenRooms;
-using Grupparbete2;
-using Grupparbete2.Commands;
 using HorrorEscape;
 using Pussel;
-using Pussel.Commands;
 
 namespace Grupparbete2
 {
@@ -60,9 +52,7 @@ namespace Grupparbete2
                 Console.Clear();
                 System.Console.WriteLine($"You are in the main room. '{Colours.CYAN}Choose Room{Colours.NORMAL}' to proceed.");
 
-
                 if (hasBlueKey && hasGreenKey && hasOrangeKey && hasRedKey && hasYellowKey)
-
                 {
                     System.Console.WriteLine("You have all the keys.");
                 }

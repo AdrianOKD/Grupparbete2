@@ -5,6 +5,7 @@ using Pussel.Commands;
 
 namespace Pussel
 {
+    
     public class OrangeRoom
     {
         private InventoryPlayer inventory;
@@ -164,7 +165,7 @@ namespace Pussel
             Console.WriteLine("Press any key to continue..");
             Console.ReadLine();
             lookAround = true;
-            ClearTerminal();
+            
         }
 
         //Skriv Examine Chest
@@ -183,7 +184,7 @@ namespace Pussel
                 Console.WriteLine(
                     "These scrambled letter remind you of the wall.. Looking at the wall it says SVOOL MY UIRVMWH!\n"
                 );
-                Console.WriteLine("Would you like to try and {}solve puzzle?");
+                Console.WriteLine($"Would you like to try and {Colours.ORANGE}solve puzzle{Colours.NORMAL}?");
                 Console.WriteLine("");
             }
             if (!wall)
@@ -198,7 +199,7 @@ namespace Pussel
         {
             Console.WriteLine();
             Console.WriteLine(
-                "as you get closer you the smell expose that this corpse has been here for some time.\n"
+                "As you get closer the smell expose that this corpse has been here for some time.\n"
             );
             Console.WriteLine(
                 "You turn the corpse face up. What you see is something that ones looked like a face, now more resembling a smashed withered pumpkin..\n "
@@ -262,7 +263,7 @@ namespace Pussel
             Console.WriteLine(
                 "He describes the coming puzzle, he tried to figure out the meaning\n"
             );
-            Console.WriteLine("A-Z, D-W, M-N and Y-B");
+            Console.WriteLine($"{Colours.RED}A-Z, D-W, M-N{Colours.NORMAL} and {Colours.RED}Y-B{Colours.NORMAL}");
             Console.WriteLine("What does it mean?");
         }
 

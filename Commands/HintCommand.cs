@@ -14,20 +14,11 @@ namespace Grupparbete2.Commands
 
         public override void Execute(string argument)
         {
-            //   if (string.IsNullOrEmpty(argument))
-            // {
-            //     Console.WriteLine("What do you want kind of hint");
-            //     return;
-            // }
-            // else{
+          
             OrangeRoom orangeRoom = new OrangeRoom();
             orangeRoom.Hint();
             return;
-            //  }
-
-
-            //throw new NotImplementedException();
-            //  string lowerArgument = argument.ToLower();
+          
         }
     }
 }

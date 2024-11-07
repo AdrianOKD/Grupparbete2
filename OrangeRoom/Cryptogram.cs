@@ -4,7 +4,6 @@ using Pussel.Commands;
 
 namespace Pussel
 {
-   
     public class Cryptogram
     {
         private InventoryPlayer inventory;
@@ -32,6 +31,13 @@ namespace Pussel
                     return;
                 }
             }
+        }
+
+        private void PauseAndClear()
+        {
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         public void CryptoPuzzle()
@@ -99,7 +105,7 @@ namespace Pussel
                 i++;
             }
             Console.WriteLine(
-                "The scrambled letters seem to form some kind of sentence, but what?"
+                "The scrambled letters seem to form some kind of sentence, but what?\n Use on letter at a time to solve the puzzle"
             );
             Console.WriteLine();
 
@@ -110,6 +116,7 @@ namespace Pussel
 
             while (puzzleLoop)
             {
+                Console.Clear();
                 Console.WriteLine(cryptoSentence);
 
                 try
@@ -132,8 +139,7 @@ namespace Pussel
                     {
                         count++;
                         Console.WriteLine($"Incorrect guess! You have {10 - count} guesses left.");
-                        Console.WriteLine("Press any key to continue");
-                        Console.ReadKey();
+                        PauseAndClear();
                     }
                     if (count == 2 && secretCount == 0)
                     {
@@ -141,8 +147,7 @@ namespace Pussel
                         Console.WriteLine(
                             "You hear a sound, it sounds like it´s coming from within the walls. A sort of hissing.."
                         );
-                        Console.WriteLine("Press any key to continue");
-                        Console.ReadKey();
+                        PauseAndClear();
                     }
                     if (count == 3 && secretCount == 1)
                     {
@@ -150,9 +155,8 @@ namespace Pussel
                         Console.WriteLine(
                             " In the corner of your eye you see something moving. You look back over your shoulder, it just the corpse.. was it moving?"
                         );
+                        PauseAndClear();
                     }
-                    Console.WriteLine("Press any key to continue");
-                    Console.ReadKey();
 
                     if (count == 4 && secretCount == 2)
                     {
@@ -160,8 +164,7 @@ namespace Pussel
                         Console.WriteLine(
                             "The sounds keep getting louder, again you see something moving.. you look back, how? The corpse is sitting up, it's smashed face hanging. Is it looking at you? "
                         );
-                           Console.WriteLine("Press any key to continue");
-                            Console.ReadKey();
+                        PauseAndClear();
                     }
 
                     if (count == 5 && secretCount == 3)
@@ -173,25 +176,22 @@ namespace Pussel
                         Console.WriteLine(
                             "The sounds ecoing in your head, it keeps getting louder..."
                         );
-                         Console.WriteLine("Press any key to continue");
-                         Console.ReadKey();
+                        PauseAndClear();
                     }
 
                     if (count == 6 && secretCount == 4)
                     {
                         secretCount++;
                         Console.WriteLine("The sound escalate, the sound is defening");
+                        PauseAndClear();
                     }
-                    Console.WriteLine("Press any key to continue");
-                    Console.ReadKey();
 
                     if (count == 8 && secretCount == 5)
                     {
                         secretCount++;
                         Console.WriteLine("The corpse, keeps taunting, ");
+                        PauseAndClear();
                     }
-                    Console.WriteLine("Press any key to continue");
-                    Console.ReadKey();
 
                     if (count >= 10 && secretCount == 6)
                     {
@@ -226,10 +226,9 @@ namespace Pussel
                         Console.WriteLine(cryptoSentence);
                         System.Console.WriteLine("You did it!");
                         System.Console.WriteLine(
-                            "The sound and mocking dissapates.. you open the chest and find a key.\n"
+                            "The sound and mocking dissapates.. you open the chest and find a key.\n The door unlocks and you exit the room, relieved"
                         );
-                        System.Console.WriteLine("Press any to continue..");
-                        Console.ReadLine();
+                        PauseAndClear();
 
                         MainRoom.hasOrangeKey = true;
                         OrangeRoom.orangeRoomChoice = false;
@@ -240,10 +239,9 @@ namespace Pussel
                 catch
                 {
                     System.Console.WriteLine("Use valid signs");
+                    PauseAndClear();
                 }
             }
         }
     }
 }
-
-
