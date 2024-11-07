@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using Pussel;
 using Pussel.Commands;
 
@@ -55,6 +56,7 @@ namespace Grupparbete2.Commands
             }
             else if (argument == "floor")
             {
+                Console.WriteLine($"You examine the {Colours.GREEN}floor{Colours.NORMAL}.");
                 Console.WriteLine("The floor creaks... a plank feels loose.");
                 System.Console.WriteLine("You pull up the board, and find a small blue key..");
             }
@@ -65,25 +67,41 @@ namespace Grupparbete2.Commands
         }
     }
 
-     public class ExamineRedCommand : Command
+    public class ExamineRedCommand : Command
     {
-         public ExamineRedCommand()
-            : base("examine") { }
+        public ExamineRedCommand()
+           : base("examine") { }
 
         public override void Execute(string args)
         {
-            if (args == "platform" || args == "jugs")
+            if (args == "platform")
             {
-                Console.WriteLine("In the center of the room, there's a platform with three wooden jugs: 3 liters, 5 liters, and 8 liters.");
-                Console.WriteLine("You must find a way to measure exactly 4 liters in the 8-liter jug to unlock the door.");
+                Console.WriteLine("");
+                Console.WriteLine($"As you approach the platform, you see that there are three {Colours.CYAN}jugs{Colours.NORMAL} in ominous uneven shapes placed upon it.");
+                Console.WriteLine($"How could these {Colours.CYAN}jugs{Colours.NORMAL} possibly help you escape this place? Perhaps you should look at them a bit closer...");
             }
-            else
+            if (args == "jugs")
             {
-                Console.WriteLine("The room is dimly lit with a metallic smell in the air. A platform with jugs stands in the center.");
+                Console.WriteLine("");
+                Console.WriteLine($"As your gaze travels along the shapes of the jugs and colour, you notice markings on their sides. '{Colours.RED}3{Colours.NORMAL}', '{Colours.RED}5{Colours.NORMAL}, and '{Colours.RED}8{Colours.NORMAL}'.");
+                Console.WriteLine("You reach out your finger and touch their surface for a brief moment. It's strangely sticky and slightly warm to the touch.");
+                Console.WriteLine("Something about them makes you incredibly uneasy and you turn away in disgust.");
+                Console.ReadLine();
+                Console.WriteLine($"These jugs seem like they will be used for something important. Perhaps the time has come to '{Colours.ORANGE}Start Puzzle{Colours.NORMAL}'?");
+
+            }
+            if (args == "door")
+            {
+                Console.WriteLine("");
+                Console.WriteLine($"The door is shut, steel bars locking it firmly in place. You will need to find another way to exit this {Colours.CYAN}room{Colours.NORMAL}.");
+            }
+            if (args == "room")
+            {
+                Console.WriteLine("");
+                Console.WriteLine($"The room is almost fully dark with an strange metallic smell in the air.");
+                Console.WriteLine($"A very dim light reveal a {Colours.CYAN}platform{Colours.NORMAL} in the center with something placed on it.");
             }
         }
     }
-
-
 
 }

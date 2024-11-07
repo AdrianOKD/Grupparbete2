@@ -54,11 +54,11 @@ namespace Grupparbete2.Commands
             }
             if (argument.Contains("key"))
             {
-                System.Console.WriteLine("you pick up Blue Key");
-                System.Console.WriteLine(
-                    "Underneath the key you see some scratchmarks remsembling the numbers '4'  '7' and '3' "
-                );
-                inventory.Pickup("Blue Key");
+                  System.Console.WriteLine($"{Colours.BLUE}You picked up{Colours.NORMAL} {Colours.BLUE}the Blue Key{Colours.NORMAL}");
+            System.Console.WriteLine($"{Colours.NORMAL}Underneath the key you see some scratchmarks resembling the numbers {Colours.BLUE}'4' '7' and '3'{Colours.NORMAL}");
+
+             
+                inventory.Pickup("BlueKey");
             }
         }
     }
