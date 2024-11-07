@@ -8,10 +8,10 @@ namespace Pussel
     {
         private InventoryPlayer inventory;
         private List<Command> commands;
-        bool wall = false;
-        bool chest = false;
-        bool lookAround = false;
-        bool diary = false;
+       static bool wall = false;
+        static bool chest = false;
+        static bool lookAround = false;
+        static bool hasDiary = false;
         public static bool orangeRoomChoice = true;
 
         public void ClearTerminal()
@@ -177,7 +177,7 @@ namespace Pussel
                 "You turn the corpse face up. What you see is something that ones looked like a face, now more resembling a smashed witherd pumpkin.. "
             );
 
-            if (diary == false)
+            if (hasDiary == false)
             {
                  System.Console.WriteLine(
                     "Looking closer you notice that the body is clutching something."
@@ -201,7 +201,8 @@ namespace Pussel
         }
 
         public void PickupDiary()
-        { if(diary == false)
+        { 
+            if(hasDiary == false)
             {
                 System.Console.WriteLine("You bend down to pick up the diary");
                 System.Console.WriteLine(
@@ -213,11 +214,14 @@ namespace Pussel
                 System.Console.WriteLine(
                     "You pick it up , dust it of and put the diary in your inventory"
                 );
+                 hasDiary = true;
+               
             }
             else
             {
                 System.Console.WriteLine("You are sure you remember yourself picking up the diary..");
             }
+           
         }
 
         public void UseDiary()

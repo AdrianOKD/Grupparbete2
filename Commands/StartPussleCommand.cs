@@ -15,10 +15,6 @@ namespace Grupparbete2.Commands
             {
             }
 
-        public StartOrangePussleCommand() : base("start")
-        {
-        }
-
         public override void Execute(string argument)
         {
             if (argument.Contains("pussle"))

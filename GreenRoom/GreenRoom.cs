@@ -8,6 +8,8 @@ namespace GreenRooms
     {
         private InventoryPlayer inventory;
         private List<Command> commands;
+        static bool stopgame = true;
+        MainRoom mainRoom = new MainRoom();
 
         public void GreenGame()
         {
@@ -41,7 +43,6 @@ namespace GreenRooms
         {
             GreenGame();
             Console.WriteLine("Enter 'help'  to view the commando.");
-            bool stopgame = true;
             while (stopgame)
             {
                 Console.Write("> ");
@@ -154,7 +155,10 @@ namespace GreenRooms
                             System.Console.WriteLine();
                             System.Console.Write("Oxygen is too low, You are dead!");
                             System.Console.WriteLine();
+                            stopgame = false;
+                            MainRoom.playerFailRoom = true;
                             return;
+                            
                         }
                     }
 
@@ -162,10 +166,11 @@ namespace GreenRooms
                     {
                         System.Console.WriteLine($"Congratulations! you have won the green key ");
 
-                        inventory.Pickup("greenkey");
+                        MainRoom.hasGreenKey = true;
+                        mainRoom.MainRoomStart();
 
                         System.Console.WriteLine();
-                        return;
+                        
                     }
                 }
             }

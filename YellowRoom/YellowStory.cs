@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using Grupparbete2;
 using yellowRoom;
 
 public class Story
@@ -136,8 +137,13 @@ public void StartStory()
                 currentCutIndex++;
                 if (currentCutIndex == 5)
                 {
-                    Console.WriteLine("You've cut all the wires in the correct order. The door unlocks, and you escape!");
-                    Environment.Exit(0);
+                    Console.WriteLine(
+                        "You cut the wires in the correct order. The room begins to shake, and the walls start to close in, but you see a glimmer of light in the distance."
+                    );
+                    Console.WriteLine("Congratulations, you've escaped! You earned a 'Yellow Key'");
+                    MainRoom.hasYellowKey = true;
+                    MainRoom mainRoom = new MainRoom();
+                    mainRoom.MainRoomStart();
                 }
             }
             else

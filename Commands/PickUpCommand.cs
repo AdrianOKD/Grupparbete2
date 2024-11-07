@@ -1,14 +1,14 @@
 using HorrorEscape;
 using Pussel;
 using Pussel.Commands;
+
 namespace Grupparbete2.Commands
 {
     public class PickupCommand : Command
     {
         private OrangeRoom orangeRoom;
-         
-        private InventoryPlayer inventory;
 
+        private InventoryPlayer inventory;
 
         public PickupCommand(InventoryPlayer inventory, OrangeRoom orangeRoom)
             : base("pickup")
@@ -28,15 +28,14 @@ namespace Grupparbete2.Commands
             {
                 orangeRoom.PickupDiary();
                 inventory.Pickup("Diary");
-               
             }
         }
     }
 
-      public class PickupBlueCommand : Command
+    public class PickupBlueCommand : Command
     {
         private MasterControll masterControll;
-         
+
         private InventoryPlayer inventory;
 
         public PickupBlueCommand(InventoryPlayer inventory, MasterControll masterControll)
@@ -56,11 +55,11 @@ namespace Grupparbete2.Commands
             if (argument.Contains("key"))
             {
                 System.Console.WriteLine("you pick up Blue Key");
+                System.Console.WriteLine(
+                    "Underneath the key you see some scratchmarks remsembling the numbers '4'  '7' and '3' "
+                );
                 inventory.Pickup("Blue Key");
-
-
             }
-           
         }
     }
 }
