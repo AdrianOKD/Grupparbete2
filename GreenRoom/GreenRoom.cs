@@ -70,7 +70,7 @@ namespace GreenRooms
 
             OpenBox();
             Console.Clear();
-            Console.WriteLine($"Time is of the essence-oxygen decreases by{Colours.RED}10%{Colours.NORMAL} every hour.");
+            Console.WriteLine($"Time is of the essence-oxygen decreases by{Colours.RED} 10%{Colours.NORMAL} every hour.");
             Console.WriteLine(
                 "You have 3 hours and 6 trials before your oxygen levels reach a critical point."
             );
@@ -171,9 +171,10 @@ namespace GreenRooms
                     if (numberInput.Equals(randomNumber) || numberInput.Equals(myNum))
                     {
                         System.Console.WriteLine($"{Colours.GREEN}Congratulations!{Colours.NORMAL} you have won the {Colours.GREEN} green key ");
-
                         MainRoom.hasGreenKey = true;
+                        Thread.Sleep(4000);
                         System.Console.WriteLine($"{Colours.NORMAL}");
+
 
                         mainRoom.MainRoomStart();
 
@@ -184,7 +185,7 @@ namespace GreenRooms
             }
             } catch(Exception e)
             {
-                System.Console.WriteLine("Invalid input");
+                System.Console.WriteLine($"{Colours.RED} Invalid input {Colours.NORMAL}. Type 'help' to restart the greenroom");
             }
         }
     }
