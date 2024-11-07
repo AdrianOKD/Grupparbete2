@@ -24,10 +24,10 @@ namespace Grupparbete2.Commands
                 Console.WriteLine("You need to specify an item to pick up");
                 return;
             }
-            if (argument.Contains("diary"))
+            if (argument.Contains("note"))
             {
-                orangeRoom.PickupDiary();
-                inventory.Pickup("Diary");
+                orangeRoom.PickupNote();
+                inventory.Pickup("Note");
             }
         }
     }

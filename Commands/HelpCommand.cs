@@ -14,6 +14,7 @@ namespace Grupparbete2.Commands
 
         public override void Execute(string argument)
         {
+            Console.Clear();
             Console.WriteLine("Tillgängliga kommandon:");
             Console.WriteLine($"-{Colours.RED} examine{Colours.NORMAL} 'object': examines an object.");
             System.Console.WriteLine($"- {Colours.CYAN}Pickup{Colours.NORMAL} 'object': Picks up object.");

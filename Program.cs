@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear();
 
         MainRoom mainRoom = new MainRoom();
 
@@ -13,6 +14,9 @@ class Program
 |___ |__| ___]  |     |_|_| |  |  |  | | | \| 
                                               ");
         Console.WriteLine($"{Colours.NORMAL}");
+        System.Console.WriteLine();
+        Console.ReadLine();
+        
         mainRoom.MainRoomStart();
     }
 }
