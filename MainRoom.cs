@@ -80,7 +80,7 @@ namespace Grupparbete2
                 }
                 if (hasBlueKey)
                 {
-                Console.WriteLine("Blue Key");
+                Console.WriteLine($"{Colours.BLUE}Blue Key{Colours.NORMAL}");
                 }
                 if (hasYellowKey)
                 {

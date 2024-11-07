@@ -38,21 +38,13 @@ namespace Grupparbete2.Commands
         public override void Execute(string argument)
         {
             Console.WriteLine("Available commands:");
-            Console.WriteLine($"- {Colours.MAGENTA}help{Colours.NORMAL}: shows available commands");
-            Console.WriteLine($"- {Colours.BLUE}pickup{Colours.NORMAL} 'blue key': search for the key");
-            Console.WriteLine($"- {Colours.GREEN}examine{Colours.NORMAL} 'object': examine an object");
-            Console.WriteLine($"- {Colours.ORANGE}inventory{Colours.NORMAL}: shows your items");
-            Console.WriteLine($"- {Colours.YELLOW}unlock{Colours.NORMAL} 'code': try to unlock the door with a code");
-            Console.WriteLine($"- {Colours.GREEN}escape{Colours.NORMAL}: attempt to escape");
-            Console.WriteLine($"- inspect: closely examine the room");
-
-
-
-           
-
-
-
-
+            Console.WriteLine($"- {Colours.MAGENTA}Help{Colours.NORMAL}: shows available commands");
+            Console.WriteLine($"- {Colours.BLUE}Pickup{Colours.NORMAL} 'blue key': search for the key");
+            Console.WriteLine($"- {Colours.GREEN}Examine{Colours.NORMAL} 'object': examine an object");
+            Console.WriteLine($"- {Colours.ORANGE}Inventory{Colours.NORMAL}: shows your items");
+            Console.WriteLine($"- {Colours.YELLOW}Unlock{Colours.NORMAL} 'code': try to unlock the door with a code");
+            Console.WriteLine($"- {Colours.GREEN}Escape{Colours.NORMAL}: attempt to escape");
+            Console.WriteLine($"- {Colours.ORANGE}Inspect{Colours.NORMAL}: closely examine the room");
 
 
         }

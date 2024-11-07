@@ -52,14 +52,17 @@ namespace Grupparbete2.Commands
         {
             if (argument == "door")
             {
-                Console.WriteLine("The door is locked. You need a key.");
+                Console.WriteLine($"The {Colours.RED}door{Colours.NORMAL} stands before you, old and worn.");
+                Console.WriteLine("Its surface is scratched and dented, clearly showing signs of age.");
+                Console.WriteLine("The door is locked tightly. It will not open without a key.");
             }
             else if (argument == "floor")
             {
-                Console.WriteLine($"You examine the {Colours.GREEN}floor{Colours.NORMAL}.");
-                Console.WriteLine("The floor creaks... a plank feels loose.");
-                System.Console.WriteLine("You pull up the board, and find a small blue key..");
+                Console.WriteLine($"You cautiously check the {Colours.GREEN}floor{Colours.NORMAL}, noting its aged and cracked planks.");
+                Console.WriteLine("As you push your fingers into the gaps between the boards, something catches your attention.");
+                Console.WriteLine("A loose plank moves under pressure. You lift it and find a rusty blue key hidden beneath.");
             }
+
             else
             {
                 Console.WriteLine($"Nothing special about '{argument}'.");
