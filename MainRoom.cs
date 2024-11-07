@@ -65,7 +65,9 @@ namespace Grupparbete2
                 Console.Clear();
                 System.Console.WriteLine("You are in main room");
 
+
                 if (hasBlueKey && hasGreenKey && hasOrangeKey && hasRedKey && hasYellowKey)
+
                 {
                     System.Console.WriteLine("You have all the keys.");
                 }
