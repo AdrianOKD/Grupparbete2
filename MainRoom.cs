@@ -16,7 +16,9 @@ namespace Grupparbete2
 
         //    1. Hur planerade ni arbetet? Bygga fem rum på egen hand, sedan mergea och förbättra.
 
-        //    3. Hur hanterade ni kommunikation? Avstämningar i dscord veckovis 1-2 ggr
+        //    2. Vem gjorde vad? se ovan
+
+        //    3. Hur hanterade ni kommunikation? Avstämningar i discord veckovis 1-2 ggr
 
         // 3. Reflektion
 
