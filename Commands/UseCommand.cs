@@ -21,16 +21,16 @@ namespace Grupparbete2.Commands
                 return;
             }
             
-            if (argument.Contains("diary"))
+            if (argument.Contains("note"))
             {
-                if (inventory.Inventory.Contains("Diary"))
+                if (inventory.Inventory.Contains("Note"))
                 {
                     OrangeRoom orangeRoom = new OrangeRoom();
-                    orangeRoom.UseDiary();
+                    orangeRoom.UseNote();
                 }
                 else
                 {
-                    System.Console.WriteLine("There's no diary in your inventory");
+                    System.Console.WriteLine("There's no note in your inventory");
                 }
             }
         }

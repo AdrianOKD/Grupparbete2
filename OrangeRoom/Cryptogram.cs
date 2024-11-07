@@ -36,7 +36,7 @@ namespace Pussel
             }
         }
 
-        public void CryptoPussle()
+        public void CryptoPuzzle()
         {
             Dictionary<char, char> AtbashCipher = new Dictionary<char, char>()
             {
@@ -106,6 +106,7 @@ namespace Pussel
             System.Console.WriteLine();
 
             int count = 0;
+            int secretCount = 0;
             bool puzzleLoop = true;
             // string str = new string(cryptoSentence);
             // System.Console.WriteLine(str);
@@ -127,31 +128,33 @@ namespace Pussel
                 }
                 if (isGuessCorrect == false)
                 {
+                    
                     count++;
                     System.Console.WriteLine(
                         $"Incorrect guess! You have {10 - count} guesses left."
                     );
                 }
-                if (count == 2)
+                if (count == 2 && secretCount == 0)
                 {
+                    secretCount ++;
                     System.Console.WriteLine(
                         "You hear a sound, it sounds like it´s coming from within the walls. A sort of hissing.."
                     );
                 }
-                if (count == 3)
-                {
+                if (count == 3 && secretCount == 1)
+                {secretCount ++;
                     System.Console.WriteLine(" In the corner of your eye you see something moving. You look back over your shoulder, it just the corpse.. was it moving?");
                 }
 
-                if (count == 4)
-                {
+                if (count == 4 && secretCount == 2)
+                {secretCount ++;
                     System.Console.WriteLine(
                         "The sounds keep getting louder, again you see something moving.. you look back, how? The corpse is sitting up, it's smashed face hanging. Is it looking at you? "
                     );
                 }
 
-                if (count == 5)
-                {
+                if (count == 5 && secretCount == 3)
+                {secretCount ++;
                     System.Console.WriteLine(
                         "The corpse starts taunting you, 'you disgust me' 'think there's an end to this? There's no point in what your doing.'"
                     );
@@ -160,18 +163,18 @@ namespace Pussel
                     );
                 }
 
-                if (count == 6)
-                {
+                if (count == 6 && secretCount == 4)
+                {secretCount ++;
                     System.Console.WriteLine("The sound escalate, the sound is defening");
                 }
 
-                if (count == 8)
-                {
+                if (count == 8 && secretCount == 5)
+                {secretCount ++;
                     System.Console.WriteLine("The corpse, keeps taunting, ");
                 }
 
-                if (count >= 10)
-                {
+                if (count >= 10  && secretCount == 6)
+                {secretCount ++;
                     System.Console.WriteLine(
                         "The sounds, THE MAN, it wont leave you alone, you start clawing at your ears, 'STOP!', but it wont stop it escalates, flimmers, you cant breath, it has to stop."
                     );

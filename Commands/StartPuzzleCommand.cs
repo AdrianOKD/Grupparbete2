@@ -8,19 +8,19 @@ using GreenRooms;
 
 namespace Grupparbete2.Commands
 {
-     public class StartOrangePussleCommand : Command
+     public class StartOrangePuzzleCommand : Command
         {
             
-            public StartOrangePussleCommand() : base("solve")
+            public StartOrangePuzzleCommand() : base("solve")
             {
             }
 
         public override void Execute(string argument)
         {
-            if (argument.Contains("pussle"))
+            if (argument.Contains("puzzle"))
             {
                 OrangeRoom orangeRoom = new OrangeRoom();
-                orangeRoom.StartPussle();
+                orangeRoom.StartPuzzle();
                 return;
 
             }
