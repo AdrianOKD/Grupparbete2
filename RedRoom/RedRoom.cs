@@ -35,7 +35,7 @@ public class RedRoom
     {
         if (string.IsNullOrWhiteSpace(input))
         {
-            Console.WriteLine("Please enter a valid command.");
+            Console.WriteLine("Please enter a valid command. Use 'help' for suggested commands.");
             return false;
         }
 
@@ -68,8 +68,7 @@ public class RedRoom
 
         // Introduction to the red room
 
-        Console.WriteLine($"Scanning the room for the source, the dim light only reveals a small platform in the middle, upon which {Colours.RED}three wooden jugs{Colours.NORMAL} are placed.");
-        Console.WriteLine("And as the door slams shut behind you, steel bars locking it firmly in place, the mechanical voice speaks to you once more... ");
+        Console.WriteLine($"As you enter the red {Colours.CYAN}room{Colours.NORMAL}, the {Colours.CYAN}door{Colours.NORMAL} slams shut behind you.");
         Console.ReadLine();
 
 
@@ -77,7 +76,7 @@ public class RedRoom
 
         while (!redPuzzleStarted)
         {
-            Console.Write("Enter command: ");
+            Console.Write($"{Colours.BOLD}Enter command:{Colours.NOBOLD} ");
             string input = Console.ReadLine()?.ToLower() ?? "";
             redPuzzleStarted = ExecuteCommand(input);
         }
@@ -88,15 +87,17 @@ public class RedRoom
 
     public void StartPuzzle()
     {
-
+        Console.WriteLine("");
+        Console.WriteLine("The mechanical voice from before suddenly speaks out to you.");
+        Console.WriteLine("");
         Console.WriteLine($"\"Welcome to my next little challenge for you, limbwielder. Here are three containers with {Colours.RED}3, 5 and 8 liters{Colours.NORMAL} in capacity respectively.");
         Console.WriteLine($"Use your defunct, soon-to-be-rotting head organ to figure out a way to {Colours.RED}fill the largest jug to exactly the halfway mark{Colours.NORMAL}.");
         Console.WriteLine($"If you can guarantee the right amount without any room for filthy human guesswork, the path back towards safety will open up for you...\"");
         Console.ReadLine();
         Console.WriteLine("\"Something to fill them with? Patience, you worthless sack of meat! They were just about to join us...\"");
         Console.ReadLine();
-        Console.WriteLine("You look down as slightly luminescent, crimson fluid flows up from beneath the floor tiles and soaks your bare feet.");
-        Console.WriteLine("Its unnatural glow and warmth on your naked flesh offers you no solace. No, only its exact opposite.");
+        Console.WriteLine($"You look down as slightly luminescent, {Colours.RED}crimson fluid flows up from beneath the floor tiles{Colours.NORMAL} and soaks your bare feet.");
+        Console.WriteLine("Its unnatural glow and warmth on your naked flesh offers you no solace. No, only its exact opposite!");
         Console.WriteLine("The smell inside the room intensifies to the point of being unbearable. You know what this is, but you refuse to even let the word enter your mind.");
         Console.ReadLine();
         Console.WriteLine("\"Meet the final offering of all who met their end here before you. Use the life essence they gifted in failure to stumble your own crooked way towards freedom.");
@@ -105,7 +106,7 @@ public class RedRoom
         Console.WriteLine("As the mechanical voice chuckles coldly and fades into silence, you desperately wade through the thick liquid to the platform in the center.");
         Console.WriteLine($"The vile fluid rises more quickly with each passing second. How many souls met their end here? Either way, {Colours.RED}time is not your ally{Colours.NORMAL}.");
         Console.WriteLine("Your final sliver of confidence drains away as you now take notice of the room's agonizingly low ceiling.");
-        Console.WriteLine("Within mere minutes, you will drown, another victim of the room's sanguine flood...");
+        Console.WriteLine($"Within mere minutes, {Colours.RED}you will drown{Colours.NORMAL}, another victim of the room's sanguine flood...");
         Console.ReadLine();
 
         startTime = DateTime.Now;
