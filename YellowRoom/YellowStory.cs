@@ -63,7 +63,7 @@ public void StartStory()
         }
 
         Console.WriteLine("You notice a hammer in front of you. To pick it up, use 'pickup hammer'.");
-        while (!commands.WiresCut)
+        while (!Commands.WiresCut)
         {
             Console.WriteLine("\nWhat would you like to do? (type 'help' for commands)");
             string action = Console.ReadLine()!.ToLower();
@@ -142,6 +142,7 @@ public void StartStory()
                     );
                     Console.WriteLine("Congratulations, you've escaped! You earned a 'Yellow Key'");
                     MainRoom.hasYellowKey = true;
+                    Commands.WiresCut = false;
                     MainRoom mainRoom = new MainRoom();
                     mainRoom.MainRoomStart();
                 }
