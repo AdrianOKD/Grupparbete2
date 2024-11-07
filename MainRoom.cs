@@ -26,7 +26,7 @@ namespace Grupparbete2
 
         //    2. Vem gjorde vad? se ovan
 
-        //    3. Hur hanterade ni kommunikation? Avstämningar i dscord veckovis 1-2 ggr
+        //    3. Hur hanterade ni kommunikation? Avstämningar i discord veckovis 1-2 ggr
 
         // 3. Reflektion
 
@@ -35,9 +35,6 @@ namespace Grupparbete2
         //    2. Vad var bra gjort? Många bra idéer
 
         //    3. Vad tar ni med er till nästa projekt?
-
-
-
 
         public static bool hasOrangeKey = false;
         public static bool hasGreenKey = false;

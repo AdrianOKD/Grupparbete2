@@ -6,6 +6,7 @@ public class RedRoom
 {
     private List<Command> commands;
     public bool hasRedKey;
+
     private int jug3 = 0;
     private int jug5 = 0;
     private int jug8 = 0;
@@ -13,8 +14,6 @@ public class RedRoom
     private int maxJug5 = 5;
     private int maxJug8 = 8;
 
-
-    // Time limit for the puzzle
     private int timeLimit = 180;
     private DateTime startTime;
 
@@ -28,7 +27,6 @@ public class RedRoom
                 new StartRedPuzzleCommand(),
             };
     }
-
 
 
     private bool ExecuteCommand(string input)
@@ -84,7 +82,6 @@ public class RedRoom
         // Start the puzzle and return the result
     }
 
-
     public void StartPuzzle()
     {
         Console.WriteLine("");
@@ -109,10 +106,10 @@ public class RedRoom
         Console.WriteLine($"Within mere minutes, {Colours.RED}you will drown{Colours.NORMAL}, another victim of the room's sanguine flood...");
         Console.ReadLine();
 
-        startTime = DateTime.Now;
+        Console.WriteLine($"Focusing on the task at hand, You estimate that {Colours.RED}you have about 3 minutes{Colours.NORMAL} before the room is entirely filled and your grim fate is sealed.");
+        Console.ReadLine();
 
-        Console.WriteLine($"{Colours.CYAN}Focusing on the task at hand, You estimate that you have about 3 minutes before the room is entirely filled and your grim fate is sealed.");
-        Console.WriteLine($"{Colours.BOLD}You must measure exactly 4 liters in the 8-liter container to survive.{Colours.NOBOLD}{Colours.NORMAL}");
+        startTime = DateTime.Now;
 
         // Main game loop
         while (jug8 != 4 && !TimeIsUp())
@@ -121,10 +118,10 @@ public class RedRoom
             string action = GetUserAction();
             HandleAction(action);
 
-            if (jug8 == 4 && BloodInsanity())
+            if (jug8 == 4)
             {
-
-                Console.WriteLine("\nYou've successfully measured exactly 4 liters into the large jug!");
+                Console.Clear();
+                Console.WriteLine($"\n{Colours.BOLD}You've successfully measured exactly 4 liters into the large jug!{Colours.NOBOLD}");
                 Console.WriteLine("Your panicked breaths echo through the room as liquid slowly starts draining out of the floor tiles.");
                 Console.ReadLine();
                 Console.WriteLine("\"You like cutting things close. Perhaps you enjoyed the ambiance of the red room, or perhaps you simply wanted to soak in the hot bath with your new friends?");
@@ -137,20 +134,6 @@ public class RedRoom
                 Console.WriteLine("Even as you rush to close the door and silence the voices, they seem to be following you in whispering wails. Following the blood that now soaks your bones.");
                 Console.ReadLine();
                 Console.WriteLine("You fight desperately to keep hold of your sanity as cold mechanical laughter joins in with the voices.");
-                MainRoom.hasRedKey = true;
-                break;
-            }
-
-            if (jug8 == 4)
-            {
-
-                Console.WriteLine("\nYou've successfully measured exactly 4 liters into the large jug! You hear a loud clonking sound and the liquid slowly starts draining out of the floor tiles as you sigh in relief.");
-                Console.ReadLine();
-                Console.WriteLine("\"I really didn't expect you to succeed. A challenge worthy of a toddler perhaps, but I find that emotional creatures like yours can never be overestimated enough.");
-                Console.WriteLine("But you, meatpile, seem to be on the right track to freedom. Grab the key from the large container and move on to greater things.\"");
-                Console.ReadLine();
-                Console.WriteLine("As you reach into the jug, you're surprised to find a small key at the bottom. There must have been some hidden compartment to it.");
-                Console.WriteLine("You grab the key and return to the main room, relieved to be one step closer to escaping this horrible place.");
                 MainRoom.hasRedKey = true;
                 break;
             }
@@ -169,7 +152,9 @@ public class RedRoom
     // Show current jug state
     private void DisplayState()
     {
-        Console.WriteLine($"\n{Colours.CYAN}Current jug states:");
+        Console.Clear();
+        Console.WriteLine($"{Colours.BOLD}{Colours.CYAN}You must measure exactly 4 liters in the 8-liter container to survive.{Colours.NOBOLD}");
+        Console.WriteLine($"\nCurrent jug states:");
         Console.WriteLine($"3-liter jug: {jug3} liters");
         Console.WriteLine($"5-liter jug: {jug5} liters");
         Console.WriteLine($"8-liter jug: {jug8} liters{Colours.NORMAL}");
@@ -305,22 +290,7 @@ public class RedRoom
         }
     }
 
-    // Check time limit and handle insanity
-
-    private bool BloodInsanity()
-    {
-        double elapsedTime = (DateTime.Now - startTime).TotalSeconds;
-
-        if (elapsedTime >= 120)
-        {
-            return true;
-        }
-
-        else
-        {
-            return false;
-        }
-    }
+    // Check time limit
     private bool TimeIsUp()
     {
         return (DateTime.Now - startTime).TotalSeconds >= timeLimit;

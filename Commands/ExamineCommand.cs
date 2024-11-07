@@ -91,7 +91,7 @@ namespace Grupparbete2.Commands
             {
                 Console.WriteLine("");
                 Console.WriteLine(
-                    $"As your gaze travels along the shapes of the jugs and colour, you notice markings on their sides. '{Colours.RED}3{Colours.NORMAL}', '{Colours.RED}5{Colours.NORMAL}, and '{Colours.RED}8{Colours.NORMAL}'."
+                    $"As your gaze travels along the shapes of the jugs and colour, you notice markings on their sides. '{Colours.RED}3{Colours.NORMAL}', '{Colours.RED}5{Colours.NORMAL}', and '{Colours.RED}8{Colours.NORMAL}'."
                 );
                 Console.WriteLine(
                     "You reach out your finger and touch their surface for a brief moment. It's strangely sticky and slightly warm to the touch."
