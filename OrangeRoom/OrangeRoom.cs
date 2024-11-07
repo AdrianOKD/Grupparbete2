@@ -6,14 +6,19 @@ namespace Pussel
 {
     public class OrangeRoom
     {
-     
-      
         private InventoryPlayer inventory;
         private List<Command> commands;
         bool wall = false;
         bool chest = false;
         bool lookAround = false;
+        bool diary = false;
         public static bool orangeRoomChoice = true;
+
+        public void ClearTerminal()
+        {
+            Console.Clear();
+            System.Console.WriteLine("\n\n");
+        }
 
         public OrangeRoom()
         {
@@ -33,29 +38,29 @@ namespace Pussel
 
         private void ExecuteCommand(string input)
         {
-            if(input.Equals(null))
+            if (input.Equals(null))
             {
                 System.Console.WriteLine("Please write a new command");
                 return;
             }
             string[] parts = input.Split(' ', 2);
             string commandName = parts[0].ToLower();
-            
+
             foreach (var command in commands)
             {
                 if (command.Name == commandName)
                 {
-                    command.Execute(parts.Length > 1 ? parts[1] : "");
+                    command.Execute(parts.Length > 1 ? parts[1].ToLower() : "");
                     return;
                 }
             }
         }
-        
 
         public void OrangeRoomGame()
         {
+            ClearTerminal();
             System.Console.WriteLine(
-                $"{Colours.ORANGE}As you step into the dimly lit room, the heavy wooden door slams shut behind you, the sound echoing through the cold, damp air. "
+                $"As you step into the dimly lit room, the heavy wooden door slams shut behind you, the sound echoing through the cold, damp air. "
             );
             //Thread.Sleep(4000);
             Console.WriteLine(
@@ -65,9 +70,10 @@ namespace Pussel
             System.Console.WriteLine("Ah, Nice choice of room meatbag.. ");
             System.Console.WriteLine("");
             //Thread.Sleep(4000);
-            System.Console.WriteLine($"system: What would you like to do? for options write Help{Colours.NORMAL}");
+            System.Console.WriteLine($"system: What would you like to do? for options write Help");
             //Thread.Sleep(4000);
-           
+
+
 
             while (orangeRoomChoice)
             {
@@ -85,41 +91,47 @@ namespace Pussel
 
         public void Hint()
         {
+            ClearTerminal();
             System.Console.WriteLine("You ask for Hint");
             if (lookAround == false)
             {
-                System.Console.WriteLine($"Use your eyes meatbag.. {Colours.BOLD}Look Around!{Colours.NOBOLD}");
+                System.Console.WriteLine(
+                    $"{Colours.GREY}Use your eyes meatbag.. {Colours.BOLD}{Colours.BLUE}Look Around!{Colours.NOBOLD}{Colours.NORMAL}"
+                );
             }
             if (lookAround == true)
-           {
-            System.Console.WriteLine("Why are you asking for hints? You´ve look around the room, you should try and examine shit");
-           } 
+            {
+                System.Console.WriteLine(
+                    $"{Colours.GREY}Why are you asking for hints? You´ve looked around the room, you should try and examine {Colours.NORMAL}"
+                );
+            }
         }
 
         //Skriv Look Around
         public void LookAround()
         {
+            ClearTerminal();
 
             System.Console.WriteLine("You look around the room");
             System.Console.WriteLine(
-                "To your left, you notice a series of cryptic symbols etched into the wall, the letters twisted and distorted as if written in a madman's hand."
+                $"To your left, you notice a series of cryptic symbols etched into the {Colours.RED}wall{Colours.NORMAL}, the letters twisted and distorted as if written by a madman's hand."
             );
             System.Console.WriteLine(
                 "The words seem to shift and writhe on the surface, like living things."
             );
             System.Console.WriteLine("");
             System.Console.WriteLine(
-                "underneath the letters a body, bent over and resting upon its head"
+                $"underneath the letters a {Colours.RED}body{Colours.NORMAL}, bent over and it's face resting agains the ground"
             );
             System.Console.WriteLine("");
             System.Console.WriteLine(
-                "Too your right , a small crooked bookshelf lean against the wall, its wooden shelves bowed under the weight of dusty, leatherbound tomes"
+                $"Too your right , a small crooked {Colours.RED}bookshelf{Colours.NORMAL} lean against the wall, its wooden shelves bowed under the weight of dusty, leatherbound tomes"
             );
             System.Console.WriteLine();
             System.Console.WriteLine(
-                "In the center of the room you see some kinde of wooden chest, something is reflecting the light, drawing you in"
+                $"In the center of the room you see some kinde of {Colours.RED}chest{Colours.NORMAL}, altough dusty something underneath glimmers, drawing you in"
             );
-            System.Console.WriteLine("\n\n");
+            System.Console.WriteLine(" ");
             System.Console.WriteLine("Press any key to continue..");
             Console.ReadLine();
         }
@@ -132,7 +144,7 @@ namespace Pussel
             );
             System.Console.WriteLine("Still, you muster courage and walk up to it.");
             System.Console.WriteLine(
-                "Coming closer you notice that the chest actually doesnt seem that old, compared to the rest of the room, this one seem like its been looked after. "
+                "Coming closer you notice that the chest compared to the rest of the room doesn't seem that old, compared to the rest of the room, the chest seems to be looked after. "
             );
             System.Console.WriteLine(
                 "You lean in, its a metal chest with gold engravings, with what seems like scrambled letters"
@@ -150,25 +162,31 @@ namespace Pussel
             if (wall == false)
             {
                 System.Console.WriteLine("It feels like you´ve seen these letters somewhere.. ");
+                System.Console.WriteLine("Maybe you should look around the room some more");
             }
         }
 
         //Skriv Examine Body
         public void ExamineBody()
         {
-            string RED = Console.IsOutputRedirected ? "" : "\x1b[91m";
-            string NORMAL = Console.IsOutputRedirected ? "" : "\x1b[39m";
             System.Console.WriteLine("You walk up to examine the body..");
             System.Console.WriteLine(
                 "as you get closer you the smell expose that this corpse has been here for some time."
             );
             System.Console.WriteLine(
-                "You turn the corpse face up. What you see is something that ones look like a face, now smashed and twisted.. "
+                "You turn the corpse face up. What you see is something that ones looked like a face, now more resembling a smashed witherd pumpkin.. "
             );
-            System.Console.WriteLine(
-                "Looking closer you notice that the body is clutching something."
-            );
-            System.Console.WriteLine($"It looks like some kind of {RED}diary{NORMAL}");
+
+            if (diary == false)
+            {
+                 System.Console.WriteLine(
+                    "Looking closer you notice that the body is clutching something."
+                );
+                System.Console.WriteLine(
+                    $"It looks like some kind of {Colours.CYAN}diary{Colours.NORMAL}"
+                );
+               
+            }
         }
 
         //Skriv Examine Bookshelf
@@ -183,22 +201,23 @@ namespace Pussel
         }
 
         public void PickupDiary()
-        {
-            System.Console.WriteLine("You bend down to pick up the diary");
-            System.Console.WriteLine(
-                "The corpse degraded by time still holds the book in a fast grip.. "
-            );
-            System.Console.WriteLine(
-                "After some tumbling you manage to wrenge the diary from its clutches."
-            );
-            System.Console.WriteLine(
-                "You pick it up , dust it of and put the diary in your inventory"
-            );
-        }
-
-        public void UseBook()
-        {
-            System.Console.WriteLine("You open up the  ");
+        { if(diary == false)
+            {
+                System.Console.WriteLine("You bend down to pick up the diary");
+                System.Console.WriteLine(
+                    "The corpse degraded by time still holds the book in a fast grip.. "
+                );
+                System.Console.WriteLine(
+                    "After some tumbling you manage to wrenge the diary from its clutches."
+                );
+                System.Console.WriteLine(
+                    "You pick it up , dust it of and put the diary in your inventory"
+                );
+            }
+            else
+            {
+                System.Console.WriteLine("You are sure you remember yourself picking up the diary..");
+            }
         }
 
         public void UseDiary()
@@ -211,15 +230,16 @@ namespace Pussel
             System.Console.WriteLine(
                 "He describes the coming pussle, he tried to figure out the meaning"
             );
-            System.Console.WriteLine("A-Z and D-W");
+            System.Console.WriteLine("A-Z, D-W, M-N and Y-B");
             System.Console.WriteLine("But what does it mean?");
+            
         }
 
         //Skriv Look Wall
-        public void LookWall()
+        public void ExamineWall()
         {
-            
             wall = true;
+            //This if statement is to check if the wall=true works.
             if (wall == true)
             {
                 System.Console.WriteLine("Wall is set to true");
@@ -231,13 +251,6 @@ namespace Pussel
             System.Console.WriteLine(
                 "System: Would you like to try and read out what it says? if so write Read Word"
             );
-        }
-
-        public void pickupKey()
-        {
-            // string pickupKey = "key";
-            //pickupCommand.Execute(pickupKey);
-            System.Console.WriteLine("You bend over and pick up the key");
         }
 
         public void StartPussle()

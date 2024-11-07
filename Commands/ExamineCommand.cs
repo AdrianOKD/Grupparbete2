@@ -22,8 +22,6 @@ namespace Grupparbete2.Commands
             {
                 Console.WriteLine($"You examine the {argument}. ");
                 orangeRoom.ExamineChest();
-                Console.ReadKey();
-                return;
             }
 
             if (argument.Equals("bookshelf"))
@@ -36,9 +34,14 @@ namespace Grupparbete2.Commands
                 System.Console.WriteLine($"You choose to examine the {argument}");
                 orangeRoom.ExamineBody();
             }
+            if (argument.Equals("wall"))
+            {
+                System.Console.WriteLine($"You choose to examine the {argument}");
+                orangeRoom.ExamineWall();
+            }
             else
             {
-                Console.WriteLine("Objektet finns inte.");
+                Console.WriteLine("Specify what object you want to examine.");
             }
         }
     }

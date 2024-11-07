@@ -14,12 +14,10 @@ namespace Pussel
 
         public Cryptogram()
         {
-            //player = new Player();
             commands = new List<Command>
             {
                 new ExamineOrangeCommand(),
                 new InventoryCommand(inventory!),
-                //new PickupCommand(player),
             };
         }
 
@@ -38,7 +36,6 @@ namespace Pussel
             }
         }
 
-        //Gör en bok som innehåller letråd till pusslet, tex. en av orden i meningen för att kunna lista ut hur pusslet fungerar, om det faktiska order är Hello my friends! så kan boken innehålla: ______ my _____!
         public void CryptoPussle()
         {
             Dictionary<char, char> AtbashCipher = new Dictionary<char, char>()
@@ -110,15 +107,14 @@ namespace Pussel
 
             int count = 0;
             bool puzzleLoop = true;
-            string str = new string(cryptoSentence);
-            System.Console.WriteLine(str);
+            // string str = new string(cryptoSentence);
+            // System.Console.WriteLine(str);
 
             while (puzzleLoop)
             {
                 Console.WriteLine(cryptoSentence);
 
                 string playerInput = Console.ReadLine()!;
-                System.Console.WriteLine(count);
                 char playerGuess = char.ToUpper(playerInput[0]);
                 bool isGuessCorrect = false;
                 for (int j = 0; j < cryptoSentence.Length; j++)
@@ -126,7 +122,6 @@ namespace Pussel
                     if (originalCryptoSentence[j].Equals(AtbashCipher[playerGuess]))
                     {
                         cryptoSentence[j] = playerGuess;
-                        Console.WriteLine(cryptoSentence);
                         isGuessCorrect = true;
                     }
                 }
@@ -140,8 +135,12 @@ namespace Pussel
                 if (count == 2)
                 {
                     System.Console.WriteLine(
-                        "You hear a thug sound, it sounds like it´s coming from within the walls. In the corner of your eye you see something moving. You look back over your shoulder, it just the corpse.. was it moving?"
+                        "You hear a sound, it sounds like it´s coming from within the walls. A sort of hissing.."
                     );
+                }
+                if (count == 3)
+                {
+                    System.Console.WriteLine(" In the corner of your eye you see something moving. You look back over your shoulder, it just the corpse.. was it moving?");
                 }
 
                 if (count == 4)
@@ -187,7 +186,7 @@ namespace Pussel
                         " Just one more.. In your delierius state you smash your head one last time against the gronund. "
                     );
                     System.Console.WriteLine("It's finally over..");
-                    puzzleLoop = false;
+                    Console.WriteLine($"{Colours.BOLD}{Colours.RED}GAME OVER{Colours.NOBOLD}{Colours.NORMAL}");
                     MainRoom.playerFailRoom = true;
                     OrangeRoom.orangeRoomChoice = false;
                     break;
@@ -197,9 +196,14 @@ namespace Pussel
 
                 if (cryptoStr.ToUpper() == originalSentence.ToUpper())
                 {
+                    Console.WriteLine(cryptoSentence);
                     System.Console.WriteLine("You did it!");
+                    System.Console.WriteLine(
+                        "The sound and mocking dissapates.. you open the chest and find a key."
+                    );
+                    MainRoom.hasOrangeKey = true;
+                    OrangeRoom.orangeRoomChoice = false;
 
-                    puzzleLoop = false;
                     break;
                 }
             }

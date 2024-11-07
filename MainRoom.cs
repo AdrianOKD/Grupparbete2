@@ -14,16 +14,14 @@ namespace Grupparbete2
 {
     public class MainRoom
     {
-         private InventoryPlayer inventory;
         private List<Command> commands;
       
 
         public void MainRoomCommands()
         {
-              inventory = new InventoryPlayer();
             commands = new List<Command>
             {
-                new InventoryCommand(inventory),
+                new HelpMainRoomCommand(),
             };
             
 
@@ -65,18 +63,38 @@ namespace Grupparbete2
             GreenRoom greenRoom = new GreenRoom();
             RedRoom redRoom = new RedRoom();
             MasterControll blueRoom = new MasterControll();
+            SanityEnding sanityEnding = new SanityEnding();
 
             Story story = new Story();
 
             System.Console.WriteLine("You wake up in 'The main room'");
+            System.Console.WriteLine("System: Write Choose Room");
 
 
      while (!playerFailRoom)
             {
+                System.Console.WriteLine("You are in main room");
+                if (hasOrangeKey)
+                {
+                Console.WriteLine("Orange Key");
+                }
+                if (hasGreenKey)
+                {
+                Console.WriteLine("Green Key");
+                }
                 if (hasRedKey)
-                    {
-                        Console.WriteLine("Red Key");
-                    }
+                {
+                Console.WriteLine("Red Key");
+                }
+                if (hasBlueKey)
+                {
+                Console.WriteLine("Blue Key");
+                }
+                if (hasYellowKey)
+                {
+                Console.WriteLine("Yellow key");
+                }
+
                 Console.Write("> ");
                 string input = Console.ReadLine()!;
 
@@ -89,26 +107,69 @@ namespace Grupparbete2
                         switch (choice)
                         {
                             case 1:
-                                orangeRoom.OrangeRoomGame();
+                            if (hasOrangeKey == false)
+                            {
+                               orangeRoom.OrangeRoomGame(); 
+                            }
+                            else
+                            {
+                                System.Console.WriteLine("The door wont budge");
+                            }
                                 break;
                             case 2:
-                                greenRoom.Start();
+                             if (hasGreenKey == false)
+                            {
+                              greenRoom.Start();
+                            }
+                            else
+                            {
+                                System.Console.WriteLine("The door wont budge");
+                            }
                                 break;
                             case 3:
-                                redRoom.Start();
+                             if (hasRedKey == false)
+                            {
+                              redPuzzle.Start();
+                            }
+                            else
+                            {
+                                System.Console.WriteLine("The door wont budge");
+                            }
                                 break;
                             case 4:
-                                blueRoom.Start();
+                             if (hasBlueKey == false)
+                            {
+                               blueRoom.Start();
+                            }
+                            else
+                            {
+                                System.Console.WriteLine("The door wont budge");
+                            }
                                 break;
                             case 5:
-                                story.StartStory();
+                             if (hasYellowKey == false)
+                            {
+                              story.StartStory();
+                            }
+                            else
+                            {
+                                System.Console.WriteLine("The door wont budge");
+                            }
+                                
                                 break;
                             case 6:
-                                // Check if the player has all keys to exit
-                                // This logic needs to be implemented
+                            if(hasBlueKey == true && hasGreenKey == true && hasOrangeKey == true && hasRedKey == true && hasYellowKey)
+                            {
+                                sanityEnding.Start();
+
+                            }
+                            else
+                            {
+                                System.Console.WriteLine("You dont have all the required keys..");
+                            }
                                 break;
                             case 7:
-                                Console.WriteLine("Weakling... Exiting Game");
+                                Console.WriteLine("Weakling... you fall into a deep slumber..");
                                 playerFailRoom = false;
                                 break;
                             default:
@@ -116,7 +177,7 @@ namespace Grupparbete2
                                 break;
                         }
                     }
-                    else
+                    else 
                     {
                         Console.WriteLine("Invalid input. Please enter a number.");
                     }

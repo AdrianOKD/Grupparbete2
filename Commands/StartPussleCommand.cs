@@ -8,8 +8,12 @@ using GreenRooms;
 
 namespace Grupparbete2.Commands
 {
-    public class StartOrangePussleCommand : Command
-    {
+     public class StartOrangePussleCommand : Command
+        {
+            
+            public StartOrangePussleCommand() : base("solve")
+            {
+            }
 
         public StartOrangePussleCommand() : base("start")
         {
