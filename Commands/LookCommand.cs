@@ -22,12 +22,7 @@ namespace Grupparbete2.Commands
                 orangeRoom.LookAround();
                 return;
             }
-            if (lowerArgument.Contains("wall"))
-            {
-                OrangeRoom orangeRoom = new OrangeRoom();
-                orangeRoom.LookWall();
-                return;
-            }
+          
         }
     }
 }

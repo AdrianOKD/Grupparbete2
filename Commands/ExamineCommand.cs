@@ -34,6 +34,11 @@ namespace Grupparbete2.Commands
                 System.Console.WriteLine($"You choose to examine the {argument}");
                 orangeRoom.ExamineBody();
             }
+            if (argument.Equals("wall"))
+            {
+                System.Console.WriteLine($"You choose to examine the {argument}");
+                orangeRoom.ExamineWall();
+            }
             else
             {
                 Console.WriteLine("Specify what object you want to examine.");

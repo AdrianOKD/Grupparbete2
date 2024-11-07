@@ -27,12 +27,8 @@ namespace Grupparbete2.Commands
             if (argument.Contains("diary"))
             {
                 orangeRoom.PickupDiary();
-                inventory.Pickup(argument);
-            }
-            if (argument.Contains("key"))
-            {
-                orangeRoom.pickupKey();
-                inventory.Pickup("Orange Key");
+                inventory.Pickup("Diary");
+               
             }
         }
     }

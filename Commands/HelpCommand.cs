@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Pussel;
 using Pussel.Commands;
 
-
 namespace Grupparbete2.Commands
 {
     public class HelpOrangeCommand : Command
@@ -16,14 +15,15 @@ namespace Grupparbete2.Commands
         public override void Execute(string argument)
         {
             Console.WriteLine("Tillgängliga kommandon:");
-            Console.WriteLine("- examine 'object': examines an object");
-            Console.WriteLine("- inventory: show what you have in your inventory");
+            Console.WriteLine($"-{Colours.RED} examine{Colours.NORMAL} 'object': examines an object.");
+            System.Console.WriteLine($"- {Colours.CYAN}Pickup{Colours.NORMAL} 'object': Picks up object.");
+            Console.WriteLine($"- {Colours.YELLOW}inventory{Colours.NORMAL}: show what you have in your inventory.");
             Console.WriteLine(
-                "- look 'argument': looks at a certain thing, such as a room or around etc."
+                $"- {Colours.BLUE}look{Colours.NORMAL} 'argument': looks at a certain thing, such as a room or around etc."
             );
-            System.Console.WriteLine("- use 'argument': uses an object in your inventory");
-            System.Console.WriteLine("- Hint 'arugment': Gives you a hint on what to do next ");
-            System.Console.WriteLine("");
+            System.Console.WriteLine($"- {Colours.GREEN}use{Colours.NORMAL} 'argument': uses an object in your inventory.");
+            System.Console.WriteLine($"- {Colours.MAGENTA}Hint{Colours.NORMAL} 'arugment': Gives you a hint on what to do next. ");
+           
         }
     }
 
@@ -60,7 +60,8 @@ namespace Grupparbete2.Commands
             Console.WriteLine("- Type 'Exit' or 'stop' to exit the green room");
         }
     }
-     public class HelpMainRoomCommand : Command
+
+    public class HelpMainRoomCommand : Command
     {
         public HelpMainRoomCommand()
             : base("help") { }
@@ -69,8 +70,6 @@ namespace Grupparbete2.Commands
         {
             Console.WriteLine("List of commands:");
             Console.WriteLine("- Type 'Choose Room' to pick a room that you want to enter");
-            Console.WriteLine("- Type 'inventory' to check if you have anything in your inventory");
-            
         }
     }
 }

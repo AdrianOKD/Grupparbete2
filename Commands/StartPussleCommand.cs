@@ -11,7 +11,7 @@ namespace Grupparbete2.Commands
      public class StartOrangePussleCommand : Command
         {
             
-            public StartOrangePussleCommand() : base("start")
+            public StartOrangePussleCommand() : base("solve")
             {
             }
 
