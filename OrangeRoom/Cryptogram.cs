@@ -4,9 +4,7 @@ using Pussel.Commands;
 
 namespace Pussel
 {
-    //Blir med och mer mad, drog från kropppen?
-    //Playern börjar se att kroppen twitchar,
-    //den börjar följa en med ögonen i rummet, mockar playern.
+   
     public class Cryptogram
     {
         private InventoryPlayer inventory;
@@ -103,111 +101,145 @@ namespace Pussel
             Console.WriteLine(
                 "The scrambled letters seem to form some kind of sentence, but what?"
             );
-            System.Console.WriteLine();
+            Console.WriteLine();
 
             int count = 0;
             int secretCount = 0;
             bool puzzleLoop = true;
-            // string str = new string(cryptoSentence);
-            // System.Console.WriteLine(str);
+            string str = new string(cryptoSentence);
 
             while (puzzleLoop)
             {
                 Console.WriteLine(cryptoSentence);
 
-                string playerInput = Console.ReadLine()!;
-                char playerGuess = char.ToUpper(playerInput[0]);
-                bool isGuessCorrect = false;
-                for (int j = 0; j < cryptoSentence.Length; j++)
+                try
                 {
-                    if (originalCryptoSentence[j].Equals(AtbashCipher[playerGuess]))
+                    string playerInput = Console.ReadLine()!;
+
+                    char playerGuess = char.ToUpper(playerInput[0]);
+
+                    bool isGuessCorrect = false;
+                    for (int j = 0; j < cryptoSentence.Length; j++)
                     {
-                        cryptoSentence[j] = playerGuess;
-                        isGuessCorrect = true;
+                        if (originalCryptoSentence[j].Equals(AtbashCipher[playerGuess]))
+                        {
+                            cryptoSentence[j] = playerGuess;
+                            isGuessCorrect = true;
+                        }
+                    }
+
+                    if (isGuessCorrect == false)
+                    {
+                        count++;
+                        Console.WriteLine($"Incorrect guess! You have {10 - count} guesses left.");
+                        Console.WriteLine("Press any key to continue");
+                        Console.ReadKey();
+                    }
+                    if (count == 2 && secretCount == 0)
+                    {
+                        secretCount++;
+                        Console.WriteLine(
+                            "You hear a sound, it sounds like it´s coming from within the walls. A sort of hissing.."
+                        );
+                        Console.WriteLine("Press any key to continue");
+                        Console.ReadKey();
+                    }
+                    if (count == 3 && secretCount == 1)
+                    {
+                        secretCount++;
+                        Console.WriteLine(
+                            " In the corner of your eye you see something moving. You look back over your shoulder, it just the corpse.. was it moving?"
+                        );
+                    }
+                    Console.WriteLine("Press any key to continue");
+                    Console.ReadKey();
+
+                    if (count == 4 && secretCount == 2)
+                    {
+                        secretCount++;
+                        Console.WriteLine(
+                            "The sounds keep getting louder, again you see something moving.. you look back, how? The corpse is sitting up, it's smashed face hanging. Is it looking at you? "
+                        );
+                           Console.WriteLine("Press any key to continue");
+                            Console.ReadKey();
+                    }
+
+                    if (count == 5 && secretCount == 3)
+                    {
+                        secretCount++;
+                        Console.WriteLine(
+                            "The corpse starts taunting you, 'you disgust me' 'think there's an end to this? There's no point in what your doing.'"
+                        );
+                        Console.WriteLine(
+                            "The sounds ecoing in your head, it keeps getting louder..."
+                        );
+                         Console.WriteLine("Press any key to continue");
+                         Console.ReadKey();
+                    }
+
+                    if (count == 6 && secretCount == 4)
+                    {
+                        secretCount++;
+                        Console.WriteLine("The sound escalate, the sound is defening");
+                    }
+                    Console.WriteLine("Press any key to continue");
+                    Console.ReadKey();
+
+                    if (count == 8 && secretCount == 5)
+                    {
+                        secretCount++;
+                        Console.WriteLine("The corpse, keeps taunting, ");
+                    }
+                    Console.WriteLine("Press any key to continue");
+                    Console.ReadKey();
+
+                    if (count >= 10 && secretCount == 6)
+                    {
+                        secretCount++;
+                        Console.WriteLine(
+                            "The sounds, THE MAN, it wont leave you alone, you start clawing at your ears, 'STOP!', but it wont stop it escalates, flimmers, you cant breath, it has to stop."
+                        );
+                        Console.WriteLine(
+                            "You start smashing your head agains the ground, 'make it stop!'"
+                        );
+                        System.Console.WriteLine("Thunk.. Thunk.. ");
+                        System.Console.WriteLine(
+                            "The noice starts to dissepate, yes finally, THUNK THUNK"
+                        );
+                        System.Console.WriteLine(
+                            " Just one more.. In your delierius state you smash your head one last time against the gronund. "
+                        );
+                        System.Console.WriteLine("It's finally over..");
+                        Console.WriteLine(
+                            $"{Colours.BOLD}{Colours.RED}GAME OVER{Colours.NOBOLD}{Colours.NORMAL}"
+                        );
+                        Console.ReadLine();
+                        MainRoom.playerFailRoom = true;
+                        OrangeRoom.orangeRoomChoice = false;
+                        break;
+                    }
+
+                    string cryptoStr = new string(cryptoSentence);
+
+                    if (cryptoStr.ToUpper() == originalSentence.ToUpper())
+                    {
+                        Console.WriteLine(cryptoSentence);
+                        System.Console.WriteLine("You did it!");
+                        System.Console.WriteLine(
+                            "The sound and mocking dissapates.. you open the chest and find a key.\n"
+                        );
+                        System.Console.WriteLine("Press any to continue..");
+                        Console.ReadLine();
+
+                        MainRoom.hasOrangeKey = true;
+                        OrangeRoom.orangeRoomChoice = false;
+
+                        break;
                     }
                 }
-                if (isGuessCorrect == false)
+                catch
                 {
-                    
-                    count++;
-                    System.Console.WriteLine(
-                        $"Incorrect guess! You have {10 - count} guesses left."
-                    );
-                }
-                if (count == 2 && secretCount == 0)
-                {
-                    secretCount ++;
-                    System.Console.WriteLine(
-                        "You hear a sound, it sounds like it´s coming from within the walls. A sort of hissing.."
-                    );
-                }
-                if (count == 3 && secretCount == 1)
-                {secretCount ++;
-                    System.Console.WriteLine(" In the corner of your eye you see something moving. You look back over your shoulder, it just the corpse.. was it moving?");
-                }
-
-                if (count == 4 && secretCount == 2)
-                {secretCount ++;
-                    System.Console.WriteLine(
-                        "The sounds keep getting louder, again you see something moving.. you look back, how? The corpse is sitting up, it's smashed face hanging. Is it looking at you? "
-                    );
-                }
-
-                if (count == 5 && secretCount == 3)
-                {secretCount ++;
-                    System.Console.WriteLine(
-                        "The corpse starts taunting you, 'you disgust me' 'think there's an end to this? There's no point in what your doing.'"
-                    );
-                    System.Console.WriteLine(
-                        "The sounds ecoing in your head, it keeps getting louder..."
-                    );
-                }
-
-                if (count == 6 && secretCount == 4)
-                {secretCount ++;
-                    System.Console.WriteLine("The sound escalate, the sound is defening");
-                }
-
-                if (count == 8 && secretCount == 5)
-                {secretCount ++;
-                    System.Console.WriteLine("The corpse, keeps taunting, ");
-                }
-
-                if (count >= 10  && secretCount == 6)
-                {secretCount ++;
-                    System.Console.WriteLine(
-                        "The sounds, THE MAN, it wont leave you alone, you start clawing at your ears, 'STOP!', but it wont stop it escalates, flimmers, you cant breath, it has to stop."
-                    );
-                    System.Console.WriteLine(
-                        "You start smashing your head agains the ground, 'make it stop!'"
-                    );
-                    System.Console.WriteLine("Thunk.. Thunk.. ");
-                    System.Console.WriteLine(
-                        "The noice starts to dissepate, yes finally, THUNK THUNK"
-                    );
-                    System.Console.WriteLine(
-                        " Just one more.. In your delierius state you smash your head one last time against the gronund. "
-                    );
-                    System.Console.WriteLine("It's finally over..");
-                    Console.WriteLine($"{Colours.BOLD}{Colours.RED}GAME OVER{Colours.NOBOLD}{Colours.NORMAL}");
-                    MainRoom.playerFailRoom = true;
-                    OrangeRoom.orangeRoomChoice = false;
-                    break;
-                }
-
-                string cryptoStr = new string(cryptoSentence);
-
-                if (cryptoStr.ToUpper() == originalSentence.ToUpper())
-                {
-                    Console.WriteLine(cryptoSentence);
-                    System.Console.WriteLine("You did it!");
-                    System.Console.WriteLine(
-                        "The sound and mocking dissapates.. you open the chest and find a key."
-                    );
-                    MainRoom.hasOrangeKey = true;
-                    OrangeRoom.orangeRoomChoice = false;
-
-                    break;
+                    System.Console.WriteLine("Use valid signs");
                 }
             }
         }
@@ -215,6 +247,3 @@ namespace Pussel
 }
 
 
-//När counten är noll visa det riktiga ordet.
-//Gör en count
-//Gör så att man kan gissa hela ordet.
