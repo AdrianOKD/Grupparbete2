@@ -57,13 +57,11 @@ namespace Grupparbete2
 
             Story story = new Story();
 
-            System.Console.WriteLine("You wake up in 'The main room'");
-            System.Console.WriteLine("System: Write Choose Room");
 
             while (!playerFailRoom && !playerFinishedGame)
             {
                 Console.Clear();
-                System.Console.WriteLine("You are in main room");
+                System.Console.WriteLine($"You are in the main room. '{Colours.CYAN}Choose Room{Colours.NORMAL}' to proceed.");
 
                 if (hasBlueKey && hasGreenKey && hasOrangeKey && hasRedKey && hasYellowKey)
                 {
@@ -75,8 +73,10 @@ namespace Grupparbete2
 
                 if (input.Equals("Choose Room", StringComparison.OrdinalIgnoreCase))
                 {
+                    Console.WriteLine("");
                     Console.WriteLine(
-                        "Which door do you enter?\n 1. Orange Door\n 2. Green Door\n 3. Red Door\n 4. Blue Door\n 5. Yellow Door \n 6. Locked Door"
+
+                        $"Which door do you enter?\n {Colours.ORANGE}1. Orange Door{Colours.NORMAL}\n {Colours.GREEN}2. Green Door{Colours.NORMAL}\n {Colours.RED}3. Red Door{Colours.NORMAL}\n {Colours.BLUE}4. Blue Door{Colours.NORMAL}\n {Colours.YELLOW}5. Yellow Door{Colours.NORMAL} \n {Colours.GREY}6. Locked Door{Colours.NORMAL}"
                     );
                     input = Console.ReadLine();
                     if (int.TryParse(input, out int choice))
@@ -146,10 +146,10 @@ namespace Grupparbete2
                                 break;
                             case 6:
                                 if (
-                                    hasBlueKey == true
-                                    && hasGreenKey == true
-                                    && hasOrangeKey == true
-                                    && hasRedKey == true
+                                    hasBlueKey
+                                    && hasGreenKey
+                                    && hasOrangeKey
+                                    && hasRedKey
                                     && hasYellowKey
                                 )
                                 {
@@ -158,8 +158,9 @@ namespace Grupparbete2
                                 else
                                 {
                                     System.Console.WriteLine(
-                                        "You dont have all the required keys.."
+                                        "You dont have all the required keys..."
                                     );
+                                    Console.ReadKey();
                                 }
                                 break;
                             case 7:
