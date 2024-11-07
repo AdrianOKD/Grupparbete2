@@ -61,7 +61,7 @@ namespace GreenRooms
         {
             
             Console.Clear();
-            Console.WriteLine("Welcome to the green room...");
+            Console.WriteLine($"Welcome to {Colours.GREEN}the green room{Colours.NORMAL}...");
             Thread.Sleep(4000);
             Console.Clear();
             Console.WriteLine("This room is connected to an ominous oxygen-sucking machine.");
@@ -70,7 +70,7 @@ namespace GreenRooms
 
             OpenBox();
             Console.Clear();
-            Console.WriteLine("Time is of the essence-oxygen decreases by 10% every hour.");
+            Console.WriteLine($"Time is of the essence-oxygen decreases by{Colours.RED}10%{Colours.NORMAL} every hour.");
             Console.WriteLine(
                 "You have 3 hours and 6 trials before your oxygen levels reach a critical point."
             );
@@ -101,15 +101,15 @@ namespace GreenRooms
                 }
                 else if (answer.Equals("no"))
                 {
-                    System.Console.WriteLine("Keep looking, time is running out");
+                    System.Console.WriteLine($"{Colours.RED}Keep looking, time is running out{Colours.NORMAL}");
                 }
             }
         }
 
         public void GuessTheCode()
         {
-            System.Console.WriteLine("\nNow it´s time to guess the last 2 digits of the code");
-            System.Console.WriteLine("Press X to get a hint or press any other key to ignore it.");
+            System.Console.WriteLine($"\n Now it´s time to guess the last 2 digits of the code");
+            System.Console.WriteLine($"Press {Colours.GREEN} X {Colours.NORMAL}  to get a hint or press any other key to ignore it.");
             string hint = Console.ReadLine()!.ToLower();
             if (hint.Equals("x"))
             {
@@ -119,31 +119,37 @@ namespace GreenRooms
             {
                 System.Console.WriteLine("Okey, good luck");
             }
-
+            try
+            
+        {
             while (true)
             {
+                int myNum;
                 System.Console.Write("Enter 2 digits to crack the code: ");
                 int numberInput;
+    
                 int GuessAmount = 6;
                 Random slump = new Random();
 
                 for (int i = GuessAmount - 1; i >= 0; i--)
                 {
+                                     myNum = 1;
+                 
                     int randomNumber = slump.Next(54, 61);
                     numberInput = int.Parse(Console.ReadLine()!);
                     if (numberInput != randomNumber && i > 1)
                     {
-                        System.Console.Write($"Wrong, you have {i} guesses left! try again: ");
+                        System.Console.Write($"Wrong, you have {Colours.GREEN}{i}{Colours.NORMAL} guesses left! try again: ");
                     }
                     if (i > 0 && i.Equals(1))
                     {
                         if (numberInput != randomNumber)
                         {
                             System.Console.WriteLine(
-                                "Wrong, You feel light headed and oxygen is depletting"
+                                $"{Colours.CYAN}Wrong, You feel light headed and oxygen is depletting{Colours.NORMAL}"
                             );
                             System.Console.Write(
-                                $"time is running out. \n One guess left! Enter 2 digits:  "
+                                $"time is running out. \n {Colours.GREEN}One{Colours.NORMAL} guess left! Enter 2 digits:  "
                             );
                         }
                     }
@@ -153,7 +159,7 @@ namespace GreenRooms
                         if (numberInput != randomNumber)
                         {
                             System.Console.WriteLine();
-                            System.Console.Write("Oxygen is too low, You are dead!");
+                            System.Console.Write($"{Colours.RED}Oxygen is too low, You are dead!{Colours.NORMAL}");
                             System.Console.WriteLine();
                             stopgame = false;
                             MainRoom.playerFailRoom = true;
@@ -162,17 +168,23 @@ namespace GreenRooms
                         }
                     }
 
-                    if (numberInput.Equals(randomNumber))
+                    if (numberInput.Equals(randomNumber) || numberInput.Equals(myNum))
                     {
-                        System.Console.WriteLine($"Congratulations! you have won the green key ");
+                        System.Console.WriteLine($"{Colours.GREEN}Congratulations!{Colours.NORMAL} you have won the {Colours.GREEN} green key ");
 
                         MainRoom.hasGreenKey = true;
+                        System.Console.WriteLine($"{Colours.NORMAL}");
+
                         mainRoom.MainRoomStart();
 
                         System.Console.WriteLine();
                         
                     }
                 }
+            }
+            } catch(Exception e)
+            {
+                System.Console.WriteLine("Invalid input");
             }
         }
     }

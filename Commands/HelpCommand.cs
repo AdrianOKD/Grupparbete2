@@ -55,9 +55,8 @@ namespace Grupparbete2.Commands
         {
             Console.WriteLine("List of commands:");
             Console.WriteLine("- Type 'help' to View the menu");
-            Console.WriteLine("- Type 'room' To enter the green room  ");
-            Console.WriteLine("- Type 'inventory' check if you have the key");
-            Console.WriteLine("- Type 'Exit' or 'stop' to exit the green room");
+            Console.WriteLine("- Type 'green room' To enter the green room  ");
+            // Console.WriteLine("- Type 'Exit' or 'stop' to exit the green room");
         }
     }
 
