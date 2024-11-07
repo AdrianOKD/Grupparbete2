@@ -1,6 +1,8 @@
 using System;
+using Grupparbete2;
+using yellowRoom;
 
-    public class SanityEnding
+public class SanityEnding
     {
         public void Start()
 
@@ -50,6 +52,9 @@ using System;
         Console.WriteLine("Next time, perhaps, you will be more fortunate.");
         Console.ReadLine();
         Console.WriteLine("THE END");
+
+        MainRoom.playerFinishedGame = true;
+        Commands.WiresCut = true;
         }
 
     }
