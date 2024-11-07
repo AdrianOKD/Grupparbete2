@@ -1,8 +1,10 @@
-using System;
 using Grupparbete2;
+using Grupparbete2.Commands;
+using Pussel.Commands;
 
-public class RedPuzzle
+public class RedRoom
 {
+    private List<Command> commands;
     public bool hasRedKey;
     private int jug3 = 0;
     private int jug5 = 0;
@@ -11,20 +13,82 @@ public class RedPuzzle
     private int maxJug5 = 5;
     private int maxJug8 = 8;
 
+
     // Time limit for the puzzle
     private int timeLimit = 180;
     private DateTime startTime;
 
 
+    public RedRoom()
+    {
+        commands = new List<Command>
+            {
+                new HelpRedCommand(),
+                new ExamineRedCommand(),
+                new StartRedPuzzleCommand(),
+            };
+    }
+
+
+
+    private bool ExecuteCommand(string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            Console.WriteLine("Please enter a valid command.");
+            return false;
+        }
+
+        string[] parts = input.Split(' ', 2);
+        string commandName = parts[0].ToLower();
+        string args = parts.Length > 1 ? parts[1].ToLower() : "";
+
+        foreach (var command in commands)
+        {
+            if (command.Name == commandName)
+            {
+                command.Execute(args);
+                // Check if command was "start puzzle"
+                if (command is StartRedPuzzleCommand)
+                {
+                    return true; // Signal to start the timed puzzle
+                }
+                return false;
+            }
+        }
+
+        Console.WriteLine("Unknown command. Type 'help' to see available commands.");
+        return false;
+    }
+
     // Start the drowning trap puzzle
     public void Start()
 
     {
-       // Introduction to the red room
-        Console.WriteLine($"You enter the {Colours.RED}red room{Colours.NORMAL} and a foul, metallic but all-too-familiar scent fills your nostrils.");
+
+        // Introduction to the red room
+
         Console.WriteLine($"Scanning the room for the source, the dim light only reveals a small platform in the middle, upon which {Colours.RED}three wooden jugs{Colours.NORMAL} are placed.");
         Console.WriteLine("And as the door slams shut behind you, steel bars locking it firmly in place, the mechanical voice speaks to you once more... ");
         Console.ReadLine();
+
+
+        bool redPuzzleStarted = false;
+
+        while (!redPuzzleStarted)
+        {
+            Console.Write("Enter command: ");
+            string input = Console.ReadLine()?.ToLower() ?? "";
+            redPuzzleStarted = ExecuteCommand(input);
+        }
+
+        // Start the puzzle and return the result
+    }
+
+
+    public void StartPuzzle()
+    {
+
         Console.WriteLine($"\"Welcome to my next little challenge for you, limbwielder. Here are three containers with {Colours.RED}3, 5 and 8 liters{Colours.NORMAL} in capacity respectively.");
         Console.WriteLine($"Use your defunct, soon-to-be-rotting head organ to figure out a way to {Colours.RED}fill the largest jug to exactly the halfway mark{Colours.NORMAL}.");
         Console.WriteLine($"If you can guarantee the right amount without any room for filthy human guesswork, the path back towards safety will open up for you...\"");
@@ -68,25 +132,25 @@ public class RedPuzzle
                 Console.WriteLine("Your hands shake uncontrollably as you reach into the jug and where you could have sworn there was nothing before, you instead find a small red key.");
                 Console.WriteLine("You clutch onto it tight enough to hurt and stumble back through the now open door to the main room, almost soaked from head to toe in blood.");
                 Console.ReadLine();
-                Console.WriteLine("Once outside, all the voices hit you at once. A cacophony of tormented bellows and cries of despair coming from inside the red room."); 
+                Console.WriteLine("Once outside, all the voices hit you at once. A cacophony of tormented bellows and cries of despair coming from inside the red room.");
                 Console.WriteLine("Even as you rush to close the door and silence the voices, they seem to be following you in whispering wails. Following the blood that now soaks your bones.");
                 Console.ReadLine();
                 Console.WriteLine("You fight desperately to keep hold of your sanity as cold mechanical laughter joins in with the voices.");
-                hasRedKey = true;
+                MainRoom.hasRedKey = true;
                 break;
             }
 
-            else if (jug8 == 4)
-            {              
+            if (jug8 == 4)
+            {
 
                 Console.WriteLine("\nYou've successfully measured exactly 4 liters into the large jug! You hear a loud clonking sound and the liquid slowly starts draining out of the floor tiles as you sigh in relief.");
                 Console.ReadLine();
-                Console.WriteLine("\"I really didn't expect you to succeed. A challenge worthy of a toddler perhaps, but I find that emotional creatures like yours can never be overestimated enough."); 
+                Console.WriteLine("\"I really didn't expect you to succeed. A challenge worthy of a toddler perhaps, but I find that emotional creatures like yours can never be overestimated enough.");
                 Console.WriteLine("But you, meatpile, seem to be on the right track to freedom. Grab the key from the large container and move on to greater things.\"");
                 Console.ReadLine();
                 Console.WriteLine("As you reach into the jug, you're surprised to find a small key at the bottom. There must have been some hidden compartment to it.");
                 Console.WriteLine("You grab the key and return to the main room, relieved to be one step closer to escaping this horrible place.");
-                hasRedKey = true;
+                MainRoom.hasRedKey = true;
                 break;
             }
         }
@@ -95,7 +159,6 @@ public class RedPuzzle
         if (jug8 != 4 && TimeIsUp())
         {
             Console.WriteLine($"\n{Colours.RED}Blood has now filled the entire room. You try to hold on to your breath and claw your hands pathetically against the steel-barred door.");
-            Console.ReadLine();
             Console.WriteLine("It is obviously futile. Mechanical laughter is the last thing that fills your head as everything else fades into black...");
             Console.WriteLine($"{Colours.BOLD}GAME OVER{Colours.NOBOLD}{Colours.NORMAL}");
             MainRoom.playerFailRoom = true;

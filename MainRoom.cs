@@ -61,7 +61,7 @@ namespace Grupparbete2
             MainRoomCommands();
             OrangeRoom orangeRoom = new OrangeRoom();
             GreenRoom greenRoom = new GreenRoom();
-            RedPuzzle redPuzzle = new RedPuzzle();
+            RedRoom redRoom = new RedRoom();
             MasterControll blueRoom = new MasterControll();
             SanityEnding sanityEnding = new SanityEnding();
 

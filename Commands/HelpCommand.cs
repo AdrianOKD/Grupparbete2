@@ -61,15 +61,14 @@ namespace Grupparbete2.Commands
         }
     }
 
-    public class HelpMainRoomCommand : Command
+        public class HelpRedCommand : Command
     {
-        public HelpMainRoomCommand()
+        public HelpRedCommand()
             : base("help") { }
 
-        public override void Execute(string argument)
+        public override void Execute(string args)
         {
-            Console.WriteLine("List of commands:");
-            Console.WriteLine("- Type 'Choose Room' to pick a room that you want to enter");
+            Console.WriteLine("Available commands: 'examine', 'start puzzle', 'fill', 'pour', 'empty'.");
         }
     }
 }
