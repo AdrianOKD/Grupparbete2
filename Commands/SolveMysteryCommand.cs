@@ -1,14 +1,16 @@
-using Pussel.Commands;
 using HorrorEscape;
+using Pussel.Commands;
+
 namespace Grupparbete2.Commands
 {
-     public class SolveMysteryCommand : Command
+    public class SolveMysteryCommand : Command
     {
         private Player player;
 
         InventoryPlayer inventory;
 
-        public SolveMysteryCommand(Player player) : base("solve")
+        public SolveMysteryCommand(Player player)
+            : base("solve")
         {
             this.player = player;
         }
@@ -17,15 +19,16 @@ namespace Grupparbete2.Commands
         {
             if (argument == "find key")
             {
-               
-                 if (inventory.Inventory.Contains("Blue Key"));
-                 {
+                if (inventory.Inventory.Contains("Blue Key"))
+                    ;
+                {
                     System.Console.WriteLine("You already have the key. Now find the exit.");
-                 }
-                 if(!inventory.Inventory.Contains("Blue Key"))
-                 {
-                    Console.WriteLine("You search carefully... and find the key hidden under a floorboard!");
-                   
+                }
+                if (!inventory.Inventory.Contains("Blue Key"))
+                {
+                    Console.WriteLine(
+                        "You search carefully... and find the key hidden under a floorboard!"
+                    );
                 }
             }
             else

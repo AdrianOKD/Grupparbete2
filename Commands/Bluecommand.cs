@@ -14,7 +14,7 @@ namespace HorrorEscape
         public abstract void Execute(string argument);
     }
 
-    public class HelpCommand : BlueCommand 
+    public class HelpCommand : BlueCommand
     {
         public HelpCommand() : base("help") { }
 

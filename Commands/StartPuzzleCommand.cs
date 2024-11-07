@@ -2,18 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Pussel.Commands;
-using Pussel;
 using GreenRooms;
+using Pussel;
+using Pussel.Commands;
 
 namespace Grupparbete2.Commands
 {
-     public class StartOrangePuzzleCommand : Command
-        {
-            
-            public StartOrangePuzzleCommand() : base("solve")
-            {
-            }
+    public class StartOrangePuzzleCommand : Command
+    {
+        public StartOrangePuzzleCommand()
+            : base("solve") { }
 
         public override void Execute(string argument)
         {
@@ -22,17 +20,14 @@ namespace Grupparbete2.Commands
                 OrangeRoom orangeRoom = new OrangeRoom();
                 orangeRoom.StartPuzzle();
                 return;
-
             }
         }
     }
 
     public class StartGreenPussleCommand : Command
     {
-
-        public StartGreenPussleCommand() : base("green")
-        {
-        }
+        public StartGreenPussleCommand()
+            : base("green") { }
 
         public override void Execute(string argument)
         {
@@ -41,17 +36,15 @@ namespace Grupparbete2.Commands
                 GreenRoom greenRoom = new GreenRoom();
                 greenRoom.Execute();
                 return;
-
             }
         }
     }
 
-   public class StartRedPuzzleCommand : Command
+    public class StartRedPuzzleCommand : Command
     {
-        public StartRedPuzzleCommand() : base("start")
-        {
-        }
-        
+        public StartRedPuzzleCommand()
+            : base("start") { }
+
         public override void Execute(string argument)
         {
             if (argument == "puzzle")
@@ -59,7 +52,6 @@ namespace Grupparbete2.Commands
                 RedRoom redRoom = new RedRoom();
                 redRoom.StartPuzzle();
                 return;
-
             }
             else
             {
@@ -67,6 +59,4 @@ namespace Grupparbete2.Commands
             }
         }
     }
-
-
 }
