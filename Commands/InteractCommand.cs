@@ -1,4 +1,5 @@
 using Pussel.Commands;
+
 namespace Grupparbete2.Commands
 {
     public class InteractCommand : Command
