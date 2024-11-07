@@ -5,7 +5,7 @@ namespace yellowRoom
 {
     public class Commands
     {
-        public static bool WiresCut { get; set; }
+        public static bool WiresCut = false;
 
         public void ExecuteCommand(string action, Story story)
         {

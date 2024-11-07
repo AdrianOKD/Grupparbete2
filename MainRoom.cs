@@ -39,12 +39,13 @@ namespace Grupparbete2
 
 
 
-        public static bool hasOrangeKey = false;
-        public static bool hasGreenKey = false;
-        public static bool hasRedKey = false;
-        public static bool hasBlueKey = false;
+        public static bool hasOrangeKey = true;
+        public static bool hasGreenKey = true;
+        public static bool hasRedKey = true;
+        public static bool hasBlueKey = true;
         public static bool hasYellowKey = false;
         public static bool playerFailRoom = false;
+        public static bool playerFinishedGame = false;
 
         public void MainRoomStart()
         {
@@ -59,9 +60,9 @@ namespace Grupparbete2
             System.Console.WriteLine("You wake up in 'The main room'");
             System.Console.WriteLine("System: Write Choose Room");
 
-            while (!playerFailRoom)
-            {
-                Console.Clear();
+
+     while (!playerFailRoom && !playerFinishedGame)
+            {   Console.Clear();
                 System.Console.WriteLine("You are in main room");
 
                 if (hasBlueKey && hasGreenKey && hasOrangeKey && hasRedKey && hasYellowKey)

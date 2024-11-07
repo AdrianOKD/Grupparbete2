@@ -81,9 +81,7 @@ public class Story
             riddleAnswer = Console.ReadLine()!.ToLower();
         }
 
-        Console.WriteLine(
-            "You notice a hammer in front of you. To pick it up, use 'pickup hammer'."
-        );
+        Console.WriteLine("You notice a hammer in front of you. To pick it up, use 'pickup hammer'.");
         while (!Commands.WiresCut)
         {
             Console.WriteLine("\nWhat would you like to do? (type 'help' for commands)");
