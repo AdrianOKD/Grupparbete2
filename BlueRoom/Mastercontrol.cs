@@ -14,6 +14,7 @@ namespace HorrorEscape
         
 
         private InventoryPlayer inventory;
+        public static bool insideBlueRoom = true;
         private List<Command> commands;
       //  private int timeLeft = 10; // seconds
        // private Timer timer;
@@ -45,7 +46,7 @@ namespace HorrorEscape
             try
             {
 
-            while (true)
+            while (insideBlueRoom)
             {
                 Console.Write("\n> ");
                 System.Console.WriteLine();

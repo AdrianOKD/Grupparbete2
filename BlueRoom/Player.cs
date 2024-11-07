@@ -15,7 +15,7 @@ namespace HorrorEscape
         private List<string> usedCommands = new List<string>();
 
 
-        private int triesLeft = 8; // Totalt antal försök för spelaren
+        private int triesLeft = 12; // Totalt antal försök för spelaren
 
         public void ReduceTries(int tries)
         {

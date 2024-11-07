@@ -1,5 +1,6 @@
 
 using System;
+using Grupparbete2;
 using Pussel.Commands;
 namespace HorrorEscape
 {
@@ -23,8 +24,11 @@ namespace HorrorEscape
             }
             else if (player.DoorUnlocked)
             {
+               
                 Console.WriteLine("You use the key to unlock the door. Run! You are free!");
-                Environment.Exit(0);
+                MainRoom.hasBlueKey = true;
+                MasterControll.insideBlueRoom = false;
+                
             }
             else
             {

@@ -14,37 +14,7 @@ namespace Grupparbete2
 {
     public class MainRoom
     {
-        private List<Command> commands;
-      
-
-        public void MainRoomCommands()
-        {
-            commands = new List<Command>
-            {
-                new HelpMainRoomCommand(),
-            };
-            
-
-        }
-         private void ExecuteCommand(string input)
-        {
-            if(input.Equals(null))
-            {
-                System.Console.WriteLine("Please write a new command");
-                return;
-            }
-            string[] parts = input.Split(' ', 2);
-            string commandName = parts[0].ToLower();
-            
-            foreach (var command in commands)
-            {
-                if (command.Name == commandName)
-                {
-                    command.Execute(parts.Length > 1 ? parts[1] : "");
-                    return;
-                }
-            }
-        }
+     
 
         public static bool hasOrangeKey = false;
         public static bool hasGreenKey = false;
@@ -58,7 +28,6 @@ namespace Grupparbete2
 
         public void MainRoomStart()
         {
-            MainRoomCommands();
             OrangeRoom orangeRoom = new OrangeRoom();
             GreenRoom greenRoom = new GreenRoom();
             RedRoom redRoom = new RedRoom();
@@ -129,7 +98,7 @@ namespace Grupparbete2
                             case 3:
                              if (hasRedKey == false)
                             {
-                              redPuzzle.Start();
+                              redRoom.Start();
                             }
                             else
                             {
@@ -181,10 +150,6 @@ namespace Grupparbete2
                     {
                         Console.WriteLine("Invalid input. Please enter a number.");
                     }
-                }
-                else
-                {
-                    ExecuteCommand(input);
                 }
             }
         }

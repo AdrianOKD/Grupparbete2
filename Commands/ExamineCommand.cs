@@ -60,6 +60,7 @@ namespace Grupparbete2.Commands
             else if (argument == "floor")
             {
                 Console.WriteLine("The floor creaks... a plank feels loose.");
+                System.Console.WriteLine("You pull up the board, and find a small blue key..");
             }
             else
             {
