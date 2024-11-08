@@ -182,7 +182,6 @@ namespace Pussel
                     "These scrambled letter remind you of the wall.. Looking at the wall it says SVOOL MY UIRVMWH!\n"
                 );
                 Console.WriteLine($"Would you like to try and {Colours.ORANGE}solve puzzle{Colours.NORMAL}?");
-                Console.WriteLine("");
             }
             if (!wall)
             {

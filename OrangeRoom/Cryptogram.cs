@@ -8,7 +8,7 @@ namespace Pussel
     {
         
 
-        private void PauseAndClear()
+        public void PauseAndClear()
         {
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
@@ -80,9 +80,10 @@ namespace Pussel
                 i++;
             }
             Console.WriteLine(
-                "The scrambled letters seem to form some kind of sentence, but what?\n Use on letter at a time to solve the puzzle"
+                "The scrambled letters seem to form some kind of sentence, but what?\n Use one letter at a time to solve the puzzle"
             );
-            Console.WriteLine();
+            PauseAndClear();
+            
 
             int count = 0;
             int secretCount = 0;
@@ -90,8 +91,9 @@ namespace Pussel
             string str = new string(cryptoSentence);
 
             while (puzzleLoop)
-            {
+            { 
                 Console.Clear();
+                
                 Console.WriteLine(cryptoSentence);
 
                 try
