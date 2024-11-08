@@ -46,10 +46,9 @@ public class RedRoom
             if (command.Name == commandName)
             {
                 command.Execute(args);
-                // Check if command was "start puzzle"
                 if (command is StartRedPuzzleCommand)
                 {
-                    return true; // Signal to start the timed puzzle
+                    return true;
                 }
                 return false;
             }
@@ -79,7 +78,6 @@ public class RedRoom
             redPuzzleStarted = ExecuteCommand(input);
         }
 
-        // Start the puzzle and return the result
     }
 
     public void StartPuzzle()
@@ -111,7 +109,7 @@ public class RedRoom
 
         startTime = DateTime.Now;
 
-        // Main game loop
+        // Game loop
         while (jug8 != 4 && !TimeIsUp())
         {
             DisplayState();
@@ -173,6 +171,7 @@ public class RedRoom
     private void HandleAction(string action)
     {
         string[] parts = action.Split(' ');
+
         if (parts.Length == 2 && parts[0] == "fill")
         {
             FillJug(int.Parse(parts[1]));
