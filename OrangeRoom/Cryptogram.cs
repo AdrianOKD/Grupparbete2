@@ -6,32 +6,7 @@ namespace Pussel
 {
     public class Cryptogram
     {
-        private InventoryPlayer inventory;
-        private List<Command> commands;
-
-        public Cryptogram()
-        {
-            commands = new List<Command>
-            {
-                new ExamineOrangeCommand(),
-                new InventoryCommand(inventory!),
-            };
-        }
-
-        private void ExecuteCommand(string input)
-        {
-            string[] parts = input.Split(' ', 2);
-            string commandName = parts[0].ToLower();
-
-            foreach (var command in commands)
-            {
-                if (command.Name == commandName)
-                {
-                    command.Execute(parts.Length > 1 ? parts[1] : "");
-                    return;
-                }
-            }
-        }
+        
 
         private void PauseAndClear()
         {
@@ -226,7 +201,7 @@ namespace Pussel
                         Console.WriteLine(cryptoSentence);
                         System.Console.WriteLine("You did it!");
                         System.Console.WriteLine(
-                            "The sound and mocking dissapates.. you open the chest and find a key.\n The door unlocks and you exit the room, relieved"
+                            "The sound and mocking dissapates.. you open the chest and find a key.\n The door unlocks and you exit the room, relieved.."
                         );
                         PauseAndClear();
 
