@@ -161,16 +161,13 @@ namespace Pussel
             Console.WriteLine(
                 $"In the center of the room you see some kind of {Colours.RED}chest{Colours.NORMAL}, although dusty, underneath its rugged apperance something glimmers, drawing you in\n"
             ); //Thread.Sleep(4000);
-            Console.WriteLine(" ");
-            Console.WriteLine("Press any key to continue..");
-            Console.ReadLine();
             lookAround = true;
             
         }
 
         //Skriv Examine Chest
         public void ExamineChest()
-        {
+        {   ClearTerminal();
             Console.WriteLine(
                 "As you walk up to the chest, something about it draws you in, but at the same time every fiber of your body tells you to stay away\n"
             );
@@ -192,11 +189,12 @@ namespace Pussel
                 Console.WriteLine("It feels like you´ve seen these letters somewhere..\n ");
                 Console.WriteLine("Maybe you should look around the room some more");
             }
+             
         }
 
         //Skriv Examine Body
         public void ExamineBody()
-        {
+        {    ClearTerminal();
             Console.WriteLine();
             Console.WriteLine(
                 "As you get closer the smell expose that this corpse has been here for some time.\n"
@@ -228,12 +226,11 @@ namespace Pussel
             Console.WriteLine(
                 "There doesnt seem to be anything here of interest.. altough you notice that there's a dustfree imprint of a book missing"
             );
-            Console.WriteLine("Press any to continue..");
-            Console.ReadKey();
+          
         }
 
         public void PickupNote()
-        {
+        {    ClearTerminal();
             if (!hasNote && hasExaminedBody)
             {
                 Console.WriteLine("You bend down to pick up the note \n");
@@ -257,7 +254,7 @@ namespace Pussel
         }
 
         public void UseNote()
-        {
+        {    ClearTerminal();
             Console.WriteLine("You open up the note\n");
             Console.WriteLine("Scribed in what seems like blood");
             Console.WriteLine(
@@ -269,7 +266,7 @@ namespace Pussel
 
         //Skriv Look Wall
         public void ExamineWall()
-        {
+        {    ClearTerminal();
             if (!wall)
             {
                 Console.WriteLine(
@@ -284,8 +281,7 @@ namespace Pussel
                     "It's the same as the chest but the etchings seem to actually spell out one of the words, SVOOL 'MY' UIRVMWH!\n "
                 );
             }
-            Console.WriteLine("press any key to continue..");
-            Console.ReadLine();
+        
         }
 
         public void StartPuzzle()
