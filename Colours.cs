@@ -19,18 +19,7 @@ namespace Grupparbete2
             public static string NOBOLD = Console.IsOutputRedirected ? "" : "\x1b[22m";
 
             
-/*Console.WriteLine(
-                $"This is {RED}Red{NORMAL}, {GREEN}Green{NORMAL}, {YELLOW}Yellow{NORMAL}, {BLUE}Blue{NORMAL}, {MAGENTA}Magenta{NORMAL}, {CYAN}Cyan{NORMAL}, {GREY}Grey{NORMAL}! "
-            );
-            Console.WriteLine($"This is {BOLD}Bold{NOBOLD}"); */
-             public static string FormatString(string input)
-        {
-            return input
-                .Replace("{RED}", RED)
-                .Replace("{NORMAL}", NORMAL);
-                
-            
-        }
+
         }
         
     }
