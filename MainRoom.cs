@@ -20,9 +20,8 @@ namespace Grupparbete2
             GreenRoom greenRoom = new GreenRoom();
             RedRoom redRoom = new RedRoom();
             MasterControll blueRoom = new MasterControll();
-            SanityEnding sanityEnding = new SanityEnding();
-
             Story story = new Story();
+            SanityEnding sanityEnding = new SanityEnding();
 
             while (!playerFailRoom && !playerFinishedGame)
             {
@@ -33,7 +32,7 @@ namespace Grupparbete2
 
                 if (hasBlueKey && hasGreenKey && hasOrangeKey && hasRedKey && hasYellowKey)
                 {
-                    System.Console.WriteLine("You have all the keys.");
+                    System.Console.WriteLine($"{Colours.GREY}{Colours.BOLD}You have all the keys!{Colours.NORMAL}{Colours.NOBOLD}");
                 }
 
                 Console.Write("> ");
@@ -45,7 +44,7 @@ namespace Grupparbete2
                     Console.WriteLine(
                         $"Which door do you enter?\n {Colours.ORANGE}1. Orange Door{Colours.NORMAL}\n {Colours.GREEN}2. Green Door{Colours.NORMAL}\n {Colours.RED}3. Red Door{Colours.NORMAL}\n {Colours.BLUE}4. Blue Door{Colours.NORMAL}\n {Colours.YELLOW}5. Yellow Door{Colours.NORMAL} \n {Colours.GREY}6. Locked Door{Colours.NORMAL}"
                     );
-                    input = Console.ReadLine();
+                    input = Console.ReadLine() ?? "";
                     if (int.TryParse(input, out int choice))
                     {
                         switch (choice)
@@ -57,7 +56,7 @@ namespace Grupparbete2
                                 }
                                 else
                                 {
-                                    System.Console.WriteLine("The door wont budge\n");
+                                    System.Console.WriteLine("The door wont budge...\n");
                                     System.Console.WriteLine("Press any key to continue");
                                     Console.ReadKey();
                                 }
@@ -69,7 +68,7 @@ namespace Grupparbete2
                                 }
                                 else
                                 {
-                                    System.Console.WriteLine("The door wont budge\n");
+                                    System.Console.WriteLine("The door wont budge...\n");
                                     System.Console.WriteLine("Press any key to continue");
                                     Console.ReadKey();
                                 }
@@ -81,7 +80,7 @@ namespace Grupparbete2
                                 }
                                 else
                                 {
-                                    System.Console.WriteLine("The door wont budge\n");
+                                    System.Console.WriteLine("The door wont budge...\n");
                                     System.Console.WriteLine("Press any key to continue");
                                     Console.ReadKey();
                                 }
@@ -93,7 +92,7 @@ namespace Grupparbete2
                                 }
                                 else
                                 {
-                                    System.Console.WriteLine("The door wont budge\n");
+                                    System.Console.WriteLine("The door wont budge...\n");
                                     System.Console.WriteLine("Press any key to continue");
                                     Console.ReadKey();
                                 }
@@ -105,7 +104,7 @@ namespace Grupparbete2
                                 }
                                 else
                                 {
-                                    System.Console.WriteLine("The door wont budge\n");
+                                    System.Console.WriteLine("The door wont budge...\n");
                                     System.Console.WriteLine("Press any key to continue");
                                     Console.ReadKey();
                                 }

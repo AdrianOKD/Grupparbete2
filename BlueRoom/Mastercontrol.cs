@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Threading;
 using Grupparbete2;
 using Grupparbete2.Commands;
 using Pussel.Commands;
@@ -18,7 +15,7 @@ namespace HorrorEscape
         public MasterControll()
         {
             player = new Player();
-            InventoryPlayer inventory = new InventoryPlayer();
+            inventory = new InventoryPlayer();
             commands = new List<Command>
             {
                 new HelpBlueCommand(),
@@ -46,7 +43,7 @@ namespace HorrorEscape
                 {
                     Console.Write("\n> ");
                     System.Console.WriteLine();
-                    string input = Console.ReadLine();
+                    string input = Console.ReadLine() ?? "";
                     ExecuteCommand(input);
                 }
             }

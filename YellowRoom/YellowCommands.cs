@@ -110,48 +110,5 @@ namespace yellowRoom
                 "Your vision worsens, and you realize there’s no easy way out. The darkness closes in around you, but you’re still trapped here."
             );
         }
-
-        private void CutWires(Story story)
-        {
-            if (story.ChestOpened)
-            {
-                Console.WriteLine(
-                    "You see 5 wires: red, blue, green, yellow, and purple. You need to cut them in the correct order to escape."
-                );
-                Console.WriteLine(
-                    "Enter the order of the wires (e.g., 'red blue green yellow purple'): "
-                );
-                string input = Console.ReadLine()!;
-                string[] wires = input.Split(' ');
-                if (
-                    wires.Length == 5
-                    && wires[0] == "blue"
-                    && wires[1] == "green"
-                    && wires[2] == "red"
-                    && wires[3] == "yellow"
-                    && wires[4] == "purple"
-                )
-                {
-                    WiresCut = true;
-                    Console.WriteLine(
-                        "You cut the wires in the correct order. The room begins to shake, and the walls start to close in, but you see a glimmer of light in the distance."
-                    );
-                    Console.WriteLine("Congratulations, you've escaped! You earned a 'Yellow Key'");
-                    MainRoom.hasYellowKey = true;
-                    MainRoom mainRoom = new MainRoom();
-                    mainRoom.MainRoomStart();
-                }
-                else
-                {
-                    Console.WriteLine(
-                        "You cut the wires in the wrong order. The room begins to shake, and the walls start to close in. You realize you need to try again."
-                    );
-                }
-            }
-            else
-            {
-                Console.WriteLine("You need to break the chest first.");
-            }
-        }
     }
 }

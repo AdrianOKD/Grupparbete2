@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices;
 using Pussel;
 using Pussel.Commands;
 
@@ -13,7 +12,7 @@ namespace Grupparbete2.Commands
         {
             if (string.IsNullOrEmpty(argument))
             {
-                Console.WriteLine("You need to specify what you want to examine.");
+                Console.WriteLine("Skriv namnet på objektet du vill undersöka.");
                 return;
             }
 

@@ -1,4 +1,3 @@
-using System;
 using Pussel.Commands;
 
 namespace HorrorEscape
@@ -6,7 +5,7 @@ namespace HorrorEscape
     public class UnlockCommand : Command
     {
         private Player player;
-        private const string Code = "473"; // Sifferkoden för att låsa upp dörren
+        private const string Code = "473";
 
         public UnlockCommand(Player player)
             : base("unlock")
@@ -21,7 +20,7 @@ namespace HorrorEscape
                 Console.WriteLine(
                     "You enter the code '473'... The lock clicks open with a satisfying sound. The door is now unlocked!"
                 );
-                player.DoorUnlocked = true; // Ny egenskap som indikerar att dörren är upplåst
+                player.DoorUnlocked = true;
             }
             else
             {

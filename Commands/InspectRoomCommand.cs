@@ -8,7 +8,10 @@ namespace Grupparbete2.Commands
         private Player player;
 
         public InspectRoomCommand(Player player)
-            : base("inspect") { }
+            : base("inspect")
+        {
+            this.player = player;
+        }
 
         public override void Execute(string argument)
         {

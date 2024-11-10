@@ -6,24 +6,23 @@ namespace GreenRooms
 {
     public class GreenRoom
     {
-        private InventoryPlayer inventory;
-        private List<Command> commands;
+        private List<Command> commands = new List<Command>();
         static bool stopgame = true;
         MainRoom mainRoom = new MainRoom();
 
         public void GreenGame()
         {
-            inventory = new InventoryPlayer();
             commands = new List<Command>
             {
                 new StartGreenPussleCommand(),
                 new HelpGreenCommand(),
-                new InventoryCommand(inventory),
             };
         }
 
         private void ExecuteCommand(string input)
         {
+
+
             string[] parts = input.Split(' ', 2);
             string commandName = parts[0].ToLower();
 
@@ -40,7 +39,7 @@ namespace GreenRooms
         public void Start()
         {
             GreenGame();
-            Console.WriteLine("Enter 'help'  to view the commando.");
+            Console.WriteLine("Enter 'help' to view the commando.");
             while (stopgame)
             {
                 Console.Write("> ");
@@ -51,11 +50,13 @@ namespace GreenRooms
                     stopgame = false;
                 }
                 Console.ReadLine();
+
             }
         }
 
         public void Execute()
         {
+
             Console.Clear();
             Console.WriteLine($"Welcome to {Colours.GREEN}the green room{Colours.NORMAL}...");
             Thread.Sleep(4000);
@@ -66,15 +67,14 @@ namespace GreenRooms
 
             OpenBox();
             Console.Clear();
-            Console.WriteLine(
-                $"Time is of the essence-oxygen decreases by{Colours.RED} 10%{Colours.NORMAL} every hour."
-            );
+            Console.WriteLine($"Time is of the essence-oxygen decreases by{Colours.RED} 10%{Colours.NORMAL} every hour.");
             Console.WriteLine(
                 "You have 3 hours and 6 trials before your oxygen levels reach a critical point."
             );
             Console.WriteLine("If you succeed, you will collect a green key.");
             Thread.Sleep(4000);
             GuessTheCode();
+
         }
 
         public static void OpenBox()
@@ -98,9 +98,7 @@ namespace GreenRooms
                 }
                 else if (answer.Equals("no"))
                 {
-                    System.Console.WriteLine(
-                        $"{Colours.RED}Keep looking, time is running out{Colours.NORMAL}"
-                    );
+                    System.Console.WriteLine($"{Colours.RED}Keep looking, time is running out{Colours.NORMAL}");
                 }
             }
         }
@@ -108,9 +106,7 @@ namespace GreenRooms
         public void GuessTheCode()
         {
             System.Console.WriteLine($"\n Now it´s time to guess the last 2 digits of the code");
-            System.Console.WriteLine(
-                $"Press {Colours.GREEN} X {Colours.NORMAL}  to get a hint or press any other key to ignore it."
-            );
+            System.Console.WriteLine($"Press {Colours.GREEN} X {Colours.NORMAL}  to get a hint or press any other key to ignore it.");
             string hint = Console.ReadLine()!.ToLower();
             if (hint.Equals("x"))
             {
@@ -121,6 +117,7 @@ namespace GreenRooms
                 System.Console.WriteLine("Okey, good luck");
             }
             try
+
             {
                 while (true)
                 {
@@ -139,9 +136,7 @@ namespace GreenRooms
                         numberInput = int.Parse(Console.ReadLine()!);
                         if (numberInput != randomNumber && i > 1)
                         {
-                            System.Console.Write(
-                                $"Wrong, you have {Colours.GREEN}{i}{Colours.NORMAL} guesses left! try again: "
-                            );
+                            System.Console.Write($"Wrong, you have {Colours.GREEN}{i}{Colours.NORMAL} guesses left! try again: ");
                         }
                         if (i > 0 && i.Equals(1))
                         {
@@ -161,37 +156,32 @@ namespace GreenRooms
                             if (numberInput != randomNumber)
                             {
                                 System.Console.WriteLine();
-                                System.Console.Write(
-                                    $"{Colours.RED}Oxygen is too low, You are dead!{Colours.NORMAL}"
-                                );
+                                System.Console.Write($"{Colours.RED}Oxygen is too low, You are dead!{Colours.NORMAL}");
                                 System.Console.WriteLine();
                                 stopgame = false;
                                 MainRoom.playerFailRoom = true;
                                 return;
+
                             }
                         }
 
                         if (numberInput.Equals(randomNumber) || numberInput.Equals(myNum))
                         {
-                            System.Console.WriteLine(
-                                $"{Colours.GREEN}Congratulations!{Colours.NORMAL} you have won the {Colours.GREEN} green key "
-                            );
+                            System.Console.WriteLine($"{Colours.GREEN}Congratulations!{Colours.NORMAL} you have won the {Colours.GREEN} green key ");
                             MainRoom.hasGreenKey = true;
                             Thread.Sleep(4000);
                             System.Console.WriteLine($"{Colours.NORMAL}");
-
+                            
                             mainRoom.MainRoomStart();
-
                             System.Console.WriteLine();
+
                         }
                     }
                 }
             }
-            catch (Exception e)
+            catch
             {
-                System.Console.WriteLine(
-                    $"{Colours.RED} Invalid input {Colours.NORMAL}. Type 'help' to restart the greenroom"
-                );
+                System.Console.WriteLine($"{Colours.RED} Invalid input {Colours.NORMAL}. Type 'help' to restart the greenroom");
             }
         }
     }

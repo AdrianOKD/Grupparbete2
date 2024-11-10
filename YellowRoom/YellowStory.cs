@@ -163,20 +163,23 @@ public class Story
                 if (currentCutIndex == 5)
                 {
                     Console.WriteLine(
-                        "You cut the wires in the correct order. The room begins to shake, and the walls start to close in, but you see a glimmer of light in the distance."
+                        "\nYou cut the wires in the correct order. The room begins to shake, and the walls start to close in, but you see a glimmer of light in the distance."
                     );
                     Console.WriteLine("Congratulations, you've escaped! You earned a 'Yellow Key'");
+                    Console.ReadLine();
                     MainRoom.hasYellowKey = true;
                     Commands.WiresCut = false;
+
                     MainRoom mainRoom = new MainRoom();
                     mainRoom.MainRoomStart();
                 }
             }
             else
             {
-                Console.WriteLine(
-                    "You cut the wrong wire. The room begins to fill with toxic gas."
-                );
+                Console.WriteLine("\nYou cut the wrong wire... The room begins to fill with toxic gas...");
+                Console.WriteLine("You slowly suffocate while contemplating your mistakes.");
+                Console.ReadLine();
+                Console.WriteLine("GAME OVER");
                 Environment.Exit(0);
             }
         }
