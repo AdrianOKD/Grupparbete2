@@ -5,7 +5,6 @@ using Pussel.Commands;
 
 namespace Pussel
 {
-    
     public class OrangeRoom
     {
         private InventoryPlayer inventory;
@@ -23,6 +22,16 @@ namespace Pussel
         {
             Console.Clear();
             System.Console.WriteLine("\n\n");
+        }
+
+        public void LongerStringTime()
+        {
+            Thread.Sleep(4000);
+        }
+
+        public void ShorterStringTime()
+        {
+            Thread.Sleep(2000);
         }
 
         public OrangeRoom()
@@ -67,30 +76,32 @@ namespace Pussel
             Console.WriteLine(
                 $"As you step into the dimly lit room, the heavy wooden door slams shut behind you, the sound echoing through the cold, damp air.\n "
             );
-            //Thread.Sleep(4000);
+            LongerStringTime();
             Console.WriteLine(
                 "The only light comes from a faint, flickering glow emanating from the walls, casting eerie shadows on the stone floor.\n"
             );
-            //Thread.Sleep(4000);
+            LongerStringTime();
             Console.WriteLine(
                 $"{Colours.GREY}Ah, Nice choice of room meatbag..take a {Colours.BLUE}look around{Colours.NORMAL} {Colours.GREY}and maybe you´ll find a way out..{Colours.NORMAL}\n "
             );
-            //Thread.Sleep(4000);
+            LongerStringTime();
             Console.WriteLine();
             Console.WriteLine($"System: What would you like to do? for options write Help\n");
-            //Thread.Sleep(4000);
-
-
 
             while (orangeRoomChoice)
             {
                 Console.Write("> ");
                 string input = Console.ReadLine()!;
+                ClearTerminal();
                 ExecuteCommand(input);
                 if (input.Equals("stop"))
                 {
                     orangeRoomChoice = false;
-                    System.Console.WriteLine("You are exiting the game..");
+                    Console.WriteLine("You are exiting the game..");
+                }
+                if (string.IsNullOrEmpty(input))
+                {
+                    Console.WriteLine("Invalid input");
                 }
             }
         }
@@ -140,7 +151,6 @@ namespace Pussel
             }
         }
 
-        //Skriv Look Around
         public void LookAround()
         {
             ClearTerminal();
@@ -148,68 +158,85 @@ namespace Pussel
             Console.WriteLine("You look around the room\n");
             Console.WriteLine(
                 $"To your left, you notice a series of cryptic symbols etched into the {Colours.RED}wall{Colours.NORMAL}, the letters twisted and distorted as if written by a madman's hand.\n"
-            ); //Thread.Sleep(4000);
+            );
+            ShorterStringTime();
             Console.WriteLine(
                 "The words seem to shift and writhe on the surface, like living things.\n"
-            ); //Thread.Sleep(4000);
+            );
+            ShorterStringTime();
             Console.WriteLine(
-                $"underneath the letters a {Colours.RED}body{Colours.NORMAL}, bent over, it's face resting against the ground\n"
-            ); //Thread.Sleep(4000);
+                $"Underneath the letters a {Colours.RED}body{Colours.NORMAL}, bent over, it's face resting against the ground\n"
+            );
+            ShorterStringTime();
             Console.WriteLine(
                 $"Too your right , a small crooked {Colours.RED}bookshelf{Colours.NORMAL} lean against the wall, its wooden shelves bowed under the weight of dusty, leatherbound tomes\n"
-            ); //Thread.Sleep(4000);
+            );
+            ShorterStringTime();
             Console.WriteLine(
                 $"In the center of the room you see some kind of {Colours.RED}chest{Colours.NORMAL}, although dusty, underneath its rugged apperance something glimmers, drawing you in\n"
-            ); //Thread.Sleep(4000);
+            );
+            ShorterStringTime();
             lookAround = true;
-            
         }
 
         //Skriv Examine Chest
         public void ExamineChest()
-        {   ClearTerminal();
+        {
+            ClearTerminal();
             Console.WriteLine(
-                "As you walk up to the chest, something about it draws you in, but at the same time every fiber of your body tells you to stay away\n"
+                "As you walk up to the chest, something about it draws you in, but at the same time every fiber of your body tells you to stay away..\n"
             );
-            Console.WriteLine("Still, you muster courage and walk up to it.\n");
+            ShorterStringTime();
+
+            Console.WriteLine("Still, you muster courage and walk up to it.\n");ShorterStringTime();
             Console.WriteLine(
                 "You lean in, its a metal chest with gold engravings, with what seems like scrambled letters SVOOL NB UIRVMWH!\n"
             );
+            ShorterStringTime();
             chest = true;
             if (wall && hasNote)
             {
                 Console.WriteLine(
                     "These scrambled letter remind you of the wall.. Looking at the wall it says SVOOL MY UIRVMWH!\n"
                 );
-                Console.WriteLine($"Would you like to try and {Colours.ORANGE}solve puzzle{Colours.NORMAL}?");
+                ShorterStringTime();
+                Console.WriteLine(
+                    $"Would you like to try and {Colours.ORANGE}solve puzzle{Colours.NORMAL}?"
+                );
             }
             if (!wall)
             {
                 Console.WriteLine("It feels like you´ve seen these letters somewhere..\n ");
-                Console.WriteLine("Maybe you should look around the room some more");
+                ShorterStringTime();
+                Console.WriteLine("Maybe you should look around the room some more.");
+                ShorterStringTime();
             }
-             
         }
 
         //Skriv Examine Body
         public void ExamineBody()
-        {    ClearTerminal();
+        {
+            ClearTerminal();
             Console.WriteLine();
             Console.WriteLine(
                 "As you get closer the smell expose that this corpse has been here for some time.\n"
             );
+            ShorterStringTime();
             Console.WriteLine(
                 "You turn the corpse face up. What you see is something that ones looked like a face, now more resembling a smashed withered pumpkin..\n "
             );
+            ShorterStringTime();
 
             if (!hasNote)
             {
                 Console.WriteLine(
                     "Looking closer you notice that the body is clutching something.\n"
                 );
+                ShorterStringTime();
                 Console.WriteLine(
-                    $"It looks like some kind of {Colours.CYAN}note{Colours.NORMAL}\n"
+                    $"It looks like some kind of {Colours.CYAN}note{Colours.NORMAL}.\n"
                 );
+               ShorterStringTime();
             }
             hasExaminedBody = true;
         }
@@ -220,25 +247,29 @@ namespace Pussel
             ClearTerminal();
             Console.WriteLine("You walk up to the crooked shelf\n");
             Console.WriteLine(
-                "The books are old and worn, their covers cracked and faded. Some of which would seem to break at the slightest touch\n"
+                "The books are old and worn, their covers cracked and faded. Some of which would seem to break at the slightest touch.\n"
             );
+            ShorterStringTime();
             Console.WriteLine(
-                "There doesnt seem to be anything here of interest.. altough you notice that there's a dustfree imprint of a book missing"
+                "There doesnt seem to be anything here of interest.. altough you notice that there's a dustfree imprint of a book missing."
             );
-          
+            ShorterStringTime();
         }
 
         public void PickupNote()
-        {    ClearTerminal();
+        {
+            ClearTerminal();
             if (!hasNote && hasExaminedBody)
             {
                 Console.WriteLine("You bend down to pick up the note \n");
                 Console.WriteLine(
                     "The corpse degraded by time still holds the note in a firm grip.. \n"
                 );
+                ShorterStringTime();
                 Console.WriteLine(
                     "After some tumbling you manage to wrenge it from its clutches.\n"
                 );
+                ShorterStringTime();
                 Console.WriteLine("You pick it up and put the note in your inventory\n");
                 hasNote = true;
             }
@@ -253,19 +284,25 @@ namespace Pussel
         }
 
         public void UseNote()
-        {    ClearTerminal();
-            Console.WriteLine("You open up the note\n");
-            Console.WriteLine("Scribed in what seems like blood");
+        {
+            ClearTerminal();
+            Console.WriteLine("You open up the note.\n");
+            ShorterStringTime();
+            Console.WriteLine("It's written in what seems like blood.");
+            ShorterStringTime();
             Console.WriteLine(
-                "He describes the coming puzzle, he tried to figure out the meaning\n"
+                "It describes the coming puzzle, he tried to figure out the meaning.\n"
             );
-            Console.WriteLine($"{Colours.RED}A-Z, D-W, M-N{Colours.NORMAL} and {Colours.RED}Y-B{Colours.NORMAL}");
+            Console.WriteLine(
+                $"{Colours.RED}A-Z, D-W, M-N{Colours.NORMAL} and {Colours.RED}Y-B{Colours.NORMAL}."
+            );
+            ShorterStringTime();
             Console.WriteLine("What does it mean?");
         }
 
-        //Skriv Look Wall
         public void ExamineWall()
-        {    ClearTerminal();
+        {
+            ClearTerminal();
             if (!wall)
             {
                 Console.WriteLine(
@@ -280,7 +317,6 @@ namespace Pussel
                     "It's the same as the chest but the etchings seem to actually spell out one of the words, SVOOL 'MY' UIRVMWH!\n "
                 );
             }
-        
         }
 
         public void StartPuzzle()
@@ -292,7 +328,7 @@ namespace Pussel
             }
             else
             {
-                Console.WriteLine("You have a feeling that you should search the room some more");
+                Console.WriteLine("You have a feeling that you should search the room some more.");
             }
         }
     }

@@ -1,7 +1,6 @@
 namespace HorrorEscape
 {
     public class Player
-
     {
 
         private List<string> BlueRoomInventory = new List<string>();
@@ -36,13 +35,13 @@ namespace HorrorEscape
 
         private readonly List<string> requiredCommands = new List<string>
         {
-            "help", "examine", "inspect", "unlock"
+            "help",
+            "examine",
+            "inspect",
+            "unlock",
         };
 
         public bool DoorUnlocked { get; set; } = false;
-
-
-
 
         public bool HasItem(string item)
         {
@@ -56,15 +55,11 @@ namespace HorrorEscape
                 usedCommands.Add(command);
                 Console.WriteLine($"Command '{command}' used.");
             }
-
         }
 
         public bool CanEscape()
         {
             return !(usedCommands.Count < requiredCommands.Count);
         }
-
     }
 }
-
-

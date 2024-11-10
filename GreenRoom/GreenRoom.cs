@@ -21,8 +21,11 @@ namespace GreenRooms
 
         private void ExecuteCommand(string input)
         {
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> bc1c9ddd754d606a51f16bec6989390e6bf189a8
             string[] parts = input.Split(' ', 2);
             string commandName = parts[0].ToLower();
 
@@ -50,13 +53,19 @@ namespace GreenRooms
                     stopgame = false;
                 }
                 Console.ReadLine();
+<<<<<<< HEAD
 
+=======
+>>>>>>> bc1c9ddd754d606a51f16bec6989390e6bf189a8
             }
         }
 
         public void Execute()
         {
+<<<<<<< HEAD
 
+=======
+>>>>>>> bc1c9ddd754d606a51f16bec6989390e6bf189a8
             Console.Clear();
             Console.WriteLine($"Welcome to {Colours.GREEN}the green room{Colours.NORMAL}...");
             Thread.Sleep(4000);
@@ -67,14 +76,19 @@ namespace GreenRooms
 
             OpenBox();
             Console.Clear();
-            Console.WriteLine($"Time is of the essence-oxygen decreases by{Colours.RED} 10%{Colours.NORMAL} every hour.");
+            Console.WriteLine(
+                $"Time is of the essence-oxygen decreases by{Colours.RED} 10%{Colours.NORMAL} every hour."
+            );
             Console.WriteLine(
                 "You have 3 hours and 6 trials before your oxygen levels reach a critical point."
             );
             Console.WriteLine("If you succeed, you will collect a green key.");
             Thread.Sleep(4000);
             GuessTheCode();
+<<<<<<< HEAD
 
+=======
+>>>>>>> bc1c9ddd754d606a51f16bec6989390e6bf189a8
         }
 
         public static void OpenBox()
@@ -98,7 +112,9 @@ namespace GreenRooms
                 }
                 else if (answer.Equals("no"))
                 {
-                    System.Console.WriteLine($"{Colours.RED}Keep looking, time is running out{Colours.NORMAL}");
+                    System.Console.WriteLine(
+                        $"{Colours.RED}Keep looking, time is running out{Colours.NORMAL}"
+                    );
                 }
             }
         }
@@ -106,7 +122,9 @@ namespace GreenRooms
         public void GuessTheCode()
         {
             System.Console.WriteLine($"\n Now it´s time to guess the last 2 digits of the code");
-            System.Console.WriteLine($"Press {Colours.GREEN} X {Colours.NORMAL}  to get a hint or press any other key to ignore it.");
+            System.Console.WriteLine(
+                $"Press {Colours.GREEN} X {Colours.NORMAL}  to get a hint or press any other key to ignore it."
+            );
             string hint = Console.ReadLine()!.ToLower();
             if (hint.Equals("x"))
             {
@@ -117,13 +135,17 @@ namespace GreenRooms
                 System.Console.WriteLine("Okey, good luck");
             }
             try
+<<<<<<< HEAD
 
+=======
+>>>>>>> bc1c9ddd754d606a51f16bec6989390e6bf189a8
             {
                 while (true)
                 {
                     int myNum;
                     System.Console.Write("Enter 2 digits to crack the code: ");
                     int numberInput;
+<<<<<<< HEAD
 
                     int GuessAmount = 6;
                     Random slump = new Random();
@@ -175,13 +197,77 @@ namespace GreenRooms
                             mainRoom.MainRoomStart();
                             System.Console.WriteLine();
 
+=======
+
+                    int GuessAmount = 6;
+                    Random slump = new Random();
+
+                    for (int i = GuessAmount - 1; i >= 0; i--)
+                    {
+                        myNum = 1;
+
+                        int randomNumber = slump.Next(54, 61);
+                        numberInput = int.Parse(Console.ReadLine()!);
+                        if (numberInput != randomNumber && i > 1)
+                        {
+                            System.Console.Write(
+                                $"Wrong, you have {Colours.GREEN}{i}{Colours.NORMAL} guesses left! try again: "
+                            );
+                        }
+                        if (i > 0 && i.Equals(1))
+                        {
+                            if (numberInput != randomNumber)
+                            {
+                                System.Console.WriteLine(
+                                    $"{Colours.CYAN}Wrong, You feel light headed and oxygen is depletting{Colours.NORMAL}"
+                                );
+                                System.Console.Write(
+                                    $"time is running out. \n {Colours.GREEN}One{Colours.NORMAL} guess left! Enter 2 digits:  "
+                                );
+                            }
+                        }
+
+                        if (i.Equals(0))
+                        {
+                            if (numberInput != randomNumber)
+                            {
+                                System.Console.WriteLine();
+                                System.Console.Write(
+                                    $"{Colours.RED}Oxygen is too low, You are dead!{Colours.NORMAL}"
+                                );
+                                System.Console.WriteLine();
+                                stopgame = false;
+                                MainRoom.playerFailRoom = true;
+                                return;
+                            }
+                        }
+
+                        if (numberInput.Equals(randomNumber) || numberInput.Equals(myNum))
+                        {
+                            System.Console.WriteLine(
+                                $"{Colours.GREEN}Congratulations!{Colours.NORMAL} you have won the {Colours.GREEN} green key "
+                            );
+                            MainRoom.hasGreenKey = true;
+                            Thread.Sleep(4000);
+                            System.Console.WriteLine($"{Colours.NORMAL}");
+
+                            mainRoom.MainRoomStart();
+
+                            System.Console.WriteLine();
+>>>>>>> bc1c9ddd754d606a51f16bec6989390e6bf189a8
                         }
                     }
                 }
             }
+<<<<<<< HEAD
             catch
+=======
+            catch (Exception e)
+>>>>>>> bc1c9ddd754d606a51f16bec6989390e6bf189a8
             {
-                System.Console.WriteLine($"{Colours.RED} Invalid input {Colours.NORMAL}. Type 'help' to restart the greenroom");
+                System.Console.WriteLine(
+                    $"{Colours.RED} Invalid input {Colours.NORMAL}. Type 'help' to restart the greenroom"
+                );
             }
         }
     }

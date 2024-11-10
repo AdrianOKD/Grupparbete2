@@ -6,7 +6,7 @@ namespace Pussel
 {
     public class Cryptogram
     {
-        
+
 
         public void PauseAndClear()
         {
@@ -83,7 +83,7 @@ namespace Pussel
                 "The scrambled letters seem to form some kind of sentence, but what?\n Use one letter at a time to solve the puzzle"
             );
             PauseAndClear();
-            
+
 
             int count = 0;
             int secretCount = 0;
@@ -91,9 +91,9 @@ namespace Pussel
             string str = new string(cryptoSentence);
 
             while (puzzleLoop)
-            { 
+            {
                 Console.Clear();
-                
+
                 Console.WriteLine(cryptoSentence);
 
                 try
