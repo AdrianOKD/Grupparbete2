@@ -20,6 +20,7 @@ public class Story
     public bool ChestOpened { get; private set; }
     public bool InspectedRoom { get; private set; }
     public bool InspectedWires { get; private set; }
+    public bool YellowCompleted { get; private set; } = false;
     private List<string> wireOrder = new List<string>
     {
         "blue",
@@ -71,7 +72,7 @@ public class Story
         Console.WriteLine("\nBefore you can proceed, you must solve a riddle:");
         Console.WriteLine(
             "I have a heavy head and a sturdy handle, I can build and break, but I'm not a candle. What am I?"
-        ); // hammer
+        );
 
         string riddleAnswer = Console.ReadLine()!.ToLower();
 
@@ -84,12 +85,13 @@ public class Story
         Console.WriteLine(
             "You notice a hammer in front of you. To pick it up, use 'pickup hammer'."
         );
-        while (!Commands.WiresCut)
+        while (!Commands.WiresCut && !YellowCompleted)
         {
             Console.WriteLine("\nWhat would you like to do? (type 'help' for commands)");
             string action = Console.ReadLine()!.ToLower();
-            commands.ExecuteCommand(action, story);
+            commands.ExecuteCommand(action, this);
         }
+
     }
 
     public void PickupHammer()
@@ -162,12 +164,12 @@ public class Story
                 currentCutIndex++;
                 if (currentCutIndex == 5)
                 {
-                    Console.WriteLine(
-                        "\nYou cut the wires in the correct order. The room begins to shake, and the walls start to close in, but you see a glimmer of light in the distance."
-                    );
+                    Console.WriteLine("\nYou cut the wires in the correct order. The room begins to shake, and the walls start to close in, but you see a glimmer of light in the distance.");
                     Console.WriteLine("Congratulations, you've escaped! You earned a 'Yellow Key'");
                     Console.ReadLine();
                     MainRoom.hasYellowKey = true;
+
+                    YellowCompleted = true;
                     Commands.WiresCut = false;
 
                     MainRoom mainRoom = new MainRoom();
@@ -197,19 +199,19 @@ public class Story
             Console.WriteLine("- You'll need to cut the wires in the correct order to get out.");
             Console.WriteLine(
                 "- The first wire is often associated with calmness and the vastness of the sky."
-            ); // Blue
+            );
             Console.WriteLine(
                 "- The second wire symbolizes life and nature, commonly found in gardens."
-            ); // Green
+            );
             Console.WriteLine(
                 "- The third wire reminds you of a fruit that is often mistaken for a vegetable, frequently seen in salads."
-            ); // Red
+            );
             Console.WriteLine(
                 "- The fourth wire is bright and cheerful, linked to a fruit that is both sour and refreshing."
-            ); // Yellow
+            );
             Console.WriteLine(
-                "- The fifth wire is a delicate shade reminiscent of a fragrant flower often found in bouquets."
-            ); // Purple
+                "- The fifth wire is an elegant shade reminiscent of a fragrant flower often found in bouquets."
+            );
             Console.WriteLine("Can you cut the wires in the correct order using those hints?");
         }
         else

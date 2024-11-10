@@ -179,7 +179,6 @@ namespace Pussel
             lookAround = true;
         }
 
-        //Skriv Examine Chest
         public void ExamineChest()
         {
             ClearTerminal();
@@ -213,7 +212,6 @@ namespace Pussel
             }
         }
 
-        //Skriv Examine Body
         public void ExamineBody()
         {
             ClearTerminal();
@@ -241,7 +239,6 @@ namespace Pussel
             hasExaminedBody = true;
         }
 
-        //Skriv Examine Bookshelf
         public void ExamineBookshelf()
         {
             ClearTerminal();
