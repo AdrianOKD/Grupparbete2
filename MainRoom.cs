@@ -6,28 +6,6 @@ namespace Grupparbete2
 {
     public class MainRoom
     {
-        //1. Resultat
-
-        //    1. Vad är resultatet?
-
-        //    2. Hur ser det ut?
-
-        // 2. Planering
-
-        //    1. Hur planerade ni arbetet? Bygga fem rum på egen hand, sedan mergea och förbättra.
-
-        //    2. Vem gjorde vad? se ovan
-
-        //    3. Hur hanterade ni kommunikation? Avstämningar i discord veckovis 1-2 ggr
-
-        // 3. Reflektion
-
-        //    1. Vad kan förbättras i arbete och planering? BÖRJA GEMENSAMT, planera fler fysiska träffar, kommunicera tydligt vid utebiliven närvaro i skolan och på discordmöten
-
-        //    2. Vad var bra gjort? Många bra idéer
-
-        //    3. Vad tar ni med er till nästa projekt?
-
         public static bool hasOrangeKey = false;
         public static bool hasGreenKey = false;
         public static bool hasRedKey = false;
