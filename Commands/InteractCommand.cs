@@ -10,7 +10,6 @@ namespace Grupparbete2.Commands
         public override void Execute(string argument)
         {
             throw new NotImplementedException();
-            //  string lowerArgument = argument.ToLower();
         }
     }
 }
