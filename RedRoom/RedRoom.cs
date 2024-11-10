@@ -150,7 +150,7 @@ public class RedRoom
                 );
                 Console.ReadLine();
                 Console.WriteLine(
-                    "Your hands shake uncontrollably as you reach into the jug and where you could have sworn there was nothing before, you instead find a small red key."
+                    $"Your hands shake uncontrollably as you reach into the jug and where you could have sworn there was nothing before, you instead find a {Colours.RED}small red key{Colours.NORMAL}."
                 );
                 Console.WriteLine(
                     "You clutch onto it tight enough to hurt and stumble back through the now open door to the main room, almost soaked from head to toe in blood."

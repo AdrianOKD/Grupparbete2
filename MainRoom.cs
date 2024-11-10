@@ -32,7 +32,7 @@ namespace Grupparbete2
 
                 if (hasBlueKey && hasGreenKey && hasOrangeKey && hasRedKey && hasYellowKey)
                 {
-                    System.Console.WriteLine($"{Colours.GREY}You have all the keys.{Colours.NORMAL}");
+                    System.Console.WriteLine($"{Colours.GREY}{Colours.BOLD}You have all the keys!{Colours.NORMAL}{Colours.NOBOLD}");
                 }
 
                 Console.Write("> ");

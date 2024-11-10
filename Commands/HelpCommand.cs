@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Pussel;
 using Pussel.Commands;
 
 namespace Grupparbete2.Commands
@@ -68,7 +63,6 @@ namespace Grupparbete2.Commands
             Console.WriteLine("List of commands:");
             Console.WriteLine("- Type 'help' to View the menu");
             Console.WriteLine("- Type 'green room' To enter the green room  ");
-            // Console.WriteLine("- Type 'Exit' or 'stop' to exit the green room");
         }
     }
 

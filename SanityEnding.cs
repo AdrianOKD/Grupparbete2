@@ -7,6 +7,7 @@ public class SanityEnding
     public void Start()
 
     {
+        Console.Clear();
         Console.WriteLine($"{Colours.RED}As the final lock falls to the ground, you hear the delightful chirping of spring birds from beyond.");
         Console.WriteLine("You smile at the sound of nature as you hurriedly push open the exit door, your heart now racing with the anticipation of freedom.");
         Console.ReadLine();

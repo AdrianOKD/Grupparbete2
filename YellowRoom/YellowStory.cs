@@ -163,7 +163,7 @@ public class Story
                 if (currentCutIndex == 5)
                 {
                     Console.WriteLine(
-                        "You cut the wires in the correct order. The room begins to shake, and the walls start to close in, but you see a glimmer of light in the distance."
+                        "\nYou cut the wires in the correct order. The room begins to shake, and the walls start to close in, but you see a glimmer of light in the distance."
                     );
                     Console.WriteLine("Congratulations, you've escaped! You earned a 'Yellow Key'");
                     Console.ReadLine();
