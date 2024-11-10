@@ -58,13 +58,10 @@ public class RedRoom
         return false;
     }
 
-    // Start the drowning trap puzzle
+
     public void Start()
 
     {
-
-        // Introduction to the red room
-
         Console.WriteLine($"As you enter the red {Colours.CYAN}room{Colours.NORMAL}, the {Colours.CYAN}door{Colours.NORMAL} slams shut behind you.");
         Console.ReadLine();
 
@@ -73,11 +70,10 @@ public class RedRoom
 
         while (!redPuzzleStarted)
         {
-            Console.Write($"{Colours.BOLD}Enter command:{Colours.NOBOLD} ");
+            Console.Write($"{Colours.BOLD}Enter command or 'help':{Colours.NOBOLD} ");
             string input = Console.ReadLine()?.ToLower() ?? "";
             redPuzzleStarted = ExecuteCommand(input);
         }
-
     }
 
     public void StartPuzzle()
@@ -103,13 +99,11 @@ public class RedRoom
         Console.WriteLine("Your final sliver of confidence drains away as you now take notice of the room's agonizingly low ceiling.");
         Console.WriteLine($"Within mere minutes, {Colours.RED}you will drown{Colours.NORMAL}, another victim of the room's sanguine flood...");
         Console.ReadLine();
-
         Console.WriteLine($"Focusing on the task at hand, You estimate that {Colours.RED}you have about 3 minutes{Colours.NORMAL} before the room is entirely filled and your grim fate is sealed.");
         Console.ReadLine();
 
         startTime = DateTime.Now;
 
-        // Game loop
         while (jug8 != 4 && !TimeIsUp())
         {
             DisplayState();
@@ -137,7 +131,6 @@ public class RedRoom
             }
         }
 
-        // If time runs out
         if (jug8 != 4 && TimeIsUp())
         {
             Console.WriteLine($"\n{Colours.RED}Blood has now filled the entire room. You try to hold on to your breath and claw your hands pathetically against the steel-barred door.");
@@ -147,7 +140,6 @@ public class RedRoom
         }
     }
 
-    // Show current jug state
     private void DisplayState()
     {
         Console.Clear();
@@ -160,14 +152,12 @@ public class RedRoom
         Console.WriteLine($"\nWhat will you do? (fill, pour, empty)");
     }
 
-    // Function to get user action
     private string GetUserAction()
     {
         Console.Write("Enter command (e.g 'fill 3', 'pour 3 5', 'empty 8'): ");
         return Console.ReadLine()?.ToLower() ?? "";
     }
 
-    // Function to handle user action
     private void HandleAction(string action)
     {
         string[] parts = action.Split(' ');
@@ -190,7 +180,6 @@ public class RedRoom
         }
     }
 
-    // Function to fill jug
     private void FillJug(int jug)
     {
         switch (jug)
@@ -213,7 +202,6 @@ public class RedRoom
         }
     }
 
-    // Function to pour from one jug to another
     private void PourJug(int fromJug, int toJug)
     {
         int pourAmount = 0;
@@ -266,7 +254,6 @@ public class RedRoom
         }
     }
 
-    // Function to empty jug
     private void EmptyJug(int jug)
     {
         switch (jug)
@@ -289,7 +276,6 @@ public class RedRoom
         }
     }
 
-    // Check time limit
     private bool TimeIsUp()
     {
         return (DateTime.Now - startTime).TotalSeconds >= timeLimit;
