@@ -5,13 +5,11 @@ using Grupparbete2;
 using Grupparbete2.Commands;
 using Pussel.Commands;
 
-
 namespace HorrorEscape
 {
     public class MasterControll
     {
         private Player player;
-
 
         private InventoryPlayer inventory;
         public static bool insideBlueRoom = true;
@@ -32,19 +30,18 @@ namespace HorrorEscape
                 new InspectRoomCommand(player),
                 new PickupBlueCommand(inventory, this),
             };
-
         }
 
         public void Start()
         {
-
             DisplayText("You wake up in a dark, damp room. You must find a key to escape.");
-            DisplayText("To escape, you must complete a series of tasks, each one crucial for your survival.");
+            DisplayText(
+                "To escape, you must complete a series of tasks, each one crucial for your survival."
+            );
             DisplayText("Pay attention to every detail and execute each task with caution.");
             DisplayText("Type 'help' to see available commands or 'exit' to leave the game.");
             try
             {
-
                 while (insideBlueRoom)
                 {
                     Console.Write("\n> ");
@@ -52,7 +49,6 @@ namespace HorrorEscape
                     string input = Console.ReadLine();
                     ExecuteCommand(input);
                 }
-
             }
             catch (Exception ex)
             {
@@ -79,7 +75,6 @@ namespace HorrorEscape
 
                     return;
                 }
-
             }
             Console.WriteLine("Unknown command. Type 'help' for assistance.");
 
@@ -93,7 +88,6 @@ namespace HorrorEscape
 
         public void DisplayText(string text)
         {
-
             Console.WriteLine($"Displaying text: {text}"); // Debugging output för att se om metoden anropas
             string[] lines = text.Split(new[] { ". " }, StringSplitOptions.None);
 
@@ -102,9 +96,6 @@ namespace HorrorEscape
                 Console.WriteLine(line.Trim() + ".");
                 Thread.Sleep(1000);
             }
-
         }
-
     }
 }
-

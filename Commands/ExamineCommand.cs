@@ -13,7 +13,7 @@ namespace Grupparbete2.Commands
         {
             if (string.IsNullOrEmpty(argument))
             {
-                Console.WriteLine("Skriv namnet på objektet du vill undersöka.");
+                Console.WriteLine("You need to specify what you want to examine.");
                 return;
             }
 

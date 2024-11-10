@@ -24,11 +24,12 @@ namespace Grupparbete2
 
             Story story = new Story();
 
-
             while (!playerFailRoom && !playerFinishedGame)
             {
                 Console.Clear();
-                System.Console.WriteLine($"You are in the main room. '{Colours.CYAN}Choose Room{Colours.NORMAL}' to proceed.");
+                System.Console.WriteLine(
+                    $"You are in the main room. '{Colours.CYAN}Choose Room{Colours.NORMAL}' to proceed."
+                );
 
                 if (hasBlueKey && hasGreenKey && hasOrangeKey && hasRedKey && hasYellowKey)
                 {
@@ -42,7 +43,6 @@ namespace Grupparbete2
                 {
                     Console.WriteLine("");
                     Console.WriteLine(
-
                         $"Which door do you enter?\n {Colours.ORANGE}1. Orange Door{Colours.NORMAL}\n {Colours.GREEN}2. Green Door{Colours.NORMAL}\n {Colours.RED}3. Red Door{Colours.NORMAL}\n {Colours.BLUE}4. Blue Door{Colours.NORMAL}\n {Colours.YELLOW}5. Yellow Door{Colours.NORMAL} \n {Colours.GREY}6. Locked Door{Colours.NORMAL}"
                     );
                     input = Console.ReadLine();
