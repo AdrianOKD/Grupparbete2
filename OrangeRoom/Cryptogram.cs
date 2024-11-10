@@ -6,8 +6,7 @@ namespace Pussel
 {
     public class Cryptogram
     {
-        
-
+        OrangeRoom orangeRoom = new OrangeRoom();
         public void PauseAndClear()
         {
             Console.WriteLine("Press any key to continue...");
@@ -83,7 +82,6 @@ namespace Pussel
                 "The scrambled letters seem to form some kind of sentence, but what?\n Use one letter at a time to solve the puzzle"
             );
             PauseAndClear();
-            
 
             int count = 0;
             int secretCount = 0;
@@ -91,9 +89,9 @@ namespace Pussel
             string str = new string(cryptoSentence);
 
             while (puzzleLoop)
-            { 
+            {
                 Console.Clear();
-                
+
                 Console.WriteLine(cryptoSentence);
 
                 try
@@ -159,14 +157,14 @@ namespace Pussel
                     if (count == 6 && secretCount == 4)
                     {
                         secretCount++;
-                        Console.WriteLine("The sound escalate, the sound is defening");
+                        Console.WriteLine("The sound escalate, the sound is defening.");
                         PauseAndClear();
                     }
 
                     if (count == 8 && secretCount == 5)
                     {
                         secretCount++;
-                        Console.WriteLine("The corpse, keeps taunting, ");
+                        Console.WriteLine("The corpse, keeps taunting.. ");
                         PauseAndClear();
                     }
 
@@ -175,21 +173,21 @@ namespace Pussel
                         secretCount++;
                         Console.WriteLine(
                             "The sounds, THE MAN, it wont leave you alone, you start clawing at your ears, 'STOP!', but it wont stop it escalates, flimmers, you cant breath, it has to stop."
-                        );
+                        ); orangeRoom.ShorterStringTime();
                         Console.WriteLine(
                             "You start smashing your head agains the ground, 'make it stop!'"
                         );
-                        System.Console.WriteLine("Thunk.. Thunk.. ");
+                        System.Console.WriteLine("Thunk.. Thunk.. ");orangeRoom.ShorterStringTime();
                         System.Console.WriteLine(
                             "The noice starts to dissepate, yes finally, THUNK THUNK"
-                        );
+                        );orangeRoom.ShorterStringTime();
                         System.Console.WriteLine(
                             " Just one more.. In your delierius state you smash your head one last time against the gronund. "
-                        );
-                        System.Console.WriteLine("It's finally over..");
+                        );orangeRoom.ShorterStringTime();
+                        System.Console.WriteLine("It's finally over..");orangeRoom.ShorterStringTime();
                         Console.WriteLine(
                             $"{Colours.BOLD}{Colours.RED}GAME OVER{Colours.NOBOLD}{Colours.NORMAL}"
-                        );
+                        );orangeRoom.ShorterStringTime();
                         Console.ReadLine();
                         MainRoom.playerFailRoom = true;
                         OrangeRoom.orangeRoomChoice = false;
